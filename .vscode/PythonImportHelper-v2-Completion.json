@@ -1,0 +1,190 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "project",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "project = 'Capibara'\ncopyleft = '2025, CapibaraGPT'\nauthor = 'Anachroni s.coop'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.autosummary',",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "copyleft",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "copyleft = '2025, CapibaraGPT'\nauthor = 'Anachroni s.coop'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.autosummary',\n    'myst_parser',",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "author",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "author = 'Anachroni s.coop'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.autosummary',\n    'myst_parser',\n]",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "extensions",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "extensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.autosummary',\n    'myst_parser',\n]\ntemplates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "templates_path",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "templates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\n# -- Extension configuration -------------------------------------------------\nautodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "exclude_patterns",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\n# -- Extension configuration -------------------------------------------------\nautodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "html_theme",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "html_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\n# -- Extension configuration -------------------------------------------------\nautodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "html_static_path",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "html_static_path = ['_static']\n# -- Extension configuration -------------------------------------------------\nautodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "autodoc_member_order",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "autodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "autodoc_typehints",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "autodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}\n# -- MyST configuration -----------------------------------------------------",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "napoleon_google_docstring",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "napoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}\n# -- MyST configuration -----------------------------------------------------\nmyst_enable_extensions = [",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "napoleon_numpy_docstring",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "napoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}\n# -- MyST configuration -----------------------------------------------------\nmyst_enable_extensions = [\n    \"amsmath\",",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "napoleon_include_init_with_doc",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "napoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}\n# -- MyST configuration -----------------------------------------------------\nmyst_enable_extensions = [\n    \"amsmath\",\n    \"colon_fence\",",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "intersphinx_mapping",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "intersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}\n# -- MyST configuration -----------------------------------------------------\nmyst_enable_extensions = [\n    \"amsmath\",\n    \"colon_fence\",\n    \"deflist\",\n    \"dollarmath\",",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "myst_enable_extensions",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "myst_enable_extensions = [\n    \"amsmath\",\n    \"colon_fence\",\n    \"deflist\",\n    \"dollarmath\",\n    \"html_image\",\n    \"html_admonition\",\n    \"replacements\",\n    \"smartquotes\",\n    \"substitution\",",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "sync_documentation",
+        "kind": 2,
+        "importPath": "sync_docs",
+        "description": "sync_docs",
+        "peekOfCode": "def sync_documentation() -> None:\n    \"\"\"\n    Sincroniza la documentación entre el repositorio principal y el repositorio de documentación.\n    \"\"\"\n    # Configuración de rutas\n    current_dir = Path(__file__).parent.parent\n    docs_repo_path = os.getenv('DOCS_REPO_PATH', '')\n    if not docs_repo_path:\n        print(\"Error: Por favor, configura la variable de entorno DOCS_REPO_PATH\")\n        print(\"Ejemplo: export DOCS_REPO_PATH=/ruta/al/repo/docs\")",
+        "detail": "sync_docs",
+        "documentation": {}
+    }
+]
