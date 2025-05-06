@@ -25,5 +25,4 @@ docs = [
 ]
 
 [tool.setuptools]
-packages = ["."]
-package-dir = {"" = "."}
+packages = {find = {where = ["."]}}
