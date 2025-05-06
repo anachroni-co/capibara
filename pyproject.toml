@@ -1,0 +1,57 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[workspace]
+members = [
+    "optimize",
+] 
+
+[project]
+name = "capibara-model"
+version = "2.1.5"
+description = "A State Space and Mamba-based language model framework"
+readme = "README.md"
+authors = [
+    { name = "Marco Durán", email = "marco@anachroni.co" }
+]
+license = "MIT"
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "jax>=0.4.13",
+    "flax",
+    "optax",
+    "tensorflow>=2.13",
+    "wandb",
+    "numpy>=1.20",
+    "torch>=2.0.0",
+    "transformers>=4.30.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/anachroni-io/CapibaraModel-cli"
+Documentation = "https://capibaramodel.readthedocs.io/"
+Repository = "https://github.com/anachroni-io/CapibaraModel-cli.git"
+Issues = "https://github.com/anachroni-io/CapibaraModel-cli/issues"
+
+[project.scripts]
+capibara = "capibara_model.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/capibara_model"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "License",
+    "README.md",
+    "pyproject.toml"
+]
