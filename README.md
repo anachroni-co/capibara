@@ -270,7 +270,7 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](L
 
 - 👨‍💻 Developer: Marco Durán
 - 📧 Email: [marco@anachroni.co](mailto:marco@anachroni.co)
-- 🌐 Web: anachroni.co
+- 🌐 Web: [www.anachroni.co]
 
 ## 🔗 Enlaces Útiles
 
