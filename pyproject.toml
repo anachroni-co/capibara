@@ -25,5 +25,5 @@ docs = [
 ]
 
 [tool.setuptools]
-package-dir = {"" = "capibara"}
-packages = ["capibara"]
+packages = ["."]
+package-dir = {"" = "."}
