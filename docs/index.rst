@@ -4,6 +4,8 @@
 Bienvenido a la documentación de CapibaraModel
 ==============================================
 
+https://gravatar.com/candygeneralc4e9a596e0
+
 CapibaraModel es un modelo de lenguaje basado en State Space Models (SSM) optimizado para TPU y GPU, desarrollado por Anachroni s.coop.
 
 .. toctree::
