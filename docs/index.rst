@@ -11,7 +11,7 @@ CapibaraModel es un modelo de lenguaje basado en State Space Models (SSM) optimi
    :caption: Menú principal
 
    getting_started
-   arquitectura
+   architecture
    user_guide
    api_reference
    troubleshooting
@@ -19,9 +19,11 @@ CapibaraModel es un modelo de lenguaje basado en State Space Models (SSM) optimi
    changelog
    examples
    mcp
-   sparsity_layers
+   development
 
 Índices y tablas
 ================
 
-* :ref:`
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
