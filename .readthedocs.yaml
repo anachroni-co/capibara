@@ -28,9 +28,3 @@ formats:
   - pdf
   - epub
 
-# Optimizaciones de caché
-build:
-  cache:
-    pip: true
-    apt: true
-    sphinx: true 
