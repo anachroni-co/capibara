@@ -1,7 +1,7 @@
 CapibaraGPT
 ==========
 
-.. image:: _static/capibara_log.png
+.. image::/capibara_log.png
    :width: 200px
    :align: center
    :alt: CapibaraGPT Logo
@@ -53,7 +53,7 @@ Ejemplo Básico
    papers
    contributing
 
-   .. image:: _static/LogoGuayT.png
+   .. image:: LogoGuayT.png
    :width: 200px
    :align: center
    :alt: 

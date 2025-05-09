@@ -76,12 +76,34 @@ El router cuántico utiliza estados cuánticos para optimizar el flujo de inform
 
 .. math::
 
-   |\psi\rangle = \sum_i \alpha_i |i\rangle
+   |\psi\rangle = \frac{1}{\sqrt{2^n}}\sum_{x=0}^{2^n-1} |x\rangle
 
-Donde:
-* |ψ⟩: Estado cuántico
-* αi: Amplitudes de probabilidad
-* |i⟩: Estados base
+La probabilidad de cada ruta de procesamiento se calcula mediante:
+
+.. math::
+
+   P(r_i) = |\langle r_i|\psi\rangle|^2
+
+Circuitos Cuánticos
+~~~~~~~~~~~~~~~~
+
+* Circuitos de 4 qubits para toma de decisiones
+* Optimización de rutas de procesamiento
+* Adaptación dinámica de recursos
+
+Integración con Backends
+~~~~~~~~~~~~~~~~~~~~~
+
+* Soporte para Qiskit, Cirq y PennyLane
+* Sistema de fallback para hardware no cuántico
+* Optimización automática de circuitos
+
+Gestión de Recursos
+~~~~~~~~~~~~~~~~
+
+* Asignación dinámica de recursos computacionales
+* Balanceo de carga adaptativo
+* Monitoreo de rendimiento en tiempo real
 
 Optimizaciones TPU
 ---------------

@@ -102,7 +102,23 @@ math_number_all = True  # Numerar todas las ecuaciones
 
 # MathJax settings
 mathjax_path = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+mathjax3_config = {
+    'tex': {
+        'inlineMath': [['$', '$'], ['\\(', '\\)']],
+        'displayMath': [['$$', '$$'], ['\\[', '\\]']],
+        'processEscapes': True,
+        'processEnvironments': True,
+        'packages': ['base', 'ams', 'noerrors', 'noundefined']
+    },
+    'options': {
+        'skipHtmlTags': ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+}
 
 # Configuración de autosummary
 autosummary_generate = True
-autosummary_imported_members = True 
+autosummary_imported_members = True
+
+# Configuración adicional para ecuaciones
+math_eqref_format = "Eq. {number}"
+math_number_all = True 
