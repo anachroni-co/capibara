@@ -1,4 +1,69 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
-if __name__ == "__main__":
-    setup() 
+setup(
+    name="capibara-gpt",
+    version="0.1.0",
+    description="Modelo de lenguaje avanzado con arquitectura semiótica y procesamiento cuántico",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
+    author="Equipo Capibara",
+    author_email="equipo@capibara.ai",
+    url="https://github.com/capibara-ai/capibara-gpt",
+    packages=find_packages(),
+    install_requires=[
+        "jax>=0.4.13",
+        "flax>=0.7.4",
+        "numpy>=1.24.0",
+        "transformers>=4.30.0",
+        "torch>=2.0.0",
+        "tensorflow>=2.12.0",
+        "optax>=0.1.5",
+        "orbax-checkpoint>=0.2.0",
+        "einops>=0.6.1",
+        "tqdm>=4.65.0",
+        "wandb>=0.15.0",
+        "matplotlib>=3.7.0",
+        "pandas>=2.0.0",
+        "scikit-learn>=1.2.0",
+        "pytest>=7.3.1",
+        "black>=23.3.0",
+        "isort>=5.12.0",
+        "flake8>=6.0.0",
+        "mypy>=1.3.0",
+        "sphinx>=6.0.0",
+        "sphinx-rtd-theme>=1.2.0",
+        "myst-parser>=1.0.0",
+    ],
+    extras_require={
+        "dev": [
+            "pytest>=7.3.1",
+            "black>=23.3.0",
+            "isort>=5.12.0",
+            "flake8>=6.0.0",
+            "mypy>=1.3.0",
+        ],
+        "docs": [
+            "sphinx>=6.0.0",
+            "sphinx-rtd-theme>=1.2.0",
+            "myst-parser>=1.0.0",
+        ],
+    },
+    python_requires=">=3.8",
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    ],
+    keywords="machine-learning, deep-learning, transformers, language-models, quantum-computing",
+    project_urls={
+        "Documentation": "https://capibara-gpt.readthedocs.io/",
+        "Source": "https://github.com/capibara-ai/capibara-gpt",
+        "Tracker": "https://github.com/capibara-ai/capibara-gpt/issues",
+    },
+) 
