@@ -18,6 +18,22 @@
         "documentation": {}
     },
     {
+        "label": "setup",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "find_packages",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
         "label": "shutil",
         "kind": 6,
         "isExtraImport": true,
@@ -48,16 +64,16 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "project = 'Capibara'\ncopyleft = '2025, CapibaraGPT'\nauthor = 'Anachroni s.coop'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.autosummary',",
+        "peekOfCode": "project = 'CapibaraGPT'\ncopyright = '2025, Anachroni s.coop'\nauthor = 'Marco Durán'\nrelease = '2.0.0'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',",
         "detail": "docs.conf",
         "documentation": {}
     },
     {
-        "label": "copyleft",
+        "label": "copyright",
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "copyleft = '2025, CapibaraGPT'\nauthor = 'Anachroni s.coop'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.autosummary',\n    'myst_parser',",
+        "peekOfCode": "copyright = '2025, Anachroni s.coop'\nauthor = 'Marco Durán'\nrelease = '2.0.0'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.todo',",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -66,7 +82,16 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "author = 'Anachroni s.coop'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.autosummary',\n    'myst_parser',\n]",
+        "peekOfCode": "author = 'Marco Durán'\nrelease = '2.0.0'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.todo',\n    'sphinx.ext.coverage',",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "release",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "release = '2.0.0'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.todo',\n    'sphinx.ext.coverage',\n    'sphinx.ext.mathjax',",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -75,7 +100,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "extensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.autosummary',\n    'myst_parser',\n]\ntemplates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']",
+        "peekOfCode": "extensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.todo',\n    'sphinx.ext.coverage',\n    'sphinx.ext.mathjax',\n    'sphinx.ext.ifconfig',\n    'sphinx.ext.githubpages',",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -84,7 +109,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "templates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\n# -- Extension configuration -------------------------------------------------\nautodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True",
+        "peekOfCode": "templates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -93,7 +118,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\n# -- Extension configuration -------------------------------------------------\nautodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True",
+        "peekOfCode": "exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,\n    'prev_next_buttons_location': 'both',",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -102,7 +127,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "html_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\n# -- Extension configuration -------------------------------------------------\nautodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {",
+        "peekOfCode": "html_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,\n    'prev_next_buttons_location': 'both',\n    'style_external_links': True,\n    'style_nav_header_background': '#2980B9',",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -111,52 +136,34 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "html_static_path = ['_static']\n# -- Extension configuration -------------------------------------------------\nautodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),",
+        "peekOfCode": "html_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,\n    'prev_next_buttons_location': 'both',\n    'style_external_links': True,\n    'style_nav_header_background': '#2980B9',\n}",
         "detail": "docs.conf",
         "documentation": {}
     },
     {
-        "label": "autodoc_member_order",
+        "label": "html_theme_options",
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "autodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}",
+        "peekOfCode": "html_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,\n    'prev_next_buttons_location': 'both',\n    'style_external_links': True,\n    'style_nav_header_background': '#2980B9',\n}\n# -- Extension configuration -------------------------------------------------",
         "detail": "docs.conf",
         "documentation": {}
     },
     {
-        "label": "autodoc_typehints",
+        "label": "autodoc_default_options",
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "autodoc_typehints = 'description'\nnapoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}\n# -- MyST configuration -----------------------------------------------------",
+        "peekOfCode": "autodoc_default_options = {\n    'members': True,\n    'member-order': 'bysource',\n    'special-members': '__init__',\n    'undoc-members': True,\n    'exclude-members': '__weakref__',\n    'show-inheritance': True,\n}\n# Configuración de autodoc\nautodoc_mock_imports = [",
         "detail": "docs.conf",
         "documentation": {}
     },
     {
-        "label": "napoleon_google_docstring",
+        "label": "autodoc_mock_imports",
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "napoleon_google_docstring = True\nnapoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}\n# -- MyST configuration -----------------------------------------------------\nmyst_enable_extensions = [",
-        "detail": "docs.conf",
-        "documentation": {}
-    },
-    {
-        "label": "napoleon_numpy_docstring",
-        "kind": 5,
-        "importPath": "docs.conf",
-        "description": "docs.conf",
-        "peekOfCode": "napoleon_numpy_docstring = True\nnapoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}\n# -- MyST configuration -----------------------------------------------------\nmyst_enable_extensions = [\n    \"amsmath\",",
-        "detail": "docs.conf",
-        "documentation": {}
-    },
-    {
-        "label": "napoleon_include_init_with_doc",
-        "kind": 5,
-        "importPath": "docs.conf",
-        "description": "docs.conf",
-        "peekOfCode": "napoleon_include_init_with_doc = True\n# -- Intersphinx configuration -----------------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}\n# -- MyST configuration -----------------------------------------------------\nmyst_enable_extensions = [\n    \"amsmath\",\n    \"colon_fence\",",
+        "peekOfCode": "autodoc_mock_imports = [\n    'jax', 'flax', 'optax', 'orbax', 'tensorflow',\n    'qiskit', 'cirq', 'pennylane'\n]\n# -- Options for intersphinx extension ---------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'numpy': ('https://numpy.org/doc/stable/', None),\n    'jax': ('https://jax.readthedocs.io/en/latest/', None),\n    'flax': ('https://flax.readthedocs.io/en/latest/', None),",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -165,7 +172,16 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "intersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'torch': ('https://pytorch.org/docs/stable/', None),\n}\n# -- MyST configuration -----------------------------------------------------\nmyst_enable_extensions = [\n    \"amsmath\",\n    \"colon_fence\",\n    \"deflist\",\n    \"dollarmath\",",
+        "peekOfCode": "intersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'numpy': ('https://numpy.org/doc/stable/', None),\n    'jax': ('https://jax.readthedocs.io/en/latest/', None),\n    'flax': ('https://flax.readthedocs.io/en/latest/', None),\n    'tensorflow': ('https://www.tensorflow.org/api_docs/python', None),\n}\n# -- Options for todo extension ----------------------------------------------\ntodo_include_todos = True\n# -- Options for MyST parser -------------------------------------------------",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "todo_include_todos",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "todo_include_todos = True\n# -- Options for MyST parser -------------------------------------------------\nmyst_enable_extensions = [\n    \"amsmath\",\n    \"colon_fence\",\n    \"deflist\",\n    \"dollarmath\",\n    \"html_image\",\n    \"html_admonition\",\n    \"replacements\",",
         "detail": "docs.conf",
         "documentation": {}
     },

@@ -273,4 +273,74 @@ Interfaces
 .. automodule:: interfaces.isub_models
    :members:
    :undoc-members:
+   :show-inheritance:
+
+Interfaces Semióticas
+===================
+
+IModule
+-------
+
+.. autoclass:: capibara.interfaces.imodules.IModule
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ISemioModule
+-----------
+
+.. autoclass:: capibara.interfaces.imodules.ISemioModule
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ILayer
+------
+
+.. autoclass:: capibara.interfaces.ilayer.ILayer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ISemioLayer
+----------
+
+.. autoclass:: capibara.interfaces.ilayer.ISemioLayer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Módulos Semióticos
+================
+
+SemioModule
+----------
+
+.. autoclass:: capibara.sub_models.experimental.semio.SemioModule
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ContextualActivation
+------------------
+
+.. autoclass:: capibara.modules.contextual_activation.ContextualActivation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+SharedAttention
+-------------
+
+.. autoclass:: capibara.modules.shared_attention.SharedAttention
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ContextualRouter
+--------------
+
+.. autoclass:: capibara.modules.contextual_router.ContextualRouter
+   :members:
+   :undoc-members:
    :show-inheritance: 

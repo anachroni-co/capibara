@@ -67,6 +67,9 @@ class MiSubModel(ISubModel):
   - 🎭 Gestión de personalidad adaptativa
   - ⚡ Capas de embedding cuánticas
   - 🧩 Submodelo dinámico (CapibaraQuantum)
+  - 🌊 State Space Models (SSM) optimizados
+  - 🎨 Pipeline multimodal integrado
+  - 🧮 Razonamiento simbólico y neuroadaptativo
 
 - **⚡ Optimizaciones**:
   - 🚀 Soporte nativo para TPU v4
@@ -75,6 +78,8 @@ class MiSubModel(ISubModel):
   - 🕸️ Esparcidad integrada
   - 🔄 Cuantización BitNet
   - 🎯 Mezcla dinámica de modelos
+  - 🔄 Sharding híbrido y precisión mixta
+  - 🧠 Capas cuánticas simuladas (Qiskit, Cirq, PennyLane)
 
 ## 📋 Requisitos
 
@@ -83,6 +88,9 @@ class MiSubModel(ISubModel):
 - Flax >= 0.8.1
 - Optax >= 0.1.9
 - TensorFlow >= 2.15.0
+- Qiskit >= 0.45.0 (opcional, para capas cuánticas)
+- Cirq >= 1.3.0 (opcional, para capas cuánticas)
+- PennyLane >= 0.32.0 (opcional, para capas cuánticas)
 
 ## 🚀 Instalación
 
@@ -288,6 +296,12 @@ This project is under MIT License. See [LICENSE.md](LICENSE.md) for details.
 - 🚀 Capibara SSM Optimization
 - 📦 Dependencies Update
 - 🐛 Distributed Training Fixes
+- 🌊 Nuevo sistema de State Space Models
+- 🎨 Integración multimodal mejorada
+- 🧮 Soporte para razonamiento simbólico
+- ⚡ Optimizaciones de rendimiento
+- 🔄 Nuevo sistema de tokenización
+- 📊 Sistema de monitoreo mejorado
 
 ## Módulos
 

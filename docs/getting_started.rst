@@ -44,6 +44,45 @@ Aquí hay un ejemplo básico de cómo usar Capibara:
     # Generación de texto
     output = model.generate("Tu texto de entrada aquí")
 
+Módulo Semiótico
+--------------
+
+El módulo semiótico es un componente fundamental que permite el análisis e interpretación de contenido a múltiples niveles. Para comenzar a usarlo:
+
+1. **Instalación**
+   ```bash
+   pip install capibara[semio]
+   ```
+
+2. **Uso Básico**
+   ```python
+   from capibara.sub_models.experimental.semio import SemioModule
+   
+   # Configuración básica
+   config = {
+       'hidden_size': 256,
+       'num_heads': 8,
+       'dropout_rate': 0.1
+   }
+   
+   # Inicializar módulo
+   semio = SemioModule(**config)
+   
+   # Procesar entrada
+   output = semio(x)
+   ```
+
+3. **Integración con Otros Módulos**
+   ```python
+   from capibara.modules.shared_attention import SharedAttention
+   
+   # Crear capa de atención con análisis semiótico
+   attention = SharedAttention(config)
+   output = attention(x, context)
+   ```
+
+Para más detalles sobre el módulo semiótico, consulta la :doc:`documentación completa <semio>`.
+
 Requisitos del Sistema
 ---------------------
 

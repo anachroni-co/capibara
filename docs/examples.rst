@@ -209,4 +209,124 @@ Ejemplo de preparación de datos:
         processed_data,
         batch_size=32,
         shuffle=True
-    ) 
+    )
+
+Uso del Módulo Semiótico
+=======================
+
+Ejemplo Básico
+------------
+
+.. code-block:: python
+
+    from capibara.sub_models.experimental.semio import SemioModule
+    import jax.numpy as jnp
+    
+    # Configuración
+    config = {
+        'hidden_size': 256,
+        'num_heads': 8,
+        'dropout_rate': 0.1
+    }
+    
+    # Inicializar módulo
+    semio = SemioModule(**config)
+    
+    # Procesar entrada
+    x = jnp.random.normal(size=(32, 128, 256))  # (batch, seq_len, hidden)
+    output = semio(x)
+    
+    # Acceder a interpretaciones
+    literal = output['literal_interpretation']
+    cultural = output['cultural_interpretation']
+    symbolic = output['symbolic_interpretation']
+    
+    # Obtener métricas
+    confidence = output['confidence']
+    diversity = output['diversity']
+
+Integración con Atención
+----------------------
+
+.. code-block:: python
+
+    from capibara.modules.shared_attention import SharedAttention
+    from capibara.interfaces.ilayer import ISemioLayer
+    
+    class SemioAttention(SharedAttention, ISemioLayer):
+        def __init__(self, config):
+            super().__init__(config)
+            
+        def get_confidence_scores(self):
+            return self.module_state['metrics']['semio']['confidence']
+            
+        def get_interpretation_weights(self):
+            return self.module_state['metrics']['semio']['interpretation_weights']
+            
+        def get_attention_metrics(self):
+            return self.module_state['metrics']['attention']
+    
+    # Uso
+    attention = SemioAttention(config)
+    output = attention(x, context)
+    
+    # Acceder a métricas
+    confidence = attention.get_confidence_scores()
+    weights = attention.get_interpretation_weights()
+    attn_metrics = attention.get_attention_metrics()
+
+Enrutamiento Contextual
+---------------------
+
+.. code-block:: python
+
+    from capibara.modules.contextual_router import ContextualRouter
+    
+    # Configuración
+    router_config = {
+        'hidden_size': 256,
+        'num_heads': 8,
+        'dropout_rate': 0.1,
+        'semio_enabled': True,
+        'semio_threshold': 0.7
+    }
+    
+    # Inicializar router
+    router = ContextualRouter(router_config)
+    
+    # Procesar entrada
+    x = jnp.random.normal(size=(32, 128, 256))
+    context = jnp.random.normal(size=(32, 128, 256))
+    
+    output = router(x, context)
+    
+    # Acceder a resultados
+    routed = output['output']
+    interpretations = output['interpretations']
+    metrics = output['metrics']
+
+Integración con Meta-Loop
+------------------------
+
+.. code-block:: python
+
+    from capibara.core.meta_loop import MetaLoop
+    
+    # Configurar meta-loop
+    meta_config = {
+        'hidden_size': 256,
+        'num_heads': 8
+    }
+    
+    meta_loop = MetaLoop(**meta_config)
+    
+    # Validar salida del módulo semiótico
+    validation = meta_loop(
+        x=output['output'],
+        context=context,
+        metrics=output['metrics']
+    )
+    
+    # Ajustar si es necesario
+    if validation['needs_adjustment']:
+        output['output'] *= validation['adjustment_factor'] 

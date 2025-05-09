@@ -85,3 +85,64 @@ Innovaciones destacadas
 - **Pipeline multimodal:** Integración nativa de visión, texto y razonamiento en un solo flujo, facilitando aplicaciones avanzadas.
 - **Gestión avanzada de personalidad y coherencia:** Módulos para dotar a los agentes de rasgos, emociones y coherencia conversacional.
 - **Entrenamiento y despliegue eficiente:** Herramientas de monitorización, checkpointing y validación integradas para facilitar el ciclo de vida completo del modelo.
+
+Arquitectura Semiótica
+====================
+
+El módulo semiótico (SemioModule) es un componente clave que permite el análisis e interpretación de contenido a múltiples niveles:
+
+Componentes Principales
+---------------------
+
+1. **Módulo Semiótico Base**
+   - Interpretación literal
+   - Interpretación cultural
+   - Interpretación simbólica
+   - Pesos dinámicos por tipo de interpretación
+
+2. **Capas con Soporte Semiótico**
+   - Atención con análisis semiótico
+   - Enrutamiento contextual semiótico
+   - Activación basada en interpretaciones
+
+3. **Interfaces Semióticas**
+   - ISemioModule: Interfaz base para módulos semióticos
+   - ISemioLayer: Interfaz para capas con análisis semiótico
+   - Métricas de confianza y diversidad
+
+Flujo de Procesamiento
+---------------------
+
+1. **Entrada**
+   - Tensor de entrada (batch_size, seq_len, hidden_dim)
+   - Contexto opcional para interpretación
+
+2. **Procesamiento**
+   - Análisis semiótico multi-nivel
+   - Cálculo de pesos de interpretación
+   - Combinación de interpretaciones
+
+3. **Salida**
+   - Tensor procesado
+   - Interpretaciones por tipo
+   - Métricas de confianza
+
+Integración con Meta-Loop
+------------------------
+
+El módulo semiótico se integra con el meta-loop para:
+
+1. **Validación**
+   - Verificación de interpretaciones
+   - Ajuste dinámico de pesos
+   - Monitoreo de confianza
+
+2. **Optimización**
+   - Ajuste de umbrales
+   - Balanceo de interpretaciones
+   - Mejora de diversidad
+
+3. **Métricas**
+   - Confianza por tipo
+   - Diversidad de interpretaciones
+   - Calidad de combinación
