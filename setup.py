@@ -38,4 +38,6 @@ setup(
         "Programming Language :: Python :: 3.10",
     ],
     python_requires=">=3.8",
+    zip_safe=False,
+    include_package_data=True,
 ) 

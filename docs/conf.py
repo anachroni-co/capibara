@@ -29,8 +29,12 @@ extensions = [
     'myst_parser',
 ]
 
+# Optimizaciones de rendimiento
+autodoc_member_order = 'bysource'
+autodoc_typehints = 'description'
+add_module_names = False
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']
 
 # -- Options for HTML output -------------------------------------------------
 html_theme = 'sphinx_rtd_theme'
@@ -53,6 +57,7 @@ autodoc_default_options = {
     'undoc-members': True,
     'exclude-members': '__weakref__',
     'show-inheritance': True,
+    'imported-members': False,  # Optimización
 }
 
 # Configuración de autodoc
@@ -85,4 +90,9 @@ myst_enable_extensions = [
     "smartquotes",
     "substitution",
     "tasklist",
-] 
+]
+
+# Optimizaciones adicionales
+nitpicky = False  # Desactivar advertencias estrictas
+numfig = True  # Numeración automática de figuras
+math_number_all = True  # Numerar todas las ecuaciones 

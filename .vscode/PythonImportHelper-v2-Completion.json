@@ -105,11 +105,38 @@
         "documentation": {}
     },
     {
+        "label": "autodoc_member_order",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "autodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nadd_module_names = False\ntemplates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "autodoc_typehints",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "autodoc_typehints = 'description'\nadd_module_names = False\ntemplates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "add_module_names",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "add_module_names = False\ntemplates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
         "label": "templates_path",
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "templates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,",
+        "peekOfCode": "templates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -118,7 +145,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,\n    'prev_next_buttons_location': 'both',",
+        "peekOfCode": "exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,\n    'prev_next_buttons_location': 'both',",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -154,7 +181,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "autodoc_default_options = {\n    'members': True,\n    'member-order': 'bysource',\n    'special-members': '__init__',\n    'undoc-members': True,\n    'exclude-members': '__weakref__',\n    'show-inheritance': True,\n}\n# Configuración de autodoc\nautodoc_mock_imports = [",
+        "peekOfCode": "autodoc_default_options = {\n    'members': True,\n    'member-order': 'bysource',\n    'special-members': '__init__',\n    'undoc-members': True,\n    'exclude-members': '__weakref__',\n    'show-inheritance': True,\n    'imported-members': False,  # Optimización\n}\n# Configuración de autodoc",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -191,6 +218,33 @@
         "importPath": "docs.conf",
         "description": "docs.conf",
         "peekOfCode": "myst_enable_extensions = [\n    \"amsmath\",\n    \"colon_fence\",\n    \"deflist\",\n    \"dollarmath\",\n    \"html_image\",\n    \"html_admonition\",\n    \"replacements\",\n    \"smartquotes\",\n    \"substitution\",",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "nitpicky",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "nitpicky = False  # Desactivar advertencias estrictas\nnumfig = True  # Numeración automática de figuras\nmath_number_all = True  # Numerar todas las ecuaciones",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "numfig",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "numfig = True  # Numeración automática de figuras\nmath_number_all = True  # Numerar todas las ecuaciones",
+        "detail": "docs.conf",
+        "documentation": {}
+    },
+    {
+        "label": "math_number_all",
+        "kind": 5,
+        "importPath": "docs.conf",
+        "description": "docs.conf",
+        "peekOfCode": "math_number_all = True  # Numerar todas las ecuaciones",
         "detail": "docs.conf",
         "documentation": {}
     },
