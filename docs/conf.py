@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 project = 'CapibaraGPT'
-copyright = '2025, Anachron s.coop'
+copyright = '2025, Anachroni s.coop'
 author = 'Marco Durán'
 release = '2.1.6'
 
@@ -21,6 +21,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.mathjax',
     'sphinx.ext.intersphinx',
+    'sphinx.ext.autosummary',
     'myst_parser',
     'sphinx_rtd_theme',
 ]
@@ -64,7 +65,7 @@ napoleon_type_aliases = None
 # Configuración de autodoc
 autodoc_mock_imports = [
     'jax', 'flax', 'optax', 'orbax', 'tensorflow',
-    'qiskit', 'cirq', 'pennylane'
+    'qiskit', 'cirq', 'pennylane', 'torch', 'transformers'
 ]
 
 # -- Options for intersphinx extension ---------------------------------------
@@ -73,6 +74,8 @@ intersphinx_mapping = {
     'numpy': ('https://numpy.org/doc/stable/', None),
     'jax': ('https://jax.readthedocs.io/en/latest/', None),
     'flax': ('https://flax.readthedocs.io/en/latest/', None),
+    'torch': ('https://pytorch.org/docs/stable/', None),
+    'transformers': ('https://huggingface.co/docs/transformers/', None),
 }
 
 # -- Options for todo extension ----------------------------------------------
@@ -98,4 +101,8 @@ numfig = True  # Numeración automática de figuras
 math_number_all = True  # Numerar todas las ecuaciones
 
 # MathJax settings
-mathjax_path = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" 
+mathjax_path = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+
+# Configuración de autosummary
+autosummary_generate = True
+autosummary_imported_members = True 

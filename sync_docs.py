@@ -9,9 +9,9 @@ def sync_documentation() -> None:
     Sincroniza la documentación entre el repositorio principal y el repositorio de documentación.
     """
     # Configuración de rutas
-    current_dir = Path(__file__).parent.parent
+    current_dir = Path(__file__).parent
     docs_repo_path = os.getenv('DOCS_REPO_PATH', '')
-    
+    docs_repo_path = os.path.join(current_dir, 'docs')
     if not docs_repo_path:
         print("Error: Por favor, configura la variable de entorno DOCS_REPO_PATH")
         print("Ejemplo: export DOCS_REPO_PATH=/ruta/al/repo/docs")
