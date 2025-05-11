@@ -1,224 +1,144 @@
 Guía de Contribución
-=================
+===================
 
-¡Gracias por tu interés en contribuir a CapibaraGPT! Esta guía te ayudará a participar en el desarrollo del proyecto.
+¡Gracias por tu interés en contribuir a CapibaraModel! Esta guía te ayudará a entender cómo puedes contribuir al proyecto.
 
-Código de Conducta
----------------
-
-Por favor, lee y sigue nuestro `Código de Conducta <CODE_OF_CONDUCT.md>`_ antes de contribuir.
-
-Proceso de Contribución
---------------------
-
-1. Fork del Repositorio
-~~~~~~~~~~~~~~~~~~~~
-
-* Haz fork del repositorio en GitHub
-* Clona tu fork localmente
-* Configura el upstream remoto
-
-.. code-block:: bash
-
-   git clone https://github.com/tu-usuario/capibara-gpt.git
-   cd capibara-gpt
-   git remote add upstream https://github.com/capibara-ai/capibara-gpt.git
-
-2. Configuración del Entorno
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* Crea un entorno virtual
-* Instala dependencias de desarrollo
-
-.. code-block:: bash
-
-   python -m venv venv
-   source venv/bin/activate  # En Windows: venv\Scripts\activate
-   pip install -e ".[dev]"
-
-3. Desarrollo
-~~~~~~~~~~
-
-* Crea una rama para tu feature
-* Implementa tus cambios
-* Sigue las guías de estilo
-
-.. code-block:: bash
-
-   git checkout -b feature/nueva-caracteristica
-   # Realiza tus cambios
-   git add .
-   git commit -m "feat: añade nueva característica"
-
-4. Pruebas
-~~~~~~~~
-
-* Ejecuta las pruebas unitarias
-* Verifica la cobertura
-* Asegura que todas las pruebas pasen
-
-.. code-block:: bash
-
-   pytest
-   pytest --cov=capibara_model
-   pytest --cov=capibara_model --cov-report=html
-
-5. Documentación
-~~~~~~~~~~~~
-
-* Actualiza la documentación
-* Verifica que se construya correctamente
-
-.. code-block:: bash
-
-   cd docs
-   make html
-   # Verifica _build/html/index.html
-
-6. Pull Request
-~~~~~~~~~~~~
-
-* Actualiza tu fork
-* Crea un pull request
-* Describe tus cambios
-
-.. code-block:: bash
-
-   git fetch upstream
-   git rebase upstream/main
-   git push origin feature/nueva-caracteristica
-
-Guías de Estilo
-------------
-
-Código Python
-~~~~~~~~~~~
-
-* Sigue PEP 8
-* Usa type hints
-* Documenta con docstrings
-* Mantén las líneas bajo 88 caracteres
-
-Ejemplo:
-
-.. code-block:: python
-
-   from typing import List, Optional
-
-   def procesar_texto(
-       texto: str,
-       max_length: Optional[int] = None
-   ) -> List[str]:
-       """Procesa el texto de entrada.
-
-       Args:
-           texto: Texto a procesar
-           max_length: Longitud máxima opcional
-
-       Returns:
-           Lista de tokens procesados
-       """
-       # Implementación
-       pass
-
-Documentación
-~~~~~~~~~~~
-
-* Usa reStructuredText
-* Incluye ejemplos
-* Mantén la documentación actualizada
-
-Ejemplo:
-
-.. code-block:: rst
-
-   Función de Procesamiento
-   ----------------------
-
-   Esta función procesa el texto de entrada.
-
-   .. code-block:: python
-
-       from capibara_model import procesar_texto
-
-       resultado = procesar_texto("ejemplo")
-       print(resultado)
-
-Pruebas
-~~~~~~
-
-* Escribe pruebas unitarias
-* Incluye casos de borde
-* Verifica la cobertura
-
-Ejemplo:
-
-.. code-block:: python
-
-   def test_procesar_texto():
-       # Caso básico
-       assert procesar_texto("test") == ["t", "e", "s", "t"]
-       
-       # Caso vacío
-       assert procesar_texto("") == []
-       
-       # Caso con longitud máxima
-       assert len(procesar_texto("test", max_length=2)) == 2
-
-Estructura del Proyecto
---------------------
-
-::
-
-   capibara-gpt/
-   ├── capibara_model/
-   │   ├── __init__.py
-   │   ├── core/
-   │   ├── models/
-   │   └── utils/
-   ├── tests/
-   │   ├── __init__.py
-   │   ├── test_core/
-   │   └── test_models/
-   ├── docs/
-   │   ├── conf.py
-   │   └── *.rst
-   ├── setup.py
-   └── README.md
-
-Flujo de Trabajo
+Cómo Contribuir
 --------------
 
-1. **Planificación**
-   * Revisa los issues
-   * Propón cambios
-   * Discute implementación
+1. Fork del Repositorio
+~~~~~~~~~~~~~~~~~~~~~~
 
-2. **Desarrollo**
-   * Implementa cambios
-   * Sigue guías de estilo
-   * Escribe pruebas
+1. Haz fork del repositorio en GitHub
+2. Clona tu fork localmente
+3. Configura el upstream remoto
 
-3. **Revisión**
-   * Actualiza documentación
-   * Ejecuta pruebas
-   * Prepara PR
+.. code-block:: bash
 
-4. **Integración**
-   * Responde a feedback
-   * Actualiza cambios
-   * Espera merge
+    git clone https://github.com/tu-usuario/capibara.git
+    cd capibara
+    git remote add upstream https://github.com/anachroni-io/capibara.git
 
-Recursos
--------
+2. Configuración del Entorno
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* `Documentación <https://capibara-gpt.readthedocs.io/>`_
-* `Issues <https://github.com/capibara-ai/capibara-gpt/issues>`_
-* `Discusiones <https://github.com/capibara-ai/capibara-gpt/discussions>`_
+1. Crea un entorno virtual
+2. Instala las dependencias de desarrollo
+3. Instala el paquete en modo desarrollo
+
+.. code-block:: bash
+
+    python -m venv venv
+    source venv/bin/activate  # En Windows: venv\Scripts\activate
+    pip install -r requirements.txt
+    pip install -e .
+
+3. Creación de una Rama
+~~~~~~~~~~~~~~~~~~~~~~
+
+Crea una rama para tu contribución:
+
+.. code-block:: bash
+
+    git checkout -b feature/nombre-de-tu-caracteristica
+
+4. Desarrollo
+~~~~~~~~~~~~
+
+1. Sigue las convenciones de código
+2. Escribe tests para tu código
+3. Actualiza la documentación
+
+5. Envío de Cambios
+~~~~~~~~~~~~~~~~~~
+
+1. Haz commit de tus cambios
+2. Sube tu rama
+3. Crea un Pull Request
+
+.. code-block:: bash
+
+    git add .
+    git commit -m "Descripción de tus cambios"
+    git push origin feature/nombre-de-tu-caracteristica
+
+Convenciones de Código
+---------------------
+
+Estilo de Código
+~~~~~~~~~~~~~~~
+
+- Usa black para formatear el código
+- Usa isort para ordenar imports
+- Sigue PEP 8
+
+.. code-block:: bash
+
+    black .
+    isort .
+
+Documentación
+~~~~~~~~~~~~
+
+- Documenta todas las funciones y clases
+- Usa docstrings en formato Google
+- Actualiza la documentación cuando sea necesario
+
+Tests
+~~~~~
+
+- Escribe tests para todo el código nuevo
+- Mantén la cobertura de tests alta
+- Usa pytest para ejecutar los tests
+
+.. code-block:: bash
+
+    pytest tests/
+    pytest --cov=capibara tests/
+
+Tipos de Contribuciones
+----------------------
+
+Reporte de Errores
+~~~~~~~~~~~~~~~~~
+
+1. Usa el template de issue
+2. Proporciona información detallada
+3. Incluye código para reproducir el error
+
+Nuevas Características
+~~~~~~~~~~~~~~~~~~~~~
+
+1. Discute la característica en un issue primero
+2. Implementa la característica
+3. Añade tests y documentación
+
+Mejoras de Código
+~~~~~~~~~~~~~~~~
+
+1. Identifica áreas de mejora
+2. Propón soluciones
+3. Implementa los cambios
+
+Documentación
+~~~~~~~~~~~~
+
+1. Identifica áreas que necesitan documentación
+2. Escribe documentación clara y concisa
+3. Actualiza ejemplos si es necesario
+
+Proceso de Revisión
+------------------
+
+1. Los PRs son revisados por el equipo
+2. Se pueden solicitar cambios
+3. Una vez aprobado, se mergea al main
 
 Contacto
--------
+--------
 
-* Email: contribuciones@capibara.ai
-* Discord: https://discord.gg/capibara-gpt
-* Twitter: @capibara_gpt 
+Para preguntas o dudas:
+
+- Abre un issue en GitHub
+- Únete a nuestro Discord
+- Envía un email a contribuciones@anachroni.io 

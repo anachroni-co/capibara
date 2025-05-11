@@ -64,16 +64,16 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "project = 'CapibaraGPT'\ncopyright = '2025, Anachroni s.coop'\nauthor = 'Marco Durán'\nrelease = '2.0.0'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',",
+        "peekOfCode": "project = 'CapibaraGPT'\ncopyleft = '2025,  Anachroni s.coop'\nauthor = 'Marco Durán'\nrelease = '2.0.0'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',",
         "detail": "docs.conf",
         "documentation": {}
     },
     {
-        "label": "copyright",
+        "label": "copyleft",
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "copyright = '2025, Anachroni s.coop'\nauthor = 'Marco Durán'\nrelease = '2.0.0'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.todo',",
+        "peekOfCode": "copyleft = '2025,  Anachroni s.coop'\nauthor = 'Marco Durán'\nrelease = '2.0.0'\n# -- General configuration ---------------------------------------------------\nextensions = [\n    'sphinx.ext.autodoc',\n    'sphinx.ext.napoleon',\n    'sphinx.ext.viewcode',\n    'sphinx.ext.intersphinx',\n    'sphinx.ext.todo',",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -105,38 +105,11 @@
         "documentation": {}
     },
     {
-        "label": "autodoc_member_order",
-        "kind": 5,
-        "importPath": "docs.conf",
-        "description": "docs.conf",
-        "peekOfCode": "autodoc_member_order = 'bysource'\nautodoc_typehints = 'description'\nadd_module_names = False\ntemplates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,",
-        "detail": "docs.conf",
-        "documentation": {}
-    },
-    {
-        "label": "autodoc_typehints",
-        "kind": 5,
-        "importPath": "docs.conf",
-        "description": "docs.conf",
-        "peekOfCode": "autodoc_typehints = 'description'\nadd_module_names = False\ntemplates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,",
-        "detail": "docs.conf",
-        "documentation": {}
-    },
-    {
-        "label": "add_module_names",
-        "kind": 5,
-        "importPath": "docs.conf",
-        "description": "docs.conf",
-        "peekOfCode": "add_module_names = False\ntemplates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,",
-        "detail": "docs.conf",
-        "documentation": {}
-    },
-    {
         "label": "templates_path",
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "templates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,",
+        "peekOfCode": "templates_path = ['_templates']\nexclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False\n}\n# -- Extension configuration -------------------------------------------------",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -145,7 +118,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,\n    'prev_next_buttons_location': 'both',",
+        "peekOfCode": "exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']\n# -- Options for HTML output -------------------------------------------------\nhtml_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False\n}\n# -- Extension configuration -------------------------------------------------\nautodoc_default_options = {",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -154,7 +127,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "html_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,\n    'prev_next_buttons_location': 'both',\n    'style_external_links': True,\n    'style_nav_header_background': '#2980B9',",
+        "peekOfCode": "html_theme = 'sphinx_rtd_theme'\nhtml_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False\n}\n# -- Extension configuration -------------------------------------------------\nautodoc_default_options = {\n    'members': True,\n    'member-order': 'bysource',",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -163,7 +136,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "html_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,\n    'prev_next_buttons_location': 'both',\n    'style_external_links': True,\n    'style_nav_header_background': '#2980B9',\n}",
+        "peekOfCode": "html_static_path = ['_static']\nhtml_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False\n}\n# -- Extension configuration -------------------------------------------------\nautodoc_default_options = {\n    'members': True,\n    'member-order': 'bysource',\n    'special-members': '__init__',",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -172,7 +145,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "html_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False,\n    'logo_only': True,\n    'display_version': True,\n    'prev_next_buttons_location': 'both',\n    'style_external_links': True,\n    'style_nav_header_background': '#2980B9',\n}\n# -- Extension configuration -------------------------------------------------",
+        "peekOfCode": "html_theme_options = {\n    'navigation_depth': 4,\n    'titles_only': False\n}\n# -- Extension configuration -------------------------------------------------\nautodoc_default_options = {\n    'members': True,\n    'member-order': 'bysource',\n    'special-members': '__init__',\n    'undoc-members': True,",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -181,7 +154,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "autodoc_default_options = {\n    'members': True,\n    'member-order': 'bysource',\n    'special-members': '__init__',\n    'undoc-members': True,\n    'exclude-members': '__weakref__',\n    'show-inheritance': True,\n    'imported-members': False,  # Optimización\n}\n# Configuración de autodoc",
+        "peekOfCode": "autodoc_default_options = {\n    'members': True,\n    'member-order': 'bysource',\n    'special-members': '__init__',\n    'undoc-members': True,\n    'exclude-members': '__weakref__'\n}\n# Configuración de autodoc\nautodoc_mock_imports = ['jax', 'flax', 'optax', 'orbax']\n# -- Options for intersphinx extension ---------------------------------------",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -190,7 +163,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "autodoc_mock_imports = [\n    'jax', 'flax', 'optax', 'orbax', 'tensorflow',\n    'qiskit', 'cirq', 'pennylane'\n]\n# -- Options for intersphinx extension ---------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'numpy': ('https://numpy.org/doc/stable/', None),\n    'jax': ('https://jax.readthedocs.io/en/latest/', None),\n    'flax': ('https://flax.readthedocs.io/en/latest/', None),",
+        "peekOfCode": "autodoc_mock_imports = ['jax', 'flax', 'optax', 'orbax']\n# -- Options for intersphinx extension ---------------------------------------\nintersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'numpy': ('https://numpy.org/doc/stable/', None),\n    'jax': ('https://jax.readthedocs.io/en/latest/', None),\n    'flax': ('https://flax.readthedocs.io/en/latest/', None),\n}\n# -- Options for todo extension ----------------------------------------------\ntodo_include_todos = True",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -199,7 +172,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "intersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'numpy': ('https://numpy.org/doc/stable/', None),\n    'jax': ('https://jax.readthedocs.io/en/latest/', None),\n    'flax': ('https://flax.readthedocs.io/en/latest/', None),\n    'tensorflow': ('https://www.tensorflow.org/api_docs/python', None),\n}\n# -- Options for todo extension ----------------------------------------------\ntodo_include_todos = True\n# -- Options for MyST parser -------------------------------------------------",
+        "peekOfCode": "intersphinx_mapping = {\n    'python': ('https://docs.python.org/3', None),\n    'numpy': ('https://numpy.org/doc/stable/', None),\n    'jax': ('https://jax.readthedocs.io/en/latest/', None),\n    'flax': ('https://flax.readthedocs.io/en/latest/', None),\n}\n# -- Options for todo extension ----------------------------------------------\ntodo_include_todos = True",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -208,43 +181,7 @@
         "kind": 5,
         "importPath": "docs.conf",
         "description": "docs.conf",
-        "peekOfCode": "todo_include_todos = True\n# -- Options for MyST parser -------------------------------------------------\nmyst_enable_extensions = [\n    \"amsmath\",\n    \"colon_fence\",\n    \"deflist\",\n    \"dollarmath\",\n    \"html_image\",\n    \"html_admonition\",\n    \"replacements\",",
-        "detail": "docs.conf",
-        "documentation": {}
-    },
-    {
-        "label": "myst_enable_extensions",
-        "kind": 5,
-        "importPath": "docs.conf",
-        "description": "docs.conf",
-        "peekOfCode": "myst_enable_extensions = [\n    \"amsmath\",\n    \"colon_fence\",\n    \"deflist\",\n    \"dollarmath\",\n    \"html_image\",\n    \"html_admonition\",\n    \"replacements\",\n    \"smartquotes\",\n    \"substitution\",",
-        "detail": "docs.conf",
-        "documentation": {}
-    },
-    {
-        "label": "nitpicky",
-        "kind": 5,
-        "importPath": "docs.conf",
-        "description": "docs.conf",
-        "peekOfCode": "nitpicky = False  # Desactivar advertencias estrictas\nnumfig = True  # Numeración automática de figuras\nmath_number_all = True  # Numerar todas las ecuaciones",
-        "detail": "docs.conf",
-        "documentation": {}
-    },
-    {
-        "label": "numfig",
-        "kind": 5,
-        "importPath": "docs.conf",
-        "description": "docs.conf",
-        "peekOfCode": "numfig = True  # Numeración automática de figuras\nmath_number_all = True  # Numerar todas las ecuaciones",
-        "detail": "docs.conf",
-        "documentation": {}
-    },
-    {
-        "label": "math_number_all",
-        "kind": 5,
-        "importPath": "docs.conf",
-        "description": "docs.conf",
-        "peekOfCode": "math_number_all = True  # Numerar todas las ecuaciones",
+        "peekOfCode": "todo_include_todos = True",
         "detail": "docs.conf",
         "documentation": {}
     },
@@ -253,7 +190,7 @@
         "kind": 2,
         "importPath": "sync_docs",
         "description": "sync_docs",
-        "peekOfCode": "def sync_documentation() -> None:\n    \"\"\"\n    Sincroniza la documentación entre el repositorio principal y el repositorio de documentación.\n    \"\"\"\n    # Configuración de rutas\n    current_dir = Path(__file__).parent.parent\n    docs_repo_path = os.getenv('DOCS_REPO_PATH', '')\n    if not docs_repo_path:\n        print(\"Error: Por favor, configura la variable de entorno DOCS_REPO_PATH\")\n        print(\"Ejemplo: export DOCS_REPO_PATH=/ruta/al/repo/docs\")",
+        "peekOfCode": "def sync_documentation() -> None:\n    \"\"\"\n    Sincroniza la documentación entre el repositorio principal y el repositorio de documentación.\n    \"\"\"\n    # Configuración de rutas\n    current_dir = Path(__file__).parent\n    docs_repo_path = os.getenv('DOCS_REPO_PATH', '')\n    docs_repo_path = os.path.join(current_dir, 'docs')\n    if not docs_repo_path:\n        print(\"Error: Por favor, configura la variable de entorno DOCS_REPO_PATH\")",
         "detail": "sync_docs",
         "documentation": {}
     }

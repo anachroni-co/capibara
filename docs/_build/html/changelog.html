@@ -1,0 +1,238 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Cambios &mdash; CapibaraGPT 2.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=51b770b3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Solución de Problemas" href="troubleshooting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CapibaraGPT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Arquitectura de CapibaraModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html#arquitectura-semiotica">Arquitectura Semiótica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="semio.html">Módulo Semiótico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">Referencia de API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#interfaces-semioticas">Interfaces Semióticas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#modulos-semioticos">Módulos Semióticos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html#uso-del-modulo-semiotico">Uso del Módulo Semiótico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Desarrollo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Guía de Contribución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Solución de Problemas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Registro de Cambios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#v2-0-0-2025-05-04">v2.0.0 (2025-05-04)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nuevas-caracteristicas">Nuevas Características</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mejoras">Mejoras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cambios-en-la-api">Cambios en la API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correcciones-de-errores">Correcciones de Errores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#v1-0-0-2024-01-01">v1.0.0 (2024-01-01)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#primera-version-estable">Primera versión estable</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notas-de-actualizacion">Notas de Actualización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#proximas-versiones">Próximas Versiones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v2-1-0-planeado">v2.1.0 (Planeado)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v2-2-0-planeado">v2.2.0 (Planeado)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CapibaraGPT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Registro de Cambios</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/changelog.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="registro-de-cambios">
+<h1>Registro de Cambios<a class="headerlink" href="#registro-de-cambios" title="Link to this heading"></a></h1>
+<p>Este documento registra los cambios importantes en CapibaraModel.</p>
+<section id="v2-0-0-2025-05-04">
+<h2>v2.0.0 (2025-05-04)<a class="headerlink" href="#v2-0-0-2025-05-04" title="Link to this heading"></a></h2>
+<section id="nuevas-caracteristicas">
+<h3>Nuevas Características<a class="headerlink" href="#nuevas-caracteristicas" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Implementación completa del modelo SSM</p></li>
+<li><p>Soporte para TPU y GPU</p></li>
+<li><p>Entrenamiento distribuido</p></li>
+<li><p>Sistema de monitoreo mejorado</p></li>
+<li><p>Nuevo sistema de tokenización</p></li>
+<li><p>Optimizaciones de rendimiento</p></li>
+</ul>
+</section>
+<section id="mejoras">
+<h3>Mejoras<a class="headerlink" href="#mejoras" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Mejor manejo de memoria</p></li>
+<li><p>Optimización de inferencia</p></li>
+<li><p>Mejoras en la documentación</p></li>
+<li><p>Nuevos ejemplos y tutoriales</p></li>
+</ul>
+</section>
+<section id="cambios-en-la-api">
+<h3>Cambios en la API<a class="headerlink" href="#cambios-en-la-api" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Nueva interfaz de configuración</p></li>
+<li><p>Mejoras en la API de entrenamiento</p></li>
+<li><p>Nuevos métodos de inferencia</p></li>
+<li><p>Mejor manejo de errores</p></li>
+</ul>
+</section>
+<section id="correcciones-de-errores">
+<h3>Correcciones de Errores<a class="headerlink" href="#correcciones-de-errores" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Corrección de problemas de memoria</p></li>
+<li><p>Solución de problemas de TPU</p></li>
+<li><p>Mejoras en la estabilidad</p></li>
+<li><p>Correcciones en el manejo de datos</p></li>
+</ul>
+</section>
+</section>
+<section id="v1-0-0-2024-01-01">
+<h2>v1.0.0 (2024-01-01)<a class="headerlink" href="#v1-0-0-2024-01-01" title="Link to this heading"></a></h2>
+<section id="primera-version-estable">
+<h3>Primera versión estable<a class="headerlink" href="#primera-version-estable" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Implementación inicial del modelo</p></li>
+<li><p>Soporte básico para GPU</p></li>
+<li><p>Sistema de entrenamiento básico</p></li>
+<li><p>Documentación inicial</p></li>
+</ul>
+</section>
+</section>
+<section id="notas-de-actualizacion">
+<h2>Notas de Actualización<a class="headerlink" href="#notas-de-actualizacion" title="Link to this heading"></a></h2>
+<p>Para actualizar de v1.0.0 a v2.0.0:</p>
+<ol class="arabic simple">
+<li><p>Actualiza las dependencias:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>capibara_model
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Actualiza tu código:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Revisa los cambios en la API</p></li>
+<li><p>Actualiza las configuraciones</p></li>
+<li><p>Verifica la compatibilidad</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Verifica la instalación:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">capibara_model</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">capibara_model</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>  <span class="c1"># Debería mostrar 2.0.0</span>
+</pre></div>
+</div>
+</section>
+<section id="proximas-versiones">
+<h2>Próximas Versiones<a class="headerlink" href="#proximas-versiones" title="Link to this heading"></a></h2>
+<section id="v2-1-0-planeado">
+<h3>v2.1.0 (Planeado)<a class="headerlink" href="#v2-1-0-planeado" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Mejoras en el rendimiento</p></li>
+<li><p>Nuevas características de optimización</p></li>
+<li><p>Mejor soporte para TPU</p></li>
+<li><p>Nuevas capacidades de inferencia</p></li>
+</ul>
+</section>
+<section id="v2-2-0-planeado">
+<h3>v2.2.0 (Planeado)<a class="headerlink" href="#v2-2-0-planeado" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Integración con más frameworks</p></li>
+<li><p>Mejoras en el entrenamiento distribuido</p></li>
+<li><p>Nuevas capacidades de fine-tuning</p></li>
+<li><p>Mejoras en la documentación</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="Solución de Problemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

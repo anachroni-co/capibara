@@ -1,191 +1,148 @@
-Arquitectura de CapibaraGPT
-========================
+Arquitectura de CapibaraModel
+=============================
 
-Esta sección describe en detalle la arquitectura del modelo CapibaraGPT.
+Este documento resume la arquitectura de CapibaraModel, describiendo los diferentes submodelos, capas y módulos, así como sus usos prácticos.
 
-Arquitectura Híbrida SSM-Transformer
----------------------------------
+Submodelos
+----------
 
-La arquitectura principal combina State Space Models (SSM) con Transformers:
+- **CapibaraByte / TPUCapibaraByte**  
+  Submodelo ultra-optimizado para TPUs, emplea sharding híbrido, precisión mixta y cache JIT-compatible.  
+  *Uso práctico:* Procesamiento eficiente de secuencias largas en hardware especializado (TPU), ideal para tareas de inferencia y entrenamiento a gran escala.
 
-.. math::
+- **TPUOptimizedSSM**  
+  Implementa un modelo de espacio de estados (SSM) distribuido, con inicialización y entrenamiento optimizados para hardware TPU.  
+  *Uso práctico:* Modelado de dependencias temporales largas, útil en tareas de modelado de lenguaje y series temporales.
 
-   \text{Output} = \text{SSM}(\text{Transformer}(x))
+- **DeepDialog**  
+  Modelo transformer especializado para diálogos, configurable en número de capas, cabezas y funciones de activación.  
+  *Uso práctico:* Generación y comprensión de diálogos complejos, adaptable a contextos conversacionales.
+
+- **Experimental (Spiking, Liquid, DualProcess, etc.)**  
+  Incluye variantes como redes de neuronas spiking (LIF), capas líquidas (expansión/contracción dinámica) y módulos de razonamiento dual.  
+  *Uso práctico:* Investigación avanzada en neurociencia computacional, razonamiento simbólico y procesamiento dinámico.
+
+Capas (Layers)
+--------------
+
+- **SelfAttention**  
+  Implementa atención multi-cabeza estándar con soporte para máscaras y conexiones residuales.  
+  *Uso práctico:* Captura de dependencias contextuales en secuencias, fundamental en modelos tipo transformer.
+
+- **QuantumL / QuantumLargeScaleEmbedding**  
+  Capas cuánticas con soporte para múltiples backends (Qiskit, Cirq, PennyLane), simulando operaciones cuánticas sobre los embeddings.  
+  *Uso práctico:* Experimentación con computación cuántica simulada para enriquecer representaciones y explorar nuevos paradigmas de aprendizaje.
+
+- **Conv1DBlock**  
+  Bloques convolucionales 1D (standard, dilated, separable) para procesamiento eficiente de secuencias.  
+  *Uso práctico:* Extracción de características locales en datos secuenciales, como texto o señales.
+
+- **CapibaraLayer**  
+  Capa unificada que integra atención avanzada, esparsidad dinámica y transformaciones cuánticas opcionales.  
+  *Uso práctico:* Construcción de bloques modulares y potentes para arquitecturas híbridas.
+
+- **Platonic / Quineana (abstract_reasoning/)**  
+  Capas para razonamiento lógico y conceptual, usando t-norms, t-conorms y cuantificación lógica.  
+  *Uso práctico:* Procesamiento simbólico y razonamiento abstracto, útil en tareas de lógica difusa y AI explicable.
+
+- **DistributedAttention / CapibaraEmbedding**  
+  Atención y embeddings distribuidos con sharding automático, optimizados para hardware paralelo.  
+  *Uso práctico:* Escalabilidad y eficiencia en modelos de gran tamaño y vocabularios extensos.
+
+Módulos
+-------
+
+- **Capivision / Mamba1DCore / SS2D**  
+  Núcleo de visión y procesamiento secuencial selectivo (inspirado en Mamba SSM), con variantes 1D y 2D.  
+  *Uso práctico:* Procesamiento de datos visuales y secuenciales, integración multimodal.
+
+- **Personality (CoherenceDetector, PersonalityManager, ResponseGenerator, etc.)**  
+  Módulos para gestión de personalidad, coherencia y generación de respuestas, con atención y scoring personalizados.  
+  *Uso práctico:* Modelado de agentes conversacionales coherentes y adaptativos, con rasgos de personalidad configurables.
+
+- **ContextualActivation / ContextualRouter / CapibaraQuantumRouter**  
+  Enrutamiento y activación dinámica de módulos según el contexto, incluyendo rutas cuánticas.  
+  *Uso práctico:* Adaptación dinámica del flujo de información según la relevancia contextual, mejorando la eficiencia y personalización.
+
+- **MultimodalPipeline**  
+  Orquesta la integración de visión, procesamiento cuántico y conversación en un solo pipeline.  
+  *Uso práctico:* Aplicaciones multimodales donde se combinan texto, visión y razonamiento avanzado.
+
+Utilidad del resumen
+--------------------
+
+- **Referencia rápida:** Para entender qué componente usar según la tarea (procesamiento de texto, visión, razonamiento, etc.).
+- **Diseño de experimentos:** Para seleccionar y combinar submodelos, capas y módulos según el objetivo de investigación o aplicación.
+- **Extensión y personalización:** Como guía para desarrollar nuevos módulos o capas compatibles con la arquitectura CapibaraGPT.
+
+Innovaciones destacadas
+-----------------------
+
+- **State Space Models (SSM) optimizados:** Integración de SSMs ultra-rápidos para modelado de dependencias largas, con variantes especializadas para TPU y GPU.
+- **Sharding híbrido y precisión mixta:** Permite escalar el modelo a hardware distribuido, optimizando memoria y velocidad.
+- **Capas cuánticas simuladas:** Soporte para backends como Qiskit, Cirq y PennyLane, permitiendo experimentación con computación cuántica en el flujo de datos.
+- **Razonamiento simbólico y neuroadaptativo:** Capas especializadas para lógica difusa, razonamiento abstracto y neurogénesis.
+- **Pipeline multimodal:** Integración nativa de visión, texto y razonamiento en un solo flujo, facilitando aplicaciones avanzadas.
+- **Gestión avanzada de personalidad y coherencia:** Módulos para dotar a los agentes de rasgos, emociones y coherencia conversacional.
+- **Entrenamiento y despliegue eficiente:** Herramientas de monitorización, checkpointing y validación integradas para facilitar el ciclo de vida completo del modelo.
+
+Arquitectura Semiótica
+====================
+
+El módulo semiótico (SemioModule) es un componente clave que permite el análisis e interpretación de contenido a múltiples niveles:
 
 Componentes Principales
---------------------
+---------------------
 
-1. State Space Models (SSM)
-~~~~~~~~~~~~~~~~~~~~~~~~~
+1. **Módulo Semiótico Base**
+   - Interpretación literal
+   - Interpretación cultural
+   - Interpretación simbólica
+   - Pesos dinámicos por tipo de interpretación
 
-.. math::
+2. **Capas con Soporte Semiótico**
+   - Atención con análisis semiótico
+   - Enrutamiento contextual semiótico
+   - Activación basada en interpretaciones
 
-   \frac{dx}{dt} = Ax + Bu
-   y = Cx + Du
+3. **Interfaces Semióticas**
+   - ISemioModule: Interfaz base para módulos semióticos
+   - ISemioLayer: Interfaz para capas con análisis semiótico
+   - Métricas de confianza y diversidad
 
-Donde:
-* x: Estado del sistema
-* u: Entrada
-* y: Salida
-* A, B, C, D: Matrices de parámetros
+Flujo de Procesamiento
+---------------------
 
-2. Transformer
-~~~~~~~~~~~~
+1. **Entrada**
+   - Tensor de entrada (batch_size, seq_len, hidden_dim)
+   - Contexto opcional para interpretación
 
-.. math::
+2. **Procesamiento**
+   - Análisis semiótico multi-nivel
+   - Cálculo de pesos de interpretación
+   - Combinación de interpretaciones
 
-   \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+3. **Salida**
+   - Tensor procesado
+   - Interpretaciones por tipo
+   - Métricas de confianza
 
-3. Integración SSM-Transformer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Integración con Meta-Loop
+------------------------
 
-.. math::
+El módulo semiótico se integra con el meta-loop para:
 
-   h_t = \text{SSM}(\text{Transformer}(h_{t-1}, x_t))
+1. **Validación**
+   - Verificación de interpretaciones
+   - Ajuste dinámico de pesos
+   - Monitoreo de confianza
 
-Sistema Semiótico
----------------
+2. **Optimización**
+   - Ajuste de umbrales
+   - Balanceo de interpretaciones
+   - Mejora de diversidad
 
-El sistema semiótico opera en tres niveles:
-
-1. Nivel Sintáctico
-~~~~~~~~~~~~~~~~~
-
-* Análisis de estructura
-* Procesamiento de tokens
-* Validación gramatical
-
-2. Nivel Semántico
-~~~~~~~~~~~~~~~~
-
-* Interpretación de significado
-* Análisis contextual
-* Resolución de ambigüedades
-
-3. Nivel Pragmático
-~~~~~~~~~~~~~~~~~
-
-* Intención del hablante
-* Contexto situacional
-* Implicaturas
-
-CapibaraQuantum Router
---------------------
-
-El router cuántico utiliza estados cuánticos para optimizar el flujo de información:
-
-.. math::
-
-   |\psi\rangle = \frac{1}{\sqrt{2^n}}\sum_{x=0}^{2^n-1} |x\rangle
-
-La probabilidad de cada ruta de procesamiento se calcula mediante:
-
-.. math::
-
-   P(r_i) = |\langle r_i|\psi\rangle|^2
-
-Circuitos Cuánticos
-~~~~~~~~~~~~~~~~
-
-* Circuitos de 4 qubits para toma de decisiones
-* Optimización de rutas de procesamiento
-* Adaptación dinámica de recursos
-
-Integración con Backends
-~~~~~~~~~~~~~~~~~~~~~
-
-* Soporte para Qiskit, Cirq y PennyLane
-* Sistema de fallback para hardware no cuántico
-* Optimización automática de circuitos
-
-Gestión de Recursos
-~~~~~~~~~~~~~~~~
-
-* Asignación dinámica de recursos computacionales
-* Balanceo de carga adaptativo
-* Monitoreo de rendimiento en tiempo real
-
-Optimizaciones TPU
----------------
-
-1. Sharding Híbrido
-~~~~~~~~~~~~~~~~
-
-.. math::
-
-   \text{Shard}(x) = \text{Split}(x, \text{num\_devices})
-
-2. Cuantización Adaptativa
-~~~~~~~~~~~~~~~~~~~~~~~
-
-.. math::
-
-   Q(x) = \text{round}\left(\frac{x - \min(x)}{\max(x) - \min(x)} \times (2^b - 1)\right)
-
-Pipeline Multimodal
-----------------
-
-Integración de múltiples modalidades:
-
-1. Procesamiento de Texto
-~~~~~~~~~~~~~~~~~~~~~~
-
-* Tokenización
-* Embedding
-* Transformación
-
-2. Procesamiento de Imagen
-~~~~~~~~~~~~~~~~~~~~~~~
-
-* Extracción de características
-* Codificación visual
-* Alineación multimodal
-
-3. Fusión Multimodal
-~~~~~~~~~~~~~~~~~
-
-.. math::
-
-   \text{Fusion}(t, i) = \text{Attention}(t, i) + \text{CrossModal}(t, i)
-
-Diagramas
---------
-
-.. figure:: _static/architecture_diagram.png
-   :width: 800px
-   :align: center
-   :alt: Diagrama de Arquitectura
-
-   Diagrama general de la arquitectura de CapibaraGPT
-
-Flujo de Datos
-------------
-
-1. Entrada
-~~~~~~~~
-
-* Tokenización
-* Embedding
-* Preprocesamiento
-
-2. Procesamiento
-~~~~~~~~~~~~~
-
-* SSM-Transformer
-* Sistema Semiótico
-* Router Cuántico
-
-3. Salida
-~~~~~~~
-
-* Generación
-* Postprocesamiento
-* Formateo
-
-Consideraciones de Implementación
-------------------------------
-
-* Optimización de memoria
-* Paralelización
-* Escalabilidad
-* Compatibilidad con hardware
+3. **Métricas**
+   - Confianza por tipo
+   - Diversidad de interpretaciones
+   - Calidad de combinación

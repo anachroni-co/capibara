@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referencia de API &mdash; CapibaraGPT 2.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=51b770b3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Ejemplos" href="examples.html" />
+    <link rel="prev" title="Módulo Semiótico" href="semio.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CapibaraGPT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Arquitectura de CapibaraModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html#arquitectura-semiotica">Arquitectura Semiótica</a></li>
+<li class="toctree-l1"><a class="reference internal" href="semio.html">Módulo Semiótico</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Referencia de API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodelos">Submodelos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capas-layers">Capas (Layers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capas-de-esparsidad">Capas de Esparsidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modulos">Módulos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo-principal">Modelo Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion">Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interfaces">Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimizacion">Optimización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tokenizacion">Tokenización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilidades">Utilidades</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#monitoreo">Monitoreo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checkpointing">Checkpointing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validacion">Validación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Configuración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metricas">Métricas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#procesamiento-de-datos">Procesamiento de Datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manejo-de-errores">Manejo de Errores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inicializacion-de-modulos">Inicialización de Módulos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#interfaces-semioticas">Interfaces Semióticas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#imodule">IModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isemiomodule">ISemioModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ilayer">ILayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isemiolayer">ISemioLayer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#modulos-semioticos">Módulos Semióticos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#semiomodule">SemioModule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contextualactivation">ContextualActivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sharedattention">SharedAttention</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contextualrouter">ContextualRouter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html#uso-del-modulo-semiotico">Uso del Módulo Semiótico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Desarrollo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Guía de Contribución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Solución de Problemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Registro de Cambios</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CapibaraGPT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Referencia de API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api_reference.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="referencia-de-api">
+<h1>Referencia de API<a class="headerlink" href="#referencia-de-api" title="Link to this heading"></a></h1>
+<section id="submodelos">
+<h2>Submodelos<a class="headerlink" href="#submodelos" title="Link to this heading"></a></h2>
+</section>
+<section id="capas-layers">
+<h2>Capas (Layers)<a class="headerlink" href="#capas-layers" title="Link to this heading"></a></h2>
+</section>
+<section id="capas-de-esparsidad">
+<h2>Capas de Esparsidad<a class="headerlink" href="#capas-de-esparsidad" title="Link to this heading"></a></h2>
+</section>
+<section id="modulos">
+<h2>Módulos<a class="headerlink" href="#modulos" title="Link to this heading"></a></h2>
+</section>
+<section id="modelo-principal">
+<h2>Modelo Principal<a class="headerlink" href="#modelo-principal" title="Link to this heading"></a></h2>
+</section>
+<section id="configuracion">
+<h2>Configuración<a class="headerlink" href="#configuracion" title="Link to this heading"></a></h2>
+</section>
+<section id="interfaces">
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Link to this heading"></a></h2>
+</section>
+<section id="optimizacion">
+<h2>Optimización<a class="headerlink" href="#optimizacion" title="Link to this heading"></a></h2>
+</section>
+<section id="tokenizacion">
+<h2>Tokenización<a class="headerlink" href="#tokenizacion" title="Link to this heading"></a></h2>
+</section>
+<section id="utilidades">
+<h2>Utilidades<a class="headerlink" href="#utilidades" title="Link to this heading"></a></h2>
+<section id="monitoreo">
+<h3>Monitoreo<a class="headerlink" href="#monitoreo" title="Link to this heading"></a></h3>
+</section>
+<section id="checkpointing">
+<h3>Checkpointing<a class="headerlink" href="#checkpointing" title="Link to this heading"></a></h3>
+</section>
+<section id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h3>
+</section>
+<section id="validacion">
+<h3>Validación<a class="headerlink" href="#validacion" title="Link to this heading"></a></h3>
+</section>
+<section id="id1">
+<h3>Configuración<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+</section>
+<section id="metricas">
+<h3>Métricas<a class="headerlink" href="#metricas" title="Link to this heading"></a></h3>
+</section>
+<section id="procesamiento-de-datos">
+<h3>Procesamiento de Datos<a class="headerlink" href="#procesamiento-de-datos" title="Link to this heading"></a></h3>
+</section>
+<section id="manejo-de-errores">
+<h3>Manejo de Errores<a class="headerlink" href="#manejo-de-errores" title="Link to this heading"></a></h3>
+</section>
+<section id="inicializacion-de-modulos">
+<h3>Inicialización de Módulos<a class="headerlink" href="#inicializacion-de-modulos" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="id2">
+<h2>Interfaces<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+</section>
+</section>
+<section id="interfaces-semioticas">
+<h1>Interfaces Semióticas<a class="headerlink" href="#interfaces-semioticas" title="Link to this heading"></a></h1>
+<section id="imodule">
+<h2>IModule<a class="headerlink" href="#imodule" title="Link to this heading"></a></h2>
+</section>
+<section id="isemiomodule">
+<h2>ISemioModule<a class="headerlink" href="#isemiomodule" title="Link to this heading"></a></h2>
+</section>
+<section id="ilayer">
+<h2>ILayer<a class="headerlink" href="#ilayer" title="Link to this heading"></a></h2>
+</section>
+<section id="isemiolayer">
+<h2>ISemioLayer<a class="headerlink" href="#isemiolayer" title="Link to this heading"></a></h2>
+</section>
+</section>
+<section id="modulos-semioticos">
+<h1>Módulos Semióticos<a class="headerlink" href="#modulos-semioticos" title="Link to this heading"></a></h1>
+<section id="semiomodule">
+<h2>SemioModule<a class="headerlink" href="#semiomodule" title="Link to this heading"></a></h2>
+</section>
+<section id="contextualactivation">
+<h2>ContextualActivation<a class="headerlink" href="#contextualactivation" title="Link to this heading"></a></h2>
+</section>
+<section id="sharedattention">
+<h2>SharedAttention<a class="headerlink" href="#sharedattention" title="Link to this heading"></a></h2>
+</section>
+<section id="contextualrouter">
+<h2>ContextualRouter<a class="headerlink" href="#contextualrouter" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="semio.html" class="btn btn-neutral float-left" title="Módulo Semiótico" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Ejemplos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
