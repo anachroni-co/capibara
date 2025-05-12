@@ -2,7 +2,7 @@
 Capibara - Modelo de lenguaje basado en State Space Models (SSM)
 """
 
-__version__ = "2.1.5"
+__version__ = "2.1.7"
 __author__ = "Anachroni s.coop"
 
 # Importaciones principales
