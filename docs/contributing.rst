@@ -141,4 +141,4 @@ Para preguntas o dudas:
 
 - Abre un issue en GitHub
 - Únete a nuestro Discord
-- Envía un email a contribuciones@anachroni.io 
+- Envía un email a marco@anachroni.co 
