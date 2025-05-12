@@ -142,4 +142,4 @@ Soporte
 
 - Issues en GitHub
 - Discord: #capibara-dev
-- Email: dev@capibara.ai 
+- Email: marco@anachroni.co 
