@@ -1,108 +1,144 @@
-Getting Started
-==============
+Inicio Rápido
+============
 
-Instalación
------------
+Este guía te ayudará a comenzar rápidamente con CapibaraGPT v2.0.
 
-Capibara puede ser instalado usando pip:
-
-.. code-block:: bash
-
-    pip install capibara
-
-Para soporte de TPU:
-
-.. code-block:: bash
-
-    pip install capibara[tpu]
-
-Para soporte de GPU:
-
-.. code-block:: bash
-
-    pip install capibara[gpu]
-
-Uso Básico
-----------
-
-Aquí hay un ejemplo básico de cómo usar Capibara:
+Configuración Inicial
+-------------------
 
 .. code-block:: python
 
-    from capibara import DynamicCapibaraModel, ModelConfig
+    from capibara.config.tpu_config import TPUConfig
+    from capibara.sub_models.quantum import QuantumSubmodel
+    from capibara.sub_models.semiotic import MnemosyneSemioModule
 
-    # Configuración del modelo
-    config = ModelConfig(
-        model_type="mamba",
-        hidden_size=768,
-        num_layers=12
+    # Configurar TPU
+    tpu_config = TPUConfig(
+        num_chips=32,
+        topology='4x8',
+        memory_per_chip=32 * 1024**3
     )
 
-    # Inicialización del modelo
-    model = DynamicCapibaraModel(config)
+    # Inicializar módulos
+    quantum_model = QuantumSubmodel(tpu_config)
+    semio_module = MnemosyneSemioModule(tpu_config)
 
-    # Generación de texto
-    output = model.generate("Tu texto de entrada aquí")
+Ejemplo Básico
+------------
 
-Módulo Semiótico
---------------
+Procesamiento Cuántico
+~~~~~~~~~~~~~~~~~~~~
 
-El módulo semiótico es un componente fundamental que permite el análisis e interpretación de contenido a múltiples niveles. Para comenzar a usarlo:
+.. code-block:: python
 
-1. **Instalación**
-   ```bash
-   pip install capibara[semio]
-   ```
+    # Procesar datos cuánticos
+    quantum_data = quantum_model.process(
+        input_data,
+        batch_size=32,
+        use_mixed_precision=True
+    )
 
-2. **Uso Básico**
-   ```python
-   from capibara.sub_models.experimental.semio import SemioModule
-   
-   # Configuración básica
-   config = {
-       'hidden_size': 256,
-       'num_heads': 8,
-       'dropout_rate': 0.1
-   }
-   
-   # Inicializar módulo
-   semio = SemioModule(**config)
-   
-   # Procesar entrada
-   output = semio(x)
-   ```
+    # Obtener métricas
+    metrics = quantum_model.get_metrics()
+    print(f"Precisión: {metrics['accuracy']}")
+    print(f"Latencia: {metrics['latency']}ms")
 
-3. **Integración con Otros Módulos**
-   ```python
-   from capibara.modules.shared_attention import SharedAttention
-   
-   # Crear capa de atención con análisis semiótico
-   attention = SharedAttention(config)
-   output = attention(x, context)
-   ```
+Procesamiento Semiótico
+~~~~~~~~~~~~~~~~~~~~~
 
-Para más detalles sobre el módulo semiótico, consulta la :doc:`documentación completa <semio>`.
+.. code-block:: python
 
-Requisitos del Sistema
----------------------
+    # Procesar texto e imagen
+    result = semio_module.process_multimodal(
+        text="Análisis cultural",
+        image=image_data,
+        batch_size=16
+    )
 
-- Python >= 3.9
-- JAX >= 0.4.23
-- Flax >= 0.8.2
-- TensorFlow >= 2.16.1 (opcional, para TPU)
-- PyTorch >= 2.2.2 (opcional, para GPU)
+    # Obtener interpretación
+    interpretation = result['interpretation']
+    coherence = result['coherence_score']
 
-Para TPU:
-    - Acceso a Google Cloud TPU
-    - libtpu instalado
+Pipeline Asíncrono
+----------------
 
-Para GPU:
-    - NVIDIA GPU con CUDA 11.8+
-    - Drivers NVIDIA actualizados
+.. code-block:: python
 
-Siguientes Pasos
----------------
+    from capibara.pipeline import AsyncPipeline
 
-- Ver la :doc:`user_guide` para más detalles sobre el uso del modelo
-- Explorar los :doc:`examples` para ver casos de uso avanzados
-- Consultar la :doc:`api_reference` para la documentación completa de la API 
+    # Crear pipeline
+    pipeline = AsyncPipeline(
+        quantum_model=quantum_model,
+        semio_module=semio_module
+    )
+
+    # Procesar datos
+    async def process_data():
+        result = await pipeline.process(
+            input_data,
+            batch_size=32,
+            use_cache=True
+        )
+        return result
+
+    # Ejecutar pipeline
+    result = asyncio.run(process_data())
+
+Optimizaciones
+------------
+
+Gestión de Memoria
+~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    # Configurar memoria
+    tpu_config.set_memory_fraction(0.8)
+    tpu_config.set_gradient_checkpointing(True)
+
+    # Optimizar buffers
+    quantum_model.optimize_buffers()
+    semio_module.optimize_buffers()
+
+Sharding
+~~~~~~~~
+
+.. code-block:: python
+
+    # Configurar sharding
+    devices = mesh_utils.create_device_mesh((4, 8))
+    mesh = Mesh(devices, axis_names=('data', 'model'))
+
+    # Aplicar sharding
+    quantum_model.set_mesh(mesh)
+    semio_module.set_mesh(mesh)
+
+Monitoreo
+--------
+
+.. code-block:: python
+
+    # Obtener métricas
+    metrics = pipeline.get_metrics()
+    
+    # Monitorear TPU
+    tpu_stats = tpu_config.profile_tpu_usage()
+    
+    # Detectar hotspots
+    hotspots = tpu_config.detect_hotspots(load_matrix)
+
+Próximos Pasos
+------------
+
+1. Revisar la documentación detallada de cada módulo
+2. Explorar ejemplos avanzados
+3. Configurar optimizaciones específicas
+4. Implementar pipelines personalizados
+
+Recursos Adicionales
+-----------------
+
+* `Documentación API <api_reference.html>`_
+* `Guía de Optimización <optimization.html>`_
+* `Ejemplos Avanzados <examples.html>`_
+* `Solución de Problemas <troubleshooting.html>`_ 
