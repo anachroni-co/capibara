@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JAX Nativo - Implementación Autónoma &mdash; CapibaraGPT-v2 Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1755d3b9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Primeros Pasos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Instalación CapibaraGPT-v2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Inicio Rápido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuración</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Central</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core - Arquitectura Central</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sub-Modelos Actualizados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sub_models/index.html">Sub-Modelos - Arquitecturas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Capas y Componentes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="layers/index.html">Layers - Capas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sistemas Avanzados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="meta_loop/index.html">Meta_Loop - Sistema Elixir/OTP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentos de Referencia</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Código de Conducta</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CapibaraGPT-v2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">JAX Nativo - Implementación Autónoma</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/your-org/capibara-gpt-v2/blob/main/capibara/docs/jax_native_implementation.rst" class="fa fa-github"> Editar en GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="jax-nativo-implementacion-autonoma">
+<h1>JAX Nativo - Implementación Autónoma<a class="headerlink" href="#jax-nativo-implementacion-autonoma" title="Link to this heading"></a></h1>
+<p>CapibaraGPT-v2 incluye una <strong>implementación JAX nativa completamente autónoma</strong> que elimina dependencias JAX externas problemáticas y proporciona optimizaciones específicas para TPU v4-32, ARM Axion, y fallbacks robustos.</p>
+<p>🏆 <strong>Estado</strong>: <strong>100% FUNCIONAL - SISTEMA JAX AUTÓNOMO COMPLETO</strong></p>
+<section id="arquitectura-jax-nativa">
+<h2>Arquitectura JAX Nativa<a class="headerlink" href="#arquitectura-jax-nativa" title="Link to this heading"></a></h2>
+<p>El sistema JAX nativo se encuentra en <code class="docutils literal notranslate"><span class="pre">capibara/jax/</span></code> y proporciona:</p>
+<ul class="simple">
+<li><p><strong>Implementación JAX autónoma</strong> sin vendor lock-in</p></li>
+<li><p><strong>Fallbacks automáticos</strong> a JAX estándar cuando sea necesario</p></li>
+<li><p><strong>Optimizaciones TPU v4-32</strong> específicas integradas</p></li>
+<li><p><strong>Compatibilidad completa</strong> con la API JAX estándar</p></li>
+</ul>
+</section>
+<section id="estructura-del-sistema">
+<h2>Estructura del Sistema<a class="headerlink" href="#estructura-del-sistema" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>capibara/jax/
+├── __init__.py              # API principal JAX nativo
+├── _src/
+│   └── core.py             # Core JAX con optimizaciones TPU
+├── numpy/
+│   ├── __init__.py         # jnp compatible
+│   ├── linalg.py          # Operaciones álgebra lineal
+│   └── fft.py             # Transformadas rápidas Fourier
+├── nn/
+│   └── __init__.py         # Capas neuronales optimizadas
+├── lax/
+│   ├── __init__.py         # Operaciones LAX
+│   └── linalg.py          # LAX álgebra lineal
+├── experimental/
+│   ├── array_serialization.py
+│   ├── checkpoint.py
+│   └── mesh_utils.py       # Utilidades mesh TPU
+└── tpu_v4/
+    ├── backend.py          # Backend TPU v4-32
+    ├── optimizations.py    # Optimizaciones específicas
+    └── kernels/            # Kernels optimizados
+</pre></div>
+</div>
+</section>
+<section id="uso-basico">
+<h2>Uso Básico<a class="headerlink" href="#uso-basico" title="Link to this heading"></a></h2>
+<p><strong>Importación Automática con Fallbacks</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importación automática - detecta capibara JAX o fallback</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">capibara.jax</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jax</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">capibara.jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">capibara.jax.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+
+<span class="c1"># El sistema automáticamente usa:</span>
+<span class="c1"># 1. capibara.jax (si disponible y funcional)</span>
+<span class="c1"># 2. JAX estándar (fallback)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Backend JAX activo: </span><span class="si">{</span><span class="n">jax</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimizaciones TPU: </span><span class="si">{</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">jax</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;tpu_v4_optimizations&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Operaciones Básicas</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Operaciones NumPy compatibles</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Operaciones algebraicas optimizadas</span>
+<span class="n">matrix_a</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">matrix_b</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix_a</span><span class="p">,</span> <span class="n">matrix_b</span><span class="p">)</span>  <span class="c1"># Optimizado para TPU</span>
+
+<span class="c1"># Compilación JIT nativa</span>
+<span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">optimized_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">optimized_function</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="core-jax-con-optimizaciones-tpu">
+<h2>Core JAX con Optimizaciones TPU<a class="headerlink" href="#core-jax-con-optimizaciones-tpu" title="Link to this heading"></a></h2>
+<p>El archivo <code class="docutils literal notranslate"><span class="pre">capibara/jax/_src/core.py</span></code> contiene optimizaciones específicas:</p>
+<p><strong>Configuraciones TPU v4-32</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax._src.core</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TPUv4MeshConfigurations</span><span class="p">,</span>
+    <span class="n">create_tpu_mesh_config</span><span class="p">,</span>
+    <span class="n">tpu_v4_optimization_context</span>
+<span class="p">)</span>
+
+<span class="c1"># Configuraciones mesh predefinidas</span>
+<span class="n">configs</span> <span class="o">=</span> <span class="n">TPUv4MeshConfigurations</span><span class="p">()</span>
+<span class="n">cultural_config</span> <span class="o">=</span> <span class="n">configs</span><span class="o">.</span><span class="n">CULTURAL_ANALYSIS</span>  <span class="c1"># (4, 8) mesh</span>
+<span class="n">quantum_config</span> <span class="o">=</span> <span class="n">configs</span><span class="o">.</span><span class="n">QUANTUM_CLASSICAL</span>   <span class="c1"># (8, 4) mesh</span>
+<span class="n">spiking_config</span> <span class="o">=</span> <span class="n">configs</span><span class="o">.</span><span class="n">SPIKING_NEURAL</span>      <span class="c1"># (16, 2) mesh</span>
+
+<span class="c1"># Crear configuración mesh personalizada</span>
+<span class="n">custom_mesh</span> <span class="o">=</span> <span class="n">create_tpu_mesh_config</span><span class="p">(</span>
+    <span class="n">mesh_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="n">optimization_target</span><span class="o">=</span><span class="s2">&quot;inference&quot;</span><span class="p">,</span>  <span class="c1"># &quot;inference&quot;, &quot;training&quot;, &quot;balanced&quot;</span>
+    <span class="n">memory_limit_gb</span><span class="o">=</span><span class="mf">32.0</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Contexto de Optimización TPU</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usar optimizaciones TPU v4 automáticas</span>
+<span class="k">with</span> <span class="n">tpu_v4_optimization_context</span><span class="p">():</span>
+    <span class="c1"># Operaciones automáticamente optimizadas para TPU</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">8192</span><span class="p">,</span> <span class="mi">8192</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># Usa kernels TPU optimizados</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Sharding y Paralelización</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax._src.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">with_sharding_constraint</span>
+
+<span class="c1"># Sharding automático para TPU</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">distributed_computation</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># Aplicar constraint de sharding</span>
+    <span class="n">x_sharded</span> <span class="o">=</span> <span class="n">with_sharding_constraint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;batch&quot;</span><span class="p">,</span> <span class="s2">&quot;hidden&quot;</span><span class="p">))</span>
+
+    <span class="c1"># Operación distribuida automáticamente</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_sharded</span><span class="p">,</span> <span class="n">x_sharded</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+<span class="c1"># Compilar con sharding</span>
+<span class="n">distributed_fn</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">distributed_computation</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">distributed_fn</span><span class="p">(</span><span class="n">large_tensor</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="kernels-tpu-v4-32-optimizados">
+<h2>Kernels TPU v4-32 Optimizados<a class="headerlink" href="#kernels-tpu-v4-32-optimizados" title="Link to this heading"></a></h2>
+<p><strong>Kernels Especializados Disponibles</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.backend</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TpuV4LinalgOps</span><span class="p">,</span>
+    <span class="n">TpuV4AttentionOps</span><span class="p">,</span>
+    <span class="n">TpuV4ScanOps</span><span class="p">,</span>
+    <span class="n">TpuV4CollectiveOps</span>
+<span class="p">)</span>
+
+<span class="c1"># Operaciones álgebra lineal optimizadas</span>
+<span class="n">linalg_ops</span> <span class="o">=</span> <span class="n">TpuV4LinalgOps</span><span class="p">()</span>
+
+<span class="c1"># GEMM optimizado para TPU v4</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">linalg_ops</span><span class="o">.</span><span class="n">optimized_gemm</span><span class="p">(</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">matrix_a</span><span class="p">,</span>
+    <span class="n">b</span><span class="o">=</span><span class="n">matrix_b</span><span class="p">,</span>
+    <span class="n">precision</span><span class="o">=</span><span class="s2">&quot;bfloat16&quot;</span><span class="p">,</span>
+    <span class="n">use_async</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Attention con Flash Attention TPU</span>
+<span class="n">attention_ops</span> <span class="o">=</span> <span class="n">TpuV4AttentionOps</span><span class="p">()</span>
+<span class="n">attention_result</span> <span class="o">=</span> <span class="n">attention_ops</span><span class="o">.</span><span class="n">flash_attention</span><span class="p">(</span>
+    <span class="n">query</span><span class="o">=</span><span class="n">q</span><span class="p">,</span>
+    <span class="n">key</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="n">v</span><span class="p">,</span>
+    <span class="n">block_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+    <span class="n">use_causal_mask</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Scan Paralelo para SSM</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scan paralelo optimizado para State Space Models</span>
+<span class="n">scan_ops</span> <span class="o">=</span> <span class="n">TpuV4ScanOps</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ssm_step</span><span class="p">(</span><span class="n">carry</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">new_carry</span><span class="p">,</span> <span class="n">output</span>
+
+<span class="c1"># Scan paralelo con 256 segmentos</span>
+<span class="n">final_carry</span><span class="p">,</span> <span class="n">outputs</span> <span class="o">=</span> <span class="n">scan_ops</span><span class="o">.</span><span class="n">parallel_scan</span><span class="p">(</span>
+    <span class="n">ssm_step</span><span class="p">,</span>
+    <span class="n">initial_carry</span><span class="p">,</span>
+    <span class="n">sequence_data</span><span class="p">,</span>
+    <span class="n">num_segments</span><span class="o">=</span><span class="mi">256</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="optimizaciones-especificas">
+<h2>Optimizaciones Específicas<a class="headerlink" href="#optimizaciones-especificas" title="Link to this heading"></a></h2>
+<p><strong>Memoria y Cache</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.optimizations</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TpuMemoryMonitor</span><span class="p">,</span>
+    <span class="n">create_optimized_cache</span><span class="p">,</span>
+    <span class="n">TpuPerformanceProfiler</span>
+<span class="p">)</span>
+
+<span class="c1"># Monitor de memoria TPU</span>
+<span class="n">memory_monitor</span> <span class="o">=</span> <span class="n">TpuMemoryMonitor</span><span class="p">(</span>
+    <span class="n">memory_limit_gb</span><span class="o">=</span><span class="mf">32.0</span><span class="p">,</span>
+    <span class="n">cleanup_threshold</span><span class="o">=</span><span class="mf">0.85</span>
+<span class="p">)</span>
+
+<span class="c1"># Cache optimizado para TPU</span>
+<span class="n">cache</span> <span class="o">=</span> <span class="n">create_optimized_cache</span><span class="p">(</span>
+    <span class="n">cache_size_gb</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
+    <span class="n">use_hbm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Usar High Bandwidth Memory</span>
+    <span class="n">prefetch_enabled</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Profiling automático</span>
+<span class="n">profiler</span> <span class="o">=</span> <span class="n">TpuPerformanceProfiler</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">profile_context</span><span class="p">(</span><span class="s2">&quot;forward_pass&quot;</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TFLOPS: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;tflops&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Memory efficiency: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;memory_efficiency&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Compilación Optimizada</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.optimizations</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_jitted_forward</span>
+
+<span class="c1"># Compilación JIT optimizada para TPU</span>
+<span class="n">optimized_forward</span> <span class="o">=</span> <span class="n">create_jitted_forward</span><span class="p">(</span>
+    <span class="n">model_fn</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">,</span>
+    <span class="n">input_shapes</span><span class="o">=</span><span class="p">[(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">768</span><span class="p">)],</span>  <span class="c1"># Shapes típicos</span>
+    <span class="n">optimization_level</span><span class="o">=</span><span class="s2">&quot;aggressive&quot;</span><span class="p">,</span>
+    <span class="n">use_bfloat16</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">enable_async_collective</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Forward pass optimizado</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">optimized_forward</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="integracion-con-vector-quantization">
+<h2>Integración con Vector Quantization<a class="headerlink" href="#integracion-con-vector-quantization" title="Link to this heading"></a></h2>
+<p><strong>VQ con JAX Nativo</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">capibara.jax</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jax</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.vq.vqbit.vqbit_layer</span><span class="w"> </span><span class="kn">import</span> <span class="n">VQbitLayer</span>
+
+<span class="c1"># VQbit Layer usando JAX nativo</span>
+<span class="n">vqbit</span> <span class="o">=</span> <span class="n">VQbitLayer</span><span class="p">(</span>
+    <span class="n">codebook_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+    <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>
+    <span class="n">use_jax_native</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>          <span class="c1"># Usar capibara.jax</span>
+    <span class="n">use_tpu_optimizations</span><span class="o">=</span><span class="kc">True</span>    <span class="c1"># Optimizaciones TPU activas</span>
+<span class="p">)</span>
+
+<span class="c1"># Forward pass con quantización optimizada</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">vq_forward</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># Usar kernels TPU para quantización</span>
+    <span class="n">quantized</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="n">vqbit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">quantized</span><span class="p">,</span> <span class="n">metrics</span>
+
+<span class="c1"># Compilar con optimizaciones TPU</span>
+<span class="n">optimized_vq</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">vq_forward</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">optimized_vq</span><span class="p">(</span><span class="n">input_embeddings</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="fallbacks-y-compatibilidad">
+<h2>Fallbacks y Compatibilidad<a class="headerlink" href="#fallbacks-y-compatibilidad" title="Link to this heading"></a></h2>
+<p><strong>Sistema de Fallbacks Automático</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># El sistema automáticamente maneja fallbacks</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Intentar usar capibara JAX nativo</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">capibara.jax</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jax</span>
+    <span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;capibara_jax_native&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Usando JAX nativo con optimizaciones TPU&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="c1"># Fallback a JAX estándar</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
+    <span class="n">backend</span> <span class="o">=</span> <span class="s2">&quot;standard_jax&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⚠️ Fallback a JAX estándar&quot;</span><span class="p">)</span>
+
+<span class="c1"># Las APIs son idénticas - código compatible</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Detección de Capacidades</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_backend_info</span>
+
+<span class="c1"># Información del backend activo</span>
+<span class="n">backend_info</span> <span class="o">=</span> <span class="n">get_backend_info</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Backend: </span><span class="si">{</span><span class="n">backend_info</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TPU optimizations: </span><span class="si">{</span><span class="n">backend_info</span><span class="p">[</span><span class="s1">&#39;tpu_optimized&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Custom kernels: </span><span class="si">{</span><span class="n">backend_info</span><span class="p">[</span><span class="s1">&#39;custom_kernels&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Memory limit: </span><span class="si">{</span><span class="n">backend_info</span><span class="p">[</span><span class="s1">&#39;memory_limit_gb&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> GB&quot;</span><span class="p">)</span>
+
+<span class="c1"># Verificar capacidades específicas</span>
+<span class="n">has_flash_attention</span> <span class="o">=</span> <span class="n">backend_info</span><span class="p">[</span><span class="s1">&#39;capabilities&#39;</span><span class="p">][</span><span class="s1">&#39;flash_attention&#39;</span><span class="p">]</span>
+<span class="n">has_parallel_scan</span> <span class="o">=</span> <span class="n">backend_info</span><span class="p">[</span><span class="s1">&#39;capabilities&#39;</span><span class="p">][</span><span class="s1">&#39;parallel_scan&#39;</span><span class="p">]</span>
+<span class="n">has_vq_kernels</span> <span class="o">=</span> <span class="n">backend_info</span><span class="p">[</span><span class="s1">&#39;capabilities&#39;</span><span class="p">][</span><span class="s1">&#39;vq_kernels&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="debugging-y-desarrollo">
+<h2>Debugging y Desarrollo<a class="headerlink" href="#debugging-y-desarrollo" title="Link to this heading"></a></h2>
+<p><strong>Modo Debug JAX</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Activar modo debug</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">capibara.jax</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jax</span>
+<span class="n">jax</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;jax_debug_mode&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">jax</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;jax_check_tracer_leaks&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Logging detallado</span>
+<span class="n">jax</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;jax_log_compiles&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Verificar compilaciones</span>
+<span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">debug_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Compilando para shape: </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">debug_function</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p><strong>Profiling Avanzado</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.optimizations</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuProfiler</span>
+
+<span class="c1"># Profiler completo TPU</span>
+<span class="n">profiler</span> <span class="o">=</span> <span class="n">TpuProfiler</span><span class="p">(</span>
+    <span class="n">capture_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">capture_flops</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">capture_communication</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="k">with</span> <span class="n">profiler</span><span class="p">:</span>
+    <span class="c1"># Operaciones a perfilar</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="c1"># Análisis de rendimiento</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">generate_report</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Peak memory: </span><span class="si">{</span><span class="n">report</span><span class="p">[</span><span class="s1">&#39;peak_memory_gb&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> GB&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total FLOPS: </span><span class="si">{</span><span class="n">report</span><span class="p">[</span><span class="s1">&#39;total_flops&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Communication overhead: </span><span class="si">{</span><span class="n">report</span><span class="p">[</span><span class="s1">&#39;comm_overhead_ms&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="migracion-desde-jax-estandar">
+<h2>Migración desde JAX Estándar<a class="headerlink" href="#migracion-desde-jax-estandar" title="Link to this heading"></a></h2>
+<p><strong>Migración Paso a Paso</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ANTES (JAX estándar)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span>
+
+<span class="c1"># DESPUÉS (JAX nativo) - cambio mínimo</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">capibara.jax</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jax</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">capibara.jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span>
+
+<span class="c1"># El resto del código permanece idéntico</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Verificación de Compatibilidad</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_migration_compatibility</span>
+
+<span class="c1"># Verificar código existente</span>
+<span class="n">compatibility</span> <span class="o">=</span> <span class="n">check_migration_compatibility</span><span class="p">(</span>
+    <span class="n">source_code</span><span class="o">=</span><span class="s2">&quot;mi_modelo.py&quot;</span><span class="p">,</span>
+    <span class="n">check_imports</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">check_functions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">check_performance</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">compatibility</span><span class="o">.</span><span class="n">is_compatible</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Código compatible con JAX nativo&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⚠️ Necesita ajustes:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">issue</span> <span class="ow">in</span> <span class="n">compatibility</span><span class="o">.</span><span class="n">issues</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   - </span><span class="si">{</span><span class="n">issue</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="mejores-practicas">
+<h2>Mejores Prácticas<a class="headerlink" href="#mejores-practicas" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Usar JAX nativo por defecto</strong> - Mayor rendimiento y optimizaciones</p></li>
+<li><p><strong>Verificar backend activo</strong> - Confirmar que se usa capibara.jax</p></li>
+<li><p><strong>Aprovechar optimizaciones TPU</strong> - Usar contextos de optimización</p></li>
+<li><p><strong>Manejar fallbacks gracefully</strong> - Código que funciona en ambos backends</p></li>
+<li><p><strong>Profiling regular</strong> - Monitorear rendimiento y memoria</p></li>
+<li><p><strong>Actualizar gradualmente</strong> - Migrar módulo por módulo</p></li>
+</ol>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<p><strong>Problema: JAX nativo no se carga</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar instalación</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">diagnostics</span>
+
+<span class="n">diagnosis</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">check_installation</span><span class="p">()</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">diagnosis</span><span class="o">.</span><span class="n">jax_native_available</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;❌ JAX nativo no disponible&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Razón: </span><span class="si">{</span><span class="n">diagnosis</span><span class="o">.</span><span class="n">error_message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;💡 Usando fallback automático a JAX estándar&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Problema: Rendimiento menor que esperado</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar optimizaciones activas</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_optimization_status</span>
+
+<span class="n">status</span> <span class="o">=</span> <span class="n">get_optimization_status</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TPU optimizations: </span><span class="si">{</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;tpu_optimized&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Custom kernels: </span><span class="si">{</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;custom_kernels_active&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Memory optimization: </span><span class="si">{</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;memory_optimized&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Activar optimizaciones faltantes</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">status</span><span class="p">[</span><span class="s1">&#39;tpu_optimized&#39;</span><span class="p">]:</span>
+    <span class="n">jax</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;enable_tpu_optimizations&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="recursos-y-referencias">
+<h2>Recursos y Referencias<a class="headerlink" href="#recursos-y-referencias" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Código fuente</strong>: <code class="docutils literal notranslate"><span class="pre">capibara/jax/</span></code></p></li>
+<li><p><strong>Ejemplos</strong>: <code class="docutils literal notranslate"><span class="pre">examples/jax_native/</span></code></p></li>
+<li><p><strong>API Reference</strong>: <span class="xref std std-doc">api/jax_api</span></p></li>
+<li><p><strong>TPU Optimizations</strong>: <span class="xref std std-doc">tpu_v4/optimizations</span></p></li>
+<li><p><strong>VQ Integration</strong>: <span class="xref std std-doc">layers/vq_layers</span></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, CapibaraGPT Team.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

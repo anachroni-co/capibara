@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desarrollo &mdash; CapibaraGPT 2.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=51b770b3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CapibaraGPT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Instalación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Inicio Rápido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Guía de Contribución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Código de Conducta</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CapibaraGPT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Desarrollo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/development.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="desarrollo">
+<h1>Desarrollo<a class="headerlink" href="#desarrollo" title="Link to this heading"></a></h1>
+<p>Esta sección proporciona información para desarrolladores que deseen contribuir al proyecto Capibara.</p>
+<section id="configuracion-del-entorno">
+<h2>Configuración del Entorno<a class="headerlink" href="#configuracion-del-entorno" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Clonar el repositorio:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tu-usuario/capibara.git
+<span class="nb">cd</span><span class="w"> </span>capibara
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Crear un entorno virtual:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">  </span><span class="c1"># Linux/Mac</span>
+.<span class="se">\v</span>env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate<span class="w">  </span><span class="c1"># Windows</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Instalar dependencias de desarrollo:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="estructura-del-proyecto">
+<h2>Estructura del Proyecto<a class="headerlink" href="#estructura-del-proyecto" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>capibara/
+├── core/               # Componentes principales
+│   ├── model.py       # Implementación del modelo
+│   ├── config.py      # Configuración
+│   ├── optimizer.py   # Optimizadores
+│   └── tokenizer.py   # Tokenizadores
+├── utils/             # Utilidades
+│   ├── monitoring.py  # Monitoreo
+│   ├── logging.py     # Logging
+│   └── checkpointing.py # Checkpointing
+├── tests/             # Tests
+├── docs/              # Documentación
+└── setup.py           # Configuración del paquete
+</pre></div>
+</div>
+</section>
+<section id="guia-de-estilo">
+<h2>Guía de Estilo<a class="headerlink" href="#guia-de-estilo" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Seguir PEP 8 para el estilo de código</p></li>
+<li><p>Usar type hints</p></li>
+<li><p>Documentar todas las funciones y clases</p></li>
+<li><p>Escribir tests para nuevas funcionalidades</p></li>
+</ul>
+<p>Ejemplo de documentación:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train_model</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">DynamicCapibaraModel</span><span class="p">,</span>
+    <span class="n">dataset</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">,</span>
+    <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Entrena el modelo con el dataset proporcionado.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model: Modelo a entrenar</span>
+<span class="sd">        dataset: Dataset de entrenamiento</span>
+<span class="sd">        num_epochs: Número de épocas</span>
+<span class="sd">        batch_size: Tamaño del batch</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict con métricas de entrenamiento</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="tests">
+<h2>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h2>
+<p>Ejecutar los tests:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/
+</pre></div>
+</div>
+<p>Cobertura de tests:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--cov<span class="o">=</span>capibara<span class="w"> </span>tests/
+</pre></div>
+</div>
+</section>
+<section id="documentacion">
+<h2>Documentación<a class="headerlink" href="#documentacion" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Instalar Sphinx:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx<span class="w"> </span>sphinx-rtd-theme
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Generar documentación:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
+make<span class="w"> </span>html
+</pre></div>
+</div>
+</section>
+<section id="contribuciones">
+<h2>Contribuciones<a class="headerlink" href="#contribuciones" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Crear un fork del repositorio</p></li>
+<li><p>Crear una rama para tu feature</p></li>
+<li><p>Hacer commit de tus cambios</p></li>
+<li><p>Hacer push a la rama</p></li>
+<li><p>Crear un Pull Request</p></li>
+</ol>
+<p>Requisitos para Pull Requests:</p>
+<ul class="simple">
+<li><p>Tests pasando</p></li>
+<li><p>Documentación actualizada</p></li>
+<li><p>Código siguiendo la guía de estilo</p></li>
+<li><p>Descripción clara de los cambios</p></li>
+</ul>
+</section>
+<section id="release">
+<h2>Release<a class="headerlink" href="#release" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Actualizar versión en <cite>setup.py</cite></p></li>
+<li><p>Actualizar CHANGELOG.md</p></li>
+<li><p>Crear tag de versión</p></li>
+<li><p>Publicar en PyPI:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>bdist_wheel
+twine<span class="w"> </span>upload<span class="w"> </span>dist/*
+</pre></div>
+</div>
+</section>
+<section id="soporte">
+<h2>Soporte<a class="headerlink" href="#soporte" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Issues en GitHub</p></li>
+<li><p>Discord: #capibara-dev</p></li>
+<li><p>Email: <a class="reference external" href="mailto:dev&#37;&#52;&#48;capibara&#46;ai">dev<span>&#64;</span>capibara<span>&#46;</span>ai</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

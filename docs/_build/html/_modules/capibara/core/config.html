@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>capibara.core.config &mdash; CapibaraGPT 2.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=51b770b3"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            CapibaraGPT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Instalación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Inicio Rápido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Guía de Contribución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_of_conduct.html">Código de Conducta</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">CapibaraGPT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">capibara.core.config</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for capibara.core.config</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Módulo de configuración para CapibaraGPT.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+
+<span class="c1"># Cargar variables de entorno</span>
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="c1"># Tipos específicos para YAML</span>
+<span class="n">YAMLDict</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+<span class="n">YAMLList</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span>
+
+<div class="viewcode-block" id="get_env_or_default">
+<a class="viewcode-back" href="../../../api_reference.html#capibara.core.config.get_env_or_default">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_env_or_default</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Obtiene valor de variable de entorno o valor por defecto.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CAPIBARA_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GCConfig">
+<a class="viewcode-back" href="../../../api_reference.html#capibara.core.config.GCConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">GCConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuración de Gradient Centralization.&quot;&quot;&quot;</span>
+    <span class="n">enabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;GC_ENABLED&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="n">apply_every</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;GC_APPLY_EVERY&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
+    <span class="n">layer_specific</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="TrainingConfig">
+<a class="viewcode-back" href="../../../api_reference.html#capibara.core.config.TrainingConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TrainingConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuración de entrenamiento.&quot;&quot;&quot;</span>
+    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;BATCH_SIZE&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">)))</span>
+    <span class="n">seq_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;SEQ_LENGTH&#39;</span><span class="p">,</span> <span class="mi">512</span><span class="p">)))</span>
+    <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;LEARNING_RATE&#39;</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">)))</span>
+    <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;NUM_EPOCHS&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+    <span class="n">warmup_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;WARMUP_STEPS&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)))</span>
+    <span class="n">weight_decay</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;WEIGHT_DECAY&#39;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)))</span>
+    <span class="n">gradient_clip_norm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;GRADIENT_CLIP_NORM&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)))</span>
+    <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;VOCAB_SIZE&#39;</span><span class="p">,</span> <span class="mi">32000</span><span class="p">)))</span>
+    <span class="n">hidden_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;HIDDEN_SIZE&#39;</span><span class="p">,</span> <span class="mi">768</span><span class="p">)))</span>
+    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;NUM_HEADS&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)))</span>
+    <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;NUM_LAYERS&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)))</span>
+    <span class="n">gradient_clip_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;GRADIENT_CLIP_METHOD&#39;</span><span class="p">,</span> <span class="s1">&#39;global_norm&#39;</span><span class="p">))</span>
+    <span class="n">gradient_clip_adaptive_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;GRADIENT_CLIP_ADAPTIVE_THRESHOLD&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)))</span>
+    <span class="n">gradient_clip_per_layer_norm</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+    <span class="n">precision</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;PRECISION&#39;</span><span class="p">,</span> <span class="s1">&#39;bfloat16&#39;</span><span class="p">))</span>
+    <span class="n">mixed_precision</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;MIXED_PRECISION&#39;</span><span class="p">,</span> <span class="s1">&#39;True&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">)</span>
+    <span class="n">profiling</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;PROFILING&#39;</span><span class="p">,</span> <span class="s1">&#39;False&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">)</span>
+    <span class="n">profile_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;PROFILE_DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;./profile&#39;</span><span class="p">))</span>
+    <span class="n">checkpoint_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;CHECKPOINT_DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;./checkpoints&#39;</span><span class="p">))</span>
+    <span class="n">checkpoint_every</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;CHECKPOINT_EVERY&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)))</span>
+    <span class="n">best_model_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;BEST_MODEL_DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;./best_model&#39;</span><span class="p">))</span>
+    <span class="n">early_stopping_patience</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;EARLY_STOPPING_PATIENCE&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+    <span class="n">early_stopping_min_delta</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;EARLY_STOPPING_MIN_DELTA&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="DistributedConfig">
+<a class="viewcode-back" href="../../../api_reference.html#capibara.core.config.DistributedConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DistributedConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuración distribuida.&quot;&quot;&quot;</span>
+    <span class="n">num_devices</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;NUM_DEVICES&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+    <span class="n">model_parallel_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;MODEL_PARALLEL_SIZE&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+    <span class="n">data_parallel_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;DATA_PARALLEL_SIZE&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="k">if</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;DATA_PARALLEL_SIZE&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">sharding_strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;SHARDING_STRATEGY&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">))</span>
+    <span class="n">sync_every</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;SYNC_EVERY&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="ValidationConfig">
+<a class="viewcode-back" href="../../../api_reference.html#capibara.core.config.ValidationConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidationConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuración de validación.&quot;&quot;&quot;</span>
+    <span class="n">val_batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;VAL_BATCH_SIZE&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">)))</span>
+    <span class="n">val_seq_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;VAL_SEQ_LENGTH&#39;</span><span class="p">,</span> <span class="mi">512</span><span class="p">)))</span>
+    <span class="n">eval_every</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;EVAL_EVERY&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)))</span>
+    <span class="n">eval_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;EVAL_STEPS&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)))</span>
+    <span class="n">metrics</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;METRICS&#39;</span><span class="p">,</span> <span class="s1">&#39;loss,perplexity&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="LoggingConfig">
+<a class="viewcode-back" href="../../../api_reference.html#capibara.core.config.LoggingConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LoggingConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuración de logging.&quot;&quot;&quot;</span>
+    <span class="n">use_wandb</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;USE_WANDB&#39;</span><span class="p">,</span> <span class="s1">&#39;True&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">)</span>
+    <span class="n">wandb_project</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;WANDB_PROJECT&#39;</span><span class="p">,</span> <span class="s1">&#39;capibara-gpt&#39;</span><span class="p">))</span>
+    <span class="n">wandb_entity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;WANDB_ENTITY&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="n">log_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;LOG_DIR&#39;</span><span class="p">,</span> <span class="s1">&#39;./logs&#39;</span><span class="p">))</span>
+    <span class="n">log_every</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_env_or_default</span><span class="p">(</span><span class="s1">&#39;LOG_EVERY&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="Config">
+<a class="viewcode-back" href="../../../api_reference.html#capibara.core.config.Config">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Configuración principal.&quot;&quot;&quot;</span>
+    <span class="n">training</span><span class="p">:</span> <span class="n">TrainingConfig</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">TrainingConfig</span><span class="p">)</span>
+    <span class="n">distributed</span><span class="p">:</span> <span class="n">DistributedConfig</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">DistributedConfig</span><span class="p">)</span>
+    <span class="n">validation</span><span class="p">:</span> <span class="n">ValidationConfig</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">ValidationConfig</span><span class="p">)</span>
+    <span class="n">logging</span><span class="p">:</span> <span class="n">LoggingConfig</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">LoggingConfig</span><span class="p">)</span>
+    <span class="n">gc</span><span class="p">:</span> <span class="n">GCConfig</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">GCConfig</span><span class="p">)</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">experiment_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Genera un nombre único para el experimento basado en la configuración.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">wandb_project</span><span class="si">}</span><span class="s2">-bs</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="o">.</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">-lr</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="o">.</span><span class="n">learning_rate</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+<div class="viewcode-block" id="Config.from_yaml">
+<a class="viewcode-back" href="../../../api_reference.html#capibara.core.config.Config.from_yaml">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_yaml</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s1">&#39;Config&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Carga configuración desde archivo YAML.&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">config_dict</span><span class="p">:</span> <span class="n">YAMLDict</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">training</span><span class="o">=</span><span class="n">TrainingConfig</span><span class="p">(</span><span class="o">**</span><span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;training&#39;</span><span class="p">]),</span>
+            <span class="n">distributed</span><span class="o">=</span><span class="n">DistributedConfig</span><span class="p">(</span><span class="o">**</span><span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;distributed&#39;</span><span class="p">]),</span>
+            <span class="n">validation</span><span class="o">=</span><span class="n">ValidationConfig</span><span class="p">(</span><span class="o">**</span><span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;validation&#39;</span><span class="p">]),</span>
+            <span class="n">logging</span><span class="o">=</span><span class="n">LoggingConfig</span><span class="p">(</span><span class="o">**</span><span class="n">config_dict</span><span class="p">[</span><span class="s1">&#39;logging&#39;</span><span class="p">]),</span>
+            <span class="n">gc</span><span class="o">=</span><span class="n">GCConfig</span><span class="p">(</span><span class="o">**</span><span class="n">config_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gc&#39;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Config.to_yaml">
+<a class="viewcode-back" href="../../../api_reference.html#capibara.core.config.Config.to_yaml">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_yaml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Guarda configuración en archivo YAML.&quot;&quot;&quot;</span>
+        <span class="n">config_dict</span><span class="p">:</span> <span class="n">YAMLDict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;training&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">,</span>
+            <span class="s1">&#39;distributed&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">distributed</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">,</span>
+            <span class="s1">&#39;validation&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">validation</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">,</span>
+            <span class="s1">&#39;logging&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">,</span>
+            <span class="s1">&#39;gc&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">gc</span><span class="o">.</span><span class="vm">__dict__</span>
+        <span class="p">}</span>
+        
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config_dict</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="Config.get_precision_dtype">
+<a class="viewcode-back" href="../../../api_reference.html#capibara.core.config.Config.get_precision_dtype">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_precision_dtype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dtype</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtiene el tipo de datos de precisión.&quot;&quot;&quot;</span>
+        <span class="n">precision_map</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;float32&#39;</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+            <span class="s1">&#39;bfloat16&#39;</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">bfloat16</span><span class="p">,</span>
+            <span class="s1">&#39;float16&#39;</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">float16</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">precision_map</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="o">.</span><span class="n">precision</span><span class="p">]</span></div>
+</div>
+
+
+<div class="viewcode-block" id="get_default_config">
+<a class="viewcode-back" href="../../../api_reference.html#capibara.core.config.get_default_config">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_default_config</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Config</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Retorna una configuración por defecto para pruebas.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Config</span><span class="p">()</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía de Contribución &mdash; CapibaraGPT 2.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=51b770b3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Código de Conducta" href="code_of_conduct.html" />
+    <link rel="prev" title="Ejemplos" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CapibaraGPT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Instalación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Inicio Rápido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Ejemplos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guía de Contribución</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#como-contribuir">Cómo Contribuir</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fork-del-repositorio">1. Fork del Repositorio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuracion-del-entorno">2. Configuración del Entorno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creacion-de-una-rama">3. Creación de una Rama</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#desarrollo">4. Desarrollo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#envio-de-cambios">5. Envío de Cambios</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#convenciones-de-codigo">Convenciones de Código</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#estilo-de-codigo">Estilo de Código</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentacion">Documentación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tests">Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tipos-de-contribuciones">Tipos de Contribuciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reporte-de-errores">Reporte de Errores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nuevas-caracteristicas">Nuevas Características</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mejoras-de-codigo">Mejoras de Código</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Documentación</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#proceso-de-revision">Proceso de Revisión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contacto">Contacto</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Código de Conducta</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CapibaraGPT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guía de Contribución</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/contributing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guia-de-contribucion">
+<h1>Guía de Contribución<a class="headerlink" href="#guia-de-contribucion" title="Link to this heading"></a></h1>
+<p>¡Gracias por tu interés en contribuir a CapibaraModel! Esta guía te ayudará a entender cómo puedes contribuir al proyecto.</p>
+<section id="como-contribuir">
+<h2>Cómo Contribuir<a class="headerlink" href="#como-contribuir" title="Link to this heading"></a></h2>
+<section id="fork-del-repositorio">
+<h3>1. Fork del Repositorio<a class="headerlink" href="#fork-del-repositorio" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Haz fork del repositorio en GitHub</p></li>
+<li><p>Clona tu fork localmente</p></li>
+<li><p>Configura el upstream remoto</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tu-usuario/capibara.git
+<span class="nb">cd</span><span class="w"> </span>capibara
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/anachroni-io/capibara.git
+</pre></div>
+</div>
+</section>
+<section id="configuracion-del-entorno">
+<h3>2. Configuración del Entorno<a class="headerlink" href="#configuracion-del-entorno" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Crea un entorno virtual</p></li>
+<li><p>Instala las dependencias de desarrollo</p></li>
+<li><p>Instala el paquete en modo desarrollo</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">  </span><span class="c1"># En Windows: venv\Scripts\activate</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="creacion-de-una-rama">
+<h3>3. Creación de una Rama<a class="headerlink" href="#creacion-de-una-rama" title="Link to this heading"></a></h3>
+<p>Crea una rama para tu contribución:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/nombre-de-tu-caracteristica
+</pre></div>
+</div>
+</section>
+<section id="desarrollo">
+<h3>4. Desarrollo<a class="headerlink" href="#desarrollo" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Sigue las convenciones de código</p></li>
+<li><p>Escribe tests para tu código</p></li>
+<li><p>Actualiza la documentación</p></li>
+</ol>
+</section>
+<section id="envio-de-cambios">
+<h3>5. Envío de Cambios<a class="headerlink" href="#envio-de-cambios" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Haz commit de tus cambios</p></li>
+<li><p>Sube tu rama</p></li>
+<li><p>Crea un Pull Request</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Descripción de tus cambios&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/nombre-de-tu-caracteristica
+</pre></div>
+</div>
+</section>
+</section>
+<section id="convenciones-de-codigo">
+<h2>Convenciones de Código<a class="headerlink" href="#convenciones-de-codigo" title="Link to this heading"></a></h2>
+<section id="estilo-de-codigo">
+<h3>Estilo de Código<a class="headerlink" href="#estilo-de-codigo" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Usa black para formatear el código</p></li>
+<li><p>Usa isort para ordenar imports</p></li>
+<li><p>Sigue PEP 8</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>black<span class="w"> </span>.
+isort<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="documentacion">
+<h3>Documentación<a class="headerlink" href="#documentacion" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Documenta todas las funciones y clases</p></li>
+<li><p>Usa docstrings en formato Google</p></li>
+<li><p>Actualiza la documentación cuando sea necesario</p></li>
+</ul>
+</section>
+<section id="tests">
+<h3>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Escribe tests para todo el código nuevo</p></li>
+<li><p>Mantén la cobertura de tests alta</p></li>
+<li><p>Usa pytest para ejecutar los tests</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/
+pytest<span class="w"> </span>--cov<span class="o">=</span>capibara<span class="w"> </span>tests/
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tipos-de-contribuciones">
+<h2>Tipos de Contribuciones<a class="headerlink" href="#tipos-de-contribuciones" title="Link to this heading"></a></h2>
+<section id="reporte-de-errores">
+<h3>Reporte de Errores<a class="headerlink" href="#reporte-de-errores" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Usa el template de issue</p></li>
+<li><p>Proporciona información detallada</p></li>
+<li><p>Incluye código para reproducir el error</p></li>
+</ol>
+</section>
+<section id="nuevas-caracteristicas">
+<h3>Nuevas Características<a class="headerlink" href="#nuevas-caracteristicas" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Discute la característica en un issue primero</p></li>
+<li><p>Implementa la característica</p></li>
+<li><p>Añade tests y documentación</p></li>
+</ol>
+</section>
+<section id="mejoras-de-codigo">
+<h3>Mejoras de Código<a class="headerlink" href="#mejoras-de-codigo" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Identifica áreas de mejora</p></li>
+<li><p>Propón soluciones</p></li>
+<li><p>Implementa los cambios</p></li>
+</ol>
+</section>
+<section id="id1">
+<h3>Documentación<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Identifica áreas que necesitan documentación</p></li>
+<li><p>Escribe documentación clara y concisa</p></li>
+<li><p>Actualiza ejemplos si es necesario</p></li>
+</ol>
+</section>
+</section>
+<section id="proceso-de-revision">
+<h2>Proceso de Revisión<a class="headerlink" href="#proceso-de-revision" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Los PRs son revisados por el equipo</p></li>
+<li><p>Se pueden solicitar cambios</p></li>
+<li><p>Una vez aprobado, se mergea al main</p></li>
+</ol>
+</section>
+<section id="contacto">
+<h2>Contacto<a class="headerlink" href="#contacto" title="Link to this heading"></a></h2>
+<p>Para preguntas o dudas:</p>
+<ul class="simple">
+<li><p>Abre un issue en GitHub</p></li>
+<li><p>Únete a nuestro Discord</p></li>
+<li><p>Envía un email a <a class="reference external" href="mailto:contribuciones&#37;&#52;&#48;anachroni&#46;io">contribuciones<span>&#64;</span>anachroni<span>&#46;</span>io</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.html" class="btn btn-neutral float-left" title="Ejemplos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="code_of_conduct.html" class="btn btn-neutral float-right" title="Código de Conducta" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

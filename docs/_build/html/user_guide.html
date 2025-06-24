@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía del Usuario &mdash; CapibaraGPT 2.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=51b770b3"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CapibaraGPT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenidos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Instalación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Inicio Rápido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Ejemplos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Guía de Contribución</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Código de Conducta</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CapibaraGPT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guía del Usuario</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/user_guide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guia-del-usuario">
+<h1>Guía del Usuario<a class="headerlink" href="#guia-del-usuario" title="Link to this heading"></a></h1>
+<p>Esta guía proporciona información detallada sobre cómo usar Capibara para diferentes tareas.</p>
+<section id="configuracion-del-modelo">
+<h2>Configuración del Modelo<a class="headerlink" href="#configuracion-del-modelo" title="Link to this heading"></a></h2>
+<p>Capibara ofrece varias opciones de configuración a través de la clase <code class="docutils literal notranslate"><span class="pre">ModelConfig</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelConfig</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModelConfig</span><span class="p">(</span>
+    <span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;mamba&quot;</span><span class="p">,</span>  <span class="c1"># o &quot;transformer&quot;, &quot;hybrid&quot;</span>
+    <span class="n">hidden_size</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>
+    <span class="n">num_layers</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">num_heads</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">dropout</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;gelu&quot;</span><span class="p">,</span>
+    <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">layer_norm_eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
+    <span class="n">max_position_embeddings</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+    <span class="n">tie_word_embeddings</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">gradient_checkpointing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_cache</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="entrenamiento">
+<h2>Entrenamiento<a class="headerlink" href="#entrenamiento" title="Link to this heading"></a></h2>
+<p>Para entrenar el modelo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara</span><span class="w"> </span><span class="kn">import</span> <span class="n">DynamicCapibaraModel</span><span class="p">,</span> <span class="n">TrainingPipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.utils.monitoring</span><span class="w"> </span><span class="kn">import</span> <span class="n">RealTimeMonitor</span>
+
+<span class="c1"># Inicializar modelo y pipeline</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">DynamicCapibaraModel</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">TrainingPipeline</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># Configurar monitoreo</span>
+<span class="n">monitor</span> <span class="o">=</span> <span class="n">RealTimeMonitor</span><span class="p">()</span>
+
+<span class="c1"># Entrenar</span>
+<span class="n">pipeline</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+    <span class="n">train_dataset</span><span class="p">,</span>
+    <span class="n">eval_dataset</span><span class="p">,</span>
+    <span class="n">num_epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="n">monitor</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="inferencia">
+<h2>Inferencia<a class="headerlink" href="#inferencia" title="Link to this heading"></a></h2>
+<p>Para usar el modelo en inferencia:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara</span><span class="w"> </span><span class="kn">import</span> <span class="n">DynamicCapibaraModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.utils.checkpointing</span><span class="w"> </span><span class="kn">import</span> <span class="n">CheckpointManager</span>
+
+<span class="c1"># Cargar modelo y checkpoint</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">DynamicCapibaraModel</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">checkpoint_manager</span> <span class="o">=</span> <span class="n">CheckpointManager</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">checkpoint_manager</span><span class="o">.</span><span class="n">load_checkpoint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;ruta/al/checkpoint&quot;</span><span class="p">)</span>
+
+<span class="c1"># Generar texto</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+    <span class="s2">&quot;Tu texto de entrada aquí&quot;</span><span class="p">,</span>
+    <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">top_p</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+    <span class="n">top_k</span><span class="o">=</span><span class="mi">50</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="optimizacion-para-tpu-gpu">
+<h2>Optimización para TPU/GPU<a class="headerlink" href="#optimizacion-para-tpu-gpu" title="Link to this heading"></a></h2>
+<p>Para optimizar el rendimiento:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuración para TPU</span>
+<span class="n">config</span><span class="o">.</span><span class="n">tpu</span><span class="o">.</span><span class="n">use_tpu</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">config</span><span class="o">.</span><span class="n">tpu</span><span class="o">.</span><span class="n">num_cores</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">config</span><span class="o">.</span><span class="n">tpu</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="s2">&quot;bfloat16&quot;</span>
+
+<span class="c1"># Configuración para GPU</span>
+<span class="n">config</span><span class="o">.</span><span class="n">use_mixed_precision</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">config</span><span class="o">.</span><span class="n">gradient_accumulation_steps</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</section>
+<section id="monitoreo-y-logging">
+<h2>Monitoreo y Logging<a class="headerlink" href="#monitoreo-y-logging" title="Link to this heading"></a></h2>
+<p>Capibara proporciona herramientas de monitoreo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.utils.monitoring</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RealTimeMonitor</span><span class="p">,</span>
+    <span class="n">ResourceMonitor</span><span class="p">,</span>
+    <span class="n">SystemMonitor</span>
+<span class="p">)</span>
+
+<span class="c1"># Monitoreo en tiempo real</span>
+<span class="n">realtime_monitor</span> <span class="o">=</span> <span class="n">RealTimeMonitor</span><span class="p">()</span>
+<span class="n">realtime_monitor</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+
+<span class="c1"># Monitoreo de recursos</span>
+<span class="n">resource_monitor</span> <span class="o">=</span> <span class="n">ResourceMonitor</span><span class="p">()</span>
+<span class="n">resource_monitor</span><span class="o">.</span><span class="n">log_tpu_metrics</span><span class="p">()</span>
+
+<span class="c1"># Monitoreo del sistema</span>
+<span class="n">system_monitor</span> <span class="o">=</span> <span class="n">SystemMonitor</span><span class="p">()</span>
+<span class="n">system_info</span> <span class="o">=</span> <span class="n">system_monitor</span><span class="o">.</span><span class="n">get_system_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="checkpointing">
+<h2>Checkpointing<a class="headerlink" href="#checkpointing" title="Link to this heading"></a></h2>
+<p>Para guardar y cargar checkpoints:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.utils.checkpointing</span><span class="w"> </span><span class="kn">import</span> <span class="n">CheckpointManager</span>
+
+<span class="c1"># Guardar checkpoint</span>
+<span class="n">checkpoint_manager</span> <span class="o">=</span> <span class="n">CheckpointManager</span><span class="p">()</span>
+<span class="n">checkpoint_manager</span><span class="o">.</span><span class="n">save_checkpoint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;ruta/checkpoint&quot;</span><span class="p">)</span>
+
+<span class="c1"># Cargar checkpoint</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">checkpoint_manager</span><span class="o">.</span><span class="n">load_checkpoint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;ruta/checkpoint&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="siguientes-pasos">
+<h2>Siguientes Pasos<a class="headerlink" href="#siguientes-pasos" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Ver los <a class="reference internal" href="examples.html"><span class="doc">Ejemplos</span></a> para más casos de uso</p></li>
+<li><p>Consultar la <a class="reference internal" href="api_reference.html"><span class="doc">API Reference</span></a> para detalles técnicos</p></li>
+<li><p>Explorar <a class="reference internal" href="development.html"><span class="doc">Desarrollo</span></a> para contribuir al proyecto</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

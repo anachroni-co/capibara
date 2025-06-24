@@ -1,0 +1,228 @@
+Ejemplos
+========
+
+Este documento contiene ejemplos prácticos de uso de CapibaraGPT.
+
+Generación de Texto
+----------------
+
+Generación Básica
+~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    from capibara import CapibaraModel
+
+    model = CapibaraModel()
+    
+    # Generación simple
+    text = model.generate("Escribe una historia corta sobre un robot:")
+    print(text)
+
+Generación con Parámetros
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    # Generación con control de parámetros
+    text = model.generate(
+        "Escribe un poema sobre la luna:",
+        max_length=200,
+        temperature=0.8,
+        top_p=0.9,
+        repetition_penalty=1.2,
+        num_return_sequences=3
+    )
+
+Generación por Lotes
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    # Generar múltiples textos
+    prompts = [
+        "Escribe un haiku sobre la primavera:",
+        "Describe una escena de ciencia ficción:",
+        "Escribe un diálogo entre dos personajes:"
+    ]
+    
+    responses = model.generate_batch(
+        prompts,
+        max_length=100,
+        temperature=0.7
+    )
+
+Entrenamiento
+-----------
+
+Entrenamiento Básico
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    from capibara.training import Trainer
+    from capibara.data import Dataset
+
+    # Preparar datos
+    dataset = Dataset.from_text_file("datos.txt")
+    
+    # Configurar entrenamiento
+    trainer = Trainer(
+        model=model,
+        dataset=dataset,
+        batch_size=8,
+        learning_rate=1e-4
+    )
+    
+    # Entrenar
+    trainer.train(epochs=3)
+
+Fine-tuning
+~~~~~~~~~
+
+.. code-block:: python
+
+    # Fine-tuning con datos específicos
+    trainer.fine_tune(
+        dataset=dataset,
+        epochs=1,
+        learning_rate=1e-5,
+        warmup_steps=100
+    )
+
+Cuantización
+----------
+
+Cuantización Básica
+~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    # Cuantizar modelo
+    quantized_model = model.quantize(
+        bits=4,
+        method="dynamic"
+    )
+
+Cuantización Avanzada
+~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    # Cuantización con calibración
+    quantized_model = model.quantize(
+        bits=8,
+        method="static",
+        calibration_data=calibration_dataset,
+        calibration_steps=100
+    )
+
+Monitoreo
+--------
+
+Monitoreo de Recursos
+~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    from capibara.utils import ResourceMonitor
+
+    # Monitorear recursos
+    monitor = ResourceMonitor(model)
+    
+    # Obtener estadísticas
+    stats = monitor.get_stats()
+    print(stats)
+    
+    # Monitorear en tiempo real
+    monitor.start_monitoring(interval=1)  # cada segundo
+
+Monitoreo de Rendimiento
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    from capibara.utils import PerformanceMonitor
+
+    # Monitorear rendimiento
+    perf_monitor = PerformanceMonitor(model)
+    
+    # Medir tiempo de inferencia
+    latency = perf_monitor.measure_latency(
+        input_text="Hola, ¿cómo estás?",
+        num_runs=100
+    )
+    print(f"Latencia promedio: {latency}ms")
+
+Interfaz de Línea de Comandos
+--------------------------
+
+Generación desde CLI
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+    # Generar texto
+    capibara generate "Escribe un poema sobre la naturaleza"
+
+    # Generar con parámetros
+    capibara generate --temperature 0.8 --max-length 200 "Escribe una historia"
+
+Entrenamiento desde CLI
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+    # Entrenar modelo
+    capibara train --data datos.txt --epochs 3
+
+    # Fine-tuning
+    capibara finetune --model modelo_base --data datos_especificos.txt
+
+Ejemplos Avanzados
+---------------
+
+Generación con Control de Estilo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    # Generar con estilo específico
+    text = model.generate(
+        "Escribe una historia:",
+        style="poético",
+        tone="melancólico",
+        length="corto"
+    )
+
+Generación con Filtros
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    from capibara.utils import ContentFilter
+
+    # Configurar filtros
+    filter = ContentFilter(
+        max_toxicity=0.1,
+        min_coherence=0.8
+    )
+    
+    # Generar con filtros
+    text = model.generate(
+        "Escribe un diálogo:",
+        content_filter=filter
+    )
+
+Generación con Memoria
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: python
+
+    # Generar con contexto
+    context = "En un mundo post-apocalíptico..."
+    text = model.generate(
+        "Continúa la historia:",
+        context=context,
+        memory_length=1000
+    ) 

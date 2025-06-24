@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instalación CapibaraGPT-v2 &mdash; CapibaraGPT-v2 Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1755d3b9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Inicio Rápido" href="quickstart.html" />
+    <link rel="prev" title="CapibaraGPT-v2 Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Primeros Pasos</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Instalación CapibaraGPT-v2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requisitos-del-sistema">Requisitos del Sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instalacion-desde-repositorio">Instalación Desde Repositorio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verificacion-de-instalacion">Verificación de Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion-inicial">Configuración Inicial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instalacion-para-diferentes-plataformas">Instalación para Diferentes Plataformas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting-instalacion">Troubleshooting Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variables-de-entorno-utiles">Variables de Entorno Útiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verificacion-post-instalacion">Verificación Post-Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#proximos-pasos">Próximos Pasos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Inicio Rápido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuración</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Central</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core - Arquitectura Central</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sub-Modelos Actualizados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sub_models/index.html">Sub-Modelos - Arquitecturas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Capas y Componentes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="layers/index.html">Layers - Capas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sistemas Avanzados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="meta_loop/index.html">Meta_Loop - Sistema Elixir/OTP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentos de Referencia</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Código de Conducta</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CapibaraGPT-v2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Instalación CapibaraGPT-v2</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/your-org/capibara-gpt-v2/blob/main/capibara/docs/installation.rst" class="fa fa-github"> Editar en GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="instalacion-capibaragpt-v2">
+<h1>Instalación CapibaraGPT-v2<a class="headerlink" href="#instalacion-capibaragpt-v2" title="Link to this heading"></a></h1>
+<p><strong>CapibaraGPT-v2 v3.0.0</strong> - Guía completa de instalación para el sistema <strong>100% funcional</strong> con JAX nativo, Vector Quantization, y optimizaciones TPU v4-32.</p>
+<p>🏆 <strong>Estado</strong>: <strong>COMPLETAMENTE OPERATIVO - INSTALACIÓN VERIFICADA</strong></p>
+<section id="requisitos-del-sistema">
+<h2>Requisitos del Sistema<a class="headerlink" href="#requisitos-del-sistema" title="Link to this heading"></a></h2>
+<p><strong>Hardware Recomendado</strong>
+- <strong>TPU v4-32</strong>: Rendimiento óptimo con optimizaciones nativas
+- <strong>ARM Axion C4A</strong>: Cost-effective para inferencia con 64 códigos VQ
+- <strong>GPU</strong>: Fallback optimizado (CUDA 11.8+, 8GB+ VRAM recomendado)
+- <strong>CPU</strong>: Fallback funcional (16GB+ RAM recomendado)</p>
+<p><strong>Software</strong>
+- <strong>Python</strong>: 3.9, 3.10, o 3.11 (recomendado 3.10)
+- <strong>Sistema Operativo</strong>: Linux (recomendado), Windows 10/11, macOS
+- <strong>Git</strong>: Para clonar repositorio</p>
+</section>
+<section id="instalacion-desde-repositorio">
+<h2>Instalación Desde Repositorio<a class="headerlink" href="#instalacion-desde-repositorio" title="Link to this heading"></a></h2>
+<p><strong>1. Clonar Repositorio</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clonar repositorio oficial</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/user/CapibaraGPT-v2.git
+<span class="nb">cd</span><span class="w"> </span>CapibaraGPT-v2
+
+<span class="c1"># Cambiar a branch principal (si no está en main)</span>
+git<span class="w"> </span>checkout<span class="w"> </span>main
+</pre></div>
+</div>
+<p><strong>2. Crear Entorno Virtual</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear entorno virtual Python</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>capibara_env
+
+<span class="c1"># Activar entorno virtual</span>
+<span class="c1"># Linux/macOS:</span>
+<span class="nb">source</span><span class="w"> </span>capibara_env/bin/activate
+
+<span class="c1"># Windows:</span>
+capibara_env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</pre></div>
+</div>
+<p><strong>3. Instalar Dependencias</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Actualizar pip</span>
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+
+<span class="c1"># Instalar dependencias principales</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># Instalación en modo desarrollo (recomendado)</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="verificacion-de-instalacion">
+<h2>Verificación de Instalación<a class="headerlink" href="#verificacion-de-instalacion" title="Link to this heading"></a></h2>
+<p><strong>Test de Importación Principal</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar importación principal (debe funcionar sin errores)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">capibara</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ CapibaraGPT-v2 importado correctamente&quot;</span><span class="p">)</span>
+
+<span class="c1"># Verificar módulos principales</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModularCapibaraModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModularModelConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.vq.vqbit</span><span class="w"> </span><span class="kn">import</span> <span class="n">VQbitLayer</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Módulos principales funcionales&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;📦 Versión: </span><span class="si">{</span><span class="n">capibara</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Test JAX Nativo</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar JAX nativo funcional</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">capibara.jax</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jax</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">capibara.jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+
+    <span class="c1"># Test operación básica</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ JAX nativo funcionando correctamente&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🔧 Backend JAX: </span><span class="si">{</span><span class="n">jax</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠️ JAX nativo no disponible, usando fallback: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>  <span class="c1"># Fallback automático</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ JAX estándar funcionando como fallback&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Test Sistema VQ</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar Vector Quantization</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.vq.vqbit</span><span class="w"> </span><span class="kn">import</span> <span class="n">VQbitLayer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">capibara.jax.numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jnp</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Crear VQbit Layer básico</span>
+    <span class="n">vqbit</span> <span class="o">=</span> <span class="n">VQbitLayer</span><span class="p">(</span>
+        <span class="n">codebook_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+        <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">768</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Test forward pass</span>
+    <span class="n">test_input</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">768</span><span class="p">))</span>
+    <span class="n">quantized</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="n">vqbit</span><span class="p">(</span><span class="n">test_input</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Sistema VQ funcionando correctamente&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🎯 Codebook size: </span><span class="si">{</span><span class="n">vqbit</span><span class="o">.</span><span class="n">codebook_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;📊 Compression ratio: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;compression_ratio&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Error en sistema VQ: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Script de Verificación Automática</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejecutar verificación completa del sistema</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.utils.diagnostics</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemDiagnostics</span>
+
+<span class="n">diagnostics</span> <span class="o">=</span> <span class="n">SystemDiagnostics</span><span class="p">()</span>
+
+<span class="c1"># Verificación completa</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔍 Ejecutando verificación completa del sistema...&quot;</span><span class="p">)</span>
+<span class="n">health_report</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">run_comprehensive_check</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">📊 Reporte de Estado:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">component</span><span class="p">,</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">health_report</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">icon</span> <span class="o">=</span> <span class="s2">&quot;✅&quot;</span> <span class="k">if</span> <span class="n">status</span><span class="p">[</span><span class="s1">&#39;healthy&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="s2">&quot;❌&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   </span><span class="si">{</span><span class="n">icon</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">component</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Verificación específica imports</span>
+<span class="n">import_check</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">check_all_imports</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">📦 Imports: </span><span class="si">{</span><span class="n">import_check</span><span class="p">[</span><span class="s1">&#39;successful&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> OK, </span><span class="si">{</span><span class="n">import_check</span><span class="p">[</span><span class="s1">&#39;failed&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> errores&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">import_check</span><span class="p">[</span><span class="s1">&#39;failed&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⚠️ Errores de importación encontrados:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">import_check</span><span class="p">[</span><span class="s1">&#39;error_details&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   - </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="configuracion-inicial">
+<h2>Configuración Inicial<a class="headerlink" href="#configuracion-inicial" title="Link to this heading"></a></h2>
+<p><strong>1. Configuración Básica</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModularModelConfig</span>
+
+<span class="c1"># Configuración desde TOML (recomendado)</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="o">.</span><span class="n">from_toml</span><span class="p">(</span>
+    <span class="s2">&quot;capibara/config/configs_toml/development/development.toml&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Configuración programática básica</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;capibara_dev&quot;</span><span class="p">,</span>
+    <span class="n">hidden_size</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>
+    <span class="n">num_layers</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">num_heads</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+
+    <span class="c1"># JAX nativo</span>
+    <span class="n">use_jax_native</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+
+    <span class="c1"># Vector Quantization</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">vq_codes</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+
+    <span class="c1"># Hardware auto-detection</span>
+    <span class="n">device</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>2. Crear Modelo Inicial</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModularCapibaraModel</span>
+
+<span class="c1"># Crear modelo con configuración</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ModularCapibaraModel</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Inicializar modelo</span>
+<span class="n">model</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ Modelo creado: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🔧 JAX backend: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">jax_backend</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🎯 VQ enabled: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">use_vq</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚡ Hardware: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">detected_hardware</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>3. Test de Generación</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test básico de generación</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+        <span class="s2">&quot;Hola, soy CapibaraGPT-v2&quot;</span><span class="p">,</span>
+        <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span>
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Generación funcionando correctamente&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🤖 Respuesta: </span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠️ Error en generación: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;💡 Esto es normal en primera instalación - el modelo necesita entrenamiento&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="instalacion-para-diferentes-plataformas">
+<h2>Instalación para Diferentes Plataformas<a class="headerlink" href="#instalacion-para-diferentes-plataformas" title="Link to this heading"></a></h2>
+<p><strong>TPU v4-32 (Google Cloud)</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalación específica TPU</span>
+pip<span class="w"> </span>install<span class="w"> </span>jax<span class="o">[</span>tpu<span class="o">]</span><span class="w"> </span>-f<span class="w"> </span>https://storage.googleapis.com/jax-releases/libtpu_releases.html
+
+<span class="c1"># Verificar TPU disponible</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import jax; print(&#39;TPU devices:&#39;, jax.devices())&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuración TPU v4</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="o">.</span><span class="n">from_toml</span><span class="p">(</span>
+    <span class="s2">&quot;capibara/config/configs_toml/production/tpu_v4.toml&quot;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🚀 TPU mesh: </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">tpu_mesh_shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;💾 Memory limit: </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">tpu_memory_limit_gb</span><span class="si">}</span><span class="s2"> GB&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ARM Axion (AWS Graviton)</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalación optimizada ARM</span>
+pip<span class="w"> </span>install<span class="w"> </span>jax<span class="o">[</span>cpu<span class="o">]</span>
+
+<span class="c1"># Dependencias ARM específicas (opcional)</span>
+pip<span class="w"> </span>install<span class="w"> </span>onnxruntime
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libblas-dev<span class="w"> </span>liblapack-dev
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuración ARM Axion</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="o">.</span><span class="n">from_toml</span><span class="p">(</span>
+    <span class="s2">&quot;capibara/config/configs_toml/specialized/arm_axion_inference.toml&quot;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🔧 ARM optimizations: </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">use_arm_optimizations</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🎯 VQ codes: </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">vq_codes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>GPU CUDA</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalación CUDA</span>
+pip<span class="w"> </span>install<span class="w"> </span>jax<span class="o">[</span>cuda11_pip<span class="o">]</span><span class="w"> </span>-f<span class="w"> </span>https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+
+<span class="c1"># Verificar CUDA</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import jax; print(&#39;GPU devices:&#39;, jax.devices())&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuración GPU</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cuda&quot;</span><span class="p">,</span>
+    <span class="n">gpu_memory_fraction</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">mixed_precision</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">vq_codes</span><span class="o">=</span><span class="mi">64</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>CPU/Desarrollo Local</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalación CPU básica</span>
+pip<span class="w"> </span>install<span class="w"> </span>jax<span class="o">[</span>cpu<span class="o">]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuración desarrollo</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="o">.</span><span class="n">from_toml</span><span class="p">(</span>
+    <span class="s2">&quot;capibara/config/configs_toml/development/development.toml&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="troubleshooting-instalacion">
+<h2>Troubleshooting Instalación<a class="headerlink" href="#troubleshooting-instalacion" title="Link to this heading"></a></h2>
+<p><strong>Problema: Errores de Importación</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar instalación completa</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--force-reinstall
+
+<span class="c1"># Verificar conflictos dependencias</span>
+pip<span class="w"> </span>check
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diagnóstico imports</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.utils.diagnostics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImportDiagnostics</span>
+
+<span class="n">diagnostics</span> <span class="o">=</span> <span class="n">ImportDiagnostics</span><span class="p">()</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">diagnose_import_issues</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔍 Diagnóstico de imports:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">issue</span> <span class="ow">in</span> <span class="n">report</span><span class="o">.</span><span class="n">issues</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   ❌ </span><span class="si">{</span><span class="n">issue</span><span class="o">.</span><span class="n">module</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">issue</span><span class="o">.</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   💡 Solución: </span><span class="si">{</span><span class="n">issue</span><span class="o">.</span><span class="n">suggested_fix</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Problema: JAX no Funciona</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar JAX installation</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ JAX version: </span><span class="si">{</span><span class="n">jax</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🔧 JAX backend: </span><span class="si">{</span><span class="n">jax</span><span class="o">.</span><span class="n">default_backend</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;📱 Devices: </span><span class="si">{</span><span class="n">jax</span><span class="o">.</span><span class="n">devices</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;❌ JAX no instalado - ejecutar: pip install jax&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Problema: TPU no Detectado</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar TPU setup (Google Cloud)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TPU_NAME</span><span class="o">=</span>your-tpu-name
+<span class="nb">export</span><span class="w"> </span><span class="nv">ZONE</span><span class="o">=</span>your-zone
+
+<span class="c1"># Test conexión TPU</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import jax; print(&#39;TPU devices:&#39;, len(jax.devices()))&quot;</span>
+</pre></div>
+</div>
+<p><strong>Problema: Memoria Insuficiente</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuración memoria limitada</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;capibara_lite&quot;</span><span class="p">,</span>
+    <span class="n">hidden_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>        <span class="c1"># Reducido</span>
+    <span class="n">num_layers</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>           <span class="c1"># Reducido</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>           <span class="c1"># Reducido</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">vq_codes</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>            <span class="c1"># Reducido</span>
+    <span class="n">mixed_precision</span><span class="o">=</span><span class="kc">True</span>    <span class="c1"># Activar para ahorrar memoria</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="variables-de-entorno-utiles">
+<h2>Variables de Entorno Útiles<a class="headerlink" href="#variables-de-entorno-utiles" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># JAX Configuration</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">JAX_PLATFORM_NAME</span><span class="o">=</span>cpu<span class="w">          </span><span class="c1"># Forzar CPU</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">JAX_ENABLE_X64</span><span class="o">=</span><span class="nb">true</span><span class="w">            </span><span class="c1"># Precisión 64-bit</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">JAX_DEBUG_MODE</span><span class="o">=</span><span class="nb">true</span><span class="w">            </span><span class="c1"># Modo debug</span>
+
+<span class="c1"># CapibaraGPT-v2 Configuration</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_USE_JAX_NATIVE</span><span class="o">=</span><span class="nb">true</span><span class="w">   </span><span class="c1"># JAX nativo</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_DEVICE</span><span class="o">=</span>auto<span class="w">           </span><span class="c1"># Auto-detección</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_LOG_LEVEL</span><span class="o">=</span>INFO<span class="w">        </span><span class="c1"># Logging</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_CACHE_DIR</span><span class="o">=</span>./cache<span class="w">     </span><span class="c1"># Directorio cache</span>
+</pre></div>
+</div>
+</section>
+<section id="verificacion-post-instalacion">
+<h2>Verificación Post-Instalación<a class="headerlink" href="#verificacion-post-instalacion" title="Link to this heading"></a></h2>
+<p><strong>Script de Verificación Completa</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejecutar script verificación incluido</span>
+python<span class="w"> </span>scripts/verify_installation.py
+</pre></div>
+</div>
+<p><strong>Test Funcional Completo</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test funcional end-to-end</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.tests.integration</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_installation_test</span>
+
+<span class="c1"># Ejecutar test completo</span>
+<span class="n">test_results</span> <span class="o">=</span> <span class="n">run_installation_test</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🧪 Resultados Test Instalación:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">test_name</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">test_results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">icon</span> <span class="o">=</span> <span class="s2">&quot;✅&quot;</span> <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">passed</span> <span class="k">else</span> <span class="s2">&quot;❌&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   </span><span class="si">{</span><span class="n">icon</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">test_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Reporte final</span>
+<span class="n">passed</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">test_results</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">passed</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_results</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">passed</span> <span class="o">==</span> <span class="n">total</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">🎉 ¡Instalación exitosa! </span><span class="si">{</span><span class="n">passed</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2"> tests pasaron&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ CapibaraGPT-v2 v3.0.0 listo para usar&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">⚠️ Instalación parcial: </span><span class="si">{</span><span class="n">passed</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2"> tests pasaron&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;💡 Revisar logs para detalles de errores&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="proximos-pasos">
+<h2>Próximos Pasos<a class="headerlink" href="#proximos-pasos" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Explorar Documentación</strong>: <a class="reference internal" href="quickstart.html"><span class="doc">Inicio Rápido</span></a> para comenzar</p></li>
+<li><p><strong>Configuración Avanzada</strong>: <a class="reference internal" href="configuration.html"><span class="doc">Configuración</span></a> para personalizar</p></li>
+<li><p><strong>Ejemplos</strong>: Revisar <code class="docutils literal notranslate"><span class="pre">examples/</span></code> para casos de uso</p></li>
+<li><p><strong>Desarrollo</strong>: <span class="xref std std-doc">development/contributing</span> para contribuir</p></li>
+</ol>
+<p><strong>¡Instalación Completa!</strong> 🎉</p>
+<p>CapibaraGPT-v2 v3.0.0 está listo para usar con todas sus características avanzadas:
+- ✅ JAX nativo funcional
+- ✅ Sistema VQ operativo
+- ✅ Optimizaciones TPU disponibles
+- ✅ Configuración TOML lista
+- ✅ Fallbacks robustos activos</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="index.html" class="btn btn-neutral float-left" title="CapibaraGPT-v2 Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="quickstart.html" class="btn btn-neutral float-right" title="Inicio Rápido" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, CapibaraGPT Team.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

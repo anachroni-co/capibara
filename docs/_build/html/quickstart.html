@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio Rápido &mdash; CapibaraGPT-v2 Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1755d3b9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Configuración" href="configuration.html" />
+    <link rel="prev" title="Instalación CapibaraGPT-v2" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Primeros Pasos</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Instalación CapibaraGPT-v2</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Inicio Rápido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#instalacion-rapida">Instalación Rápida</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verificacion-de-la-instalacion">Verificación de la Instalación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion-inicial">Configuración Inicial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#carga-del-modelo-principal">Carga del Modelo Principal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generacion-de-texto-basica">Generación de Texto Básica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generacion-avanzada-con-vq">Generación Avanzada con VQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#entrenamiento-y-fine-tuning">Entrenamiento y Fine-tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agentes-inteligentes">Agentes Inteligentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoreo-en-tiempo-real">Monitoreo en Tiempo Real</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion-multi-plataforma">Configuración Multi-Plataforma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging-y-troubleshooting">Debugging y Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ejemplos-de-uso-avanzado">Ejemplos de Uso Avanzado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guardar-y-cargar-modelos">Guardar y Cargar Modelos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimizaciones-de-rendimiento">Optimizaciones de Rendimiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#siguientes-pasos">Siguientes Pasos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recursos-adicionales">Recursos Adicionales</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuración</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Central</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core - Arquitectura Central</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sub-Modelos Actualizados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sub_models/index.html">Sub-Modelos - Arquitecturas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Capas y Componentes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="layers/index.html">Layers - Capas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sistemas Avanzados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="meta_loop/index.html">Meta_Loop - Sistema Elixir/OTP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentos de Referencia</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Código de Conducta</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CapibaraGPT-v2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Inicio Rápido</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/your-org/capibara-gpt-v2/blob/main/capibara/docs/quickstart.rst" class="fa fa-github"> Editar en GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="inicio-rapido">
+<h1>Inicio Rápido<a class="headerlink" href="#inicio-rapido" title="Link to this heading"></a></h1>
+<p>Esta guía te ayudará a comenzar rápidamente con CapibaraGPT-v2, el modelo de lenguaje con <strong>JAX nativo</strong>, <strong>Vector Quantization (VQ)</strong>, y <strong>optimizaciones TPU v4-32</strong> completamente funcionales.</p>
+<p>🏆 <strong>Estado del Proyecto</strong>: <strong>100% FUNCIONAL - SISTEMA COMPLETAMENTE OPERATIVO</strong></p>
+<section id="instalacion-rapida">
+<h2>Instalación Rápida<a class="headerlink" href="#instalacion-rapida" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clonar el repositorio</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/user/CapibaraGPT-v2.git
+<span class="nb">cd</span><span class="w"> </span>CapibaraGPT-v2
+
+<span class="c1"># Instalar dependencias</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># Instalación en modo desarrollo</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<section id="verificacion-de-la-instalacion">
+<h2>Verificación de la Instalación<a class="headerlink" href="#verificacion-de-la-instalacion" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test de importación principal - debe funcionar sin errores</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">capibara</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ CapibaraGPT-v2 importado correctamente&quot;</span><span class="p">)</span>
+
+<span class="c1"># Verificar módulos principales</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModularCapibaraModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModularModelConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.vq.vqbit</span><span class="w"> </span><span class="kn">import</span> <span class="n">VQbitLayer</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Módulos principales funcionales&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="configuracion-inicial">
+<h2>Configuración Inicial<a class="headerlink" href="#configuracion-inicial" title="Link to this heading"></a></h2>
+<p>CapibaraGPT-v2 utiliza configuración TOML optimizada:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModularModelConfig</span>
+
+<span class="c1"># Configuración desde archivo TOML (recomendado)</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="o">.</span><span class="n">from_toml</span><span class="p">(</span>
+    <span class="s2">&quot;capibara/config/configs_toml/production/tpu_v4.toml&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Configuración programática personalizada</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;capibara_lite_300m&quot;</span><span class="p">,</span>
+    <span class="n">hidden_size</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>
+    <span class="n">num_layers</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">num_heads</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">vocab_size</span><span class="o">=</span><span class="mi">32000</span><span class="p">,</span>
+
+    <span class="c1"># JAX nativo y optimizaciones</span>
+    <span class="n">use_jax_native</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_tpu_v4_optimizations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+
+    <span class="c1"># Vector Quantization</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">vq_codes</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>  <span class="c1"># 64 para TPU v4, 128 para TPU v6</span>
+
+    <span class="c1"># Sparsity y optimizaciones</span>
+    <span class="n">use_sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">sparsity_ratio</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span>
+    <span class="n">mixed_precision</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="carga-del-modelo-principal">
+<h2>Carga del Modelo Principal<a class="headerlink" href="#carga-del-modelo-principal" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModularCapibaraModel</span>
+
+<span class="c1"># Crear modelo con JAX nativo y optimizaciones TPU</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ModularCapibaraModel</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Inicializar modelo (configuración automática de hardware)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ Modelo cargado: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🔧 JAX nativo: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">use_jax_native</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🎯 VQ codes: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">vq_codes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚡ TPU v4 optimizations: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">use_tpu_v4_optimizations</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="generacion-de-texto-basica">
+<h2>Generación de Texto Básica<a class="headerlink" href="#generacion-de-texto-basica" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generación básica con optimizaciones automáticas</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Explica Vector Quantization en machine learning:&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="p">,</span>
+    <span class="n">max_length</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>           <span class="c1"># Usar Vector Quantization</span>
+    <span class="n">use_sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>       <span class="c1"># Activar sparsity automática</span>
+    <span class="n">tpu_optimized</span><span class="o">=</span><span class="kc">True</span>     <span class="c1"># Usar optimizaciones TPU</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🤖 Respuesta:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="generacion-avanzada-con-vq">
+<h2>Generación Avanzada con VQ<a class="headerlink" href="#generacion-avanzada-con-vq" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.vq.vqbit</span><span class="w"> </span><span class="kn">import</span> <span class="n">VQbitLayer</span>
+
+<span class="c1"># VQbit Layer para quantización avanzada</span>
+<span class="n">vqbit</span> <span class="o">=</span> <span class="n">VQbitLayer</span><span class="p">(</span>
+    <span class="n">codebook_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>      <span class="c1"># 64 códigos para TPU v4</span>
+    <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>
+    <span class="n">use_tpu_optimizations</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Generación con VQ personalizado</span>
+<span class="n">vq_response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate_with_vq</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="p">,</span>
+    <span class="n">vqbit_layer</span><span class="o">=</span><span class="n">vqbit</span><span class="p">,</span>
+    <span class="n">quantization_strength</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">adaptive_threshold</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🎯 Respuesta VQ:&quot;</span><span class="p">,</span> <span class="n">vq_response</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="entrenamiento-y-fine-tuning">
+<h2>Entrenamiento y Fine-tuning<a class="headerlink" href="#entrenamiento-y-fine-tuning" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.training.unified_trainer</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnifiedTrainer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">CapibaraDataset</span>
+
+<span class="c1"># Preparar datos</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">CapibaraDataset</span><span class="o">.</span><span class="n">from_text_file</span><span class="p">(</span><span class="s2">&quot;datos_entrenamiento.txt&quot;</span><span class="p">)</span>
+
+<span class="c1"># Configurar trainer con optimizaciones TPU</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">UnifiedTrainer</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+    <span class="n">use_tpu_v4</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">mixed_precision</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Entrenamiento con consensus distilling automático</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">save_checkpoints</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">checkpoint_dir</span><span class="o">=</span><span class="s2">&quot;./checkpoints&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="agentes-inteligentes">
+<h2>Agentes Inteligentes<a class="headerlink" href="#agentes-inteligentes" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.agents</span><span class="w"> </span><span class="kn">import</span> <span class="n">CapibaraAgentFactory</span>
+
+<span class="c1"># Crear agente especializado</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">CapibaraAgentFactory</span><span class="o">.</span><span class="n">create_agent</span><span class="p">(</span>
+    <span class="n">agent_type</span><span class="o">=</span><span class="s2">&quot;research_assistant&quot;</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">personality</span><span class="o">=</span><span class="s2">&quot;analytical&quot;</span><span class="p">,</span>
+    <span class="n">specialized_knowledge</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;machine learning&quot;</span><span class="p">,</span> <span class="s2">&quot;vector quantization&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Interacción con el agente</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">process_query</span><span class="p">(</span>
+    <span class="s2">&quot;¿Cómo funciona la quantización vectorial en transformers?&quot;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🤖 Agente:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="monitoreo-en-tiempo-real">
+<h2>Monitoreo en Tiempo Real<a class="headerlink" href="#monitoreo-en-tiempo-real" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.monitoring</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemMonitor</span>
+
+<span class="c1"># Monitor de sistema con métricas TPU</span>
+<span class="n">monitor</span> <span class="o">=</span> <span class="n">SystemMonitor</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># Obtener métricas en tiempo real</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">monitor</span><span class="o">.</span><span class="n">get_real_time_metrics</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;📊 Métricas del sistema:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   💾 Memoria TPU: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;tpu_memory_usage&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   🔥 Temperatura: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   ⚡ TFLOPS: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;tflops&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   🎯 VQ efficiency: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;vq_efficiency&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   💰 Cost/hour: $</span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;cost_per_hour&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="configuracion-multi-plataforma">
+<h2>Configuración Multi-Plataforma<a class="headerlink" href="#configuracion-multi-plataforma" title="Link to this heading"></a></h2>
+<p><strong>TPU v4-32 (Recomendado)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="o">.</span><span class="n">from_toml</span><span class="p">(</span>
+    <span class="s2">&quot;capibara/config/configs_toml/production/tpu_v4.toml&quot;</span>
+<span class="p">)</span>
+<span class="c1"># 64 códigos VQ, 275 TFLOPS, optimizaciones nativas</span>
+</pre></div>
+</div>
+<p><strong>ARM Axion (Cost-Effective)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="o">.</span><span class="n">from_toml</span><span class="p">(</span>
+    <span class="s2">&quot;capibara/config/configs_toml/specialized/arm_axion_inference.toml&quot;</span>
+<span class="p">)</span>
+<span class="c1"># 64 códigos VQ, SVE vectorization, UMA memory</span>
+</pre></div>
+</div>
+<p><strong>GPU/CPU (Fallback)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="o">.</span><span class="n">from_toml</span><span class="p">(</span>
+    <span class="s2">&quot;capibara/config/configs_toml/development/development.toml&quot;</span>
+<span class="p">)</span>
+<span class="c1"># Fallback automático, optimizaciones disponibles</span>
+</pre></div>
+</div>
+</section>
+<section id="debugging-y-troubleshooting">
+<h2>Debugging y Troubleshooting<a class="headerlink" href="#debugging-y-troubleshooting" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verificar estado del sistema</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemDiagnostics</span>
+
+<span class="n">diagnostics</span> <span class="o">=</span> <span class="n">SystemDiagnostics</span><span class="p">()</span>
+
+<span class="c1"># Check completo del sistema</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">run_full_check</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔍 Diagnóstico del sistema:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">component</span><span class="p">,</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">status</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">icon</span> <span class="o">=</span> <span class="s2">&quot;✅&quot;</span> <span class="k">if</span> <span class="n">status</span><span class="p">[</span><span class="s2">&quot;healthy&quot;</span><span class="p">]</span> <span class="k">else</span> <span class="s2">&quot;❌&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   </span><span class="si">{</span><span class="n">icon</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">component</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Check específico de imports</span>
+<span class="n">import_status</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">check_imports</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;📦 Imports: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">import_status</span><span class="p">[</span><span class="s1">&#39;successful&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> OK, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">import_status</span><span class="p">[</span><span class="s1">&#39;failed&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> errores&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplos-de-uso-avanzado">
+<h2>Ejemplos de Uso Avanzado<a class="headerlink" href="#ejemplos-de-uso-avanzado" title="Link to this heading"></a></h2>
+<p><strong>Generación con Control de Estilo</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate_with_style</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="o">=</span><span class="s2">&quot;Describe la cuantización vectorial&quot;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="s2">&quot;academic&quot;</span><span class="p">,</span>           <span class="c1"># &#39;academic&#39;, &#39;casual&#39;, &#39;technical&#39;</span>
+    <span class="n">complexity_level</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>       <span class="c1"># 0.0-1.0</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.6</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Procesamiento por Lotes</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prompts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Explica VQ en términos simples&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Ventajas de TPU v4 vs GPU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Diferencias entre sparsity y quantization&quot;</span>
+<span class="p">]</span>
+
+<span class="n">responses</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate_batch</span><span class="p">(</span>
+    <span class="n">prompts</span><span class="p">,</span>
+    <span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Integración con Meta Loop (Elixir/OTP)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.meta_loop</span><span class="w"> </span><span class="kn">import</span> <span class="n">CapibaraBridge</span>
+
+<span class="c1"># Bridge Python-Elixir para capacidades avanzadas</span>
+<span class="n">bridge</span> <span class="o">=</span> <span class="n">CapibaraBridge</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># RAG con control ético</span>
+<span class="n">rag_response</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">query_with_rag</span><span class="p">(</span>
+    <span class="n">prompt</span><span class="p">,</span>
+    <span class="n">ethics_check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">knowledge_base</span><span class="o">=</span><span class="s2">&quot;ml_papers&quot;</span><span class="p">,</span>
+    <span class="n">confidence_threshold</span><span class="o">=</span><span class="mf">0.8</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="guardar-y-cargar-modelos">
+<h2>Guardar y Cargar Modelos<a class="headerlink" href="#guardar-y-cargar-modelos" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Guardar modelo con configuración</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save_pretrained</span><span class="p">(</span>
+    <span class="s2">&quot;./mi_modelo_vq&quot;</span><span class="p">,</span>
+    <span class="n">save_config</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">save_vq_codebooks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">compress</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Cargar modelo guardado</span>
+<span class="n">loaded_model</span> <span class="o">=</span> <span class="n">ModularCapibaraModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+    <span class="s2">&quot;./mi_modelo_vq&quot;</span><span class="p">,</span>
+    <span class="n">config_path</span><span class="o">=</span><span class="s2">&quot;./mi_modelo_vq/config.toml&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="optimizaciones-de-rendimiento">
+<h2>Optimizaciones de Rendimiento<a class="headerlink" href="#optimizaciones-de-rendimiento" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compilación JIT para máximo rendimiento</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile_for_inference</span><span class="p">(</span>
+    <span class="n">input_shapes</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">512</span><span class="p">)],</span>   <span class="c1"># Shapes típicos</span>
+    <span class="n">optimization_level</span><span class="o">=</span><span class="s2">&quot;aggressive&quot;</span><span class="p">,</span>
+    <span class="n">cache_compiled</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Warmup para TPU</span>
+<span class="n">model</span><span class="o">.</span><span class="n">warmup_tpu</span><span class="p">(</span><span class="n">num_steps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Configurar cache optimizado</span>
+<span class="n">model</span><span class="o">.</span><span class="n">setup_optimized_cache</span><span class="p">(</span>
+    <span class="n">cache_size_gb</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span>
+    <span class="n">use_tpu_memory</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="siguientes-pasos">
+<h2>Siguientes Pasos<a class="headerlink" href="#siguientes-pasos" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Explora la <a class="reference internal" href="configuration.html"><span class="doc">configuración avanzada</span></a></p></li>
+<li><p>Revisa los <span class="xref std std-doc">ejemplos específicos</span></p></li>
+<li><p>Consulta la <span class="xref std std-doc">referencia de API</span></p></li>
+<li><p>Únete a nuestra comunidad para soporte técnico</p></li>
+<li><p>Contribuye al desarrollo en GitHub</p></li>
+</ul>
+</section>
+<section id="recursos-adicionales">
+<h2>Recursos Adicionales<a class="headerlink" href="#recursos-adicionales" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Documentación TPU v4</strong>: <span class="xref std std-doc">tpu_v4/optimizations</span></p></li>
+<li><p><strong>Sistema VQ</strong>: <span class="xref std std-doc">layers/vq_layers</span></p></li>
+<li><p><strong>JAX Nativo</strong>: <span class="xref std std-doc">jax/native_implementation</span></p></li>
+<li><p><strong>Testing</strong>: <span class="xref std std-doc">testing/comprehensive_testing</span></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Instalación CapibaraGPT-v2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="configuration.html" class="btn btn-neutral float-right" title="Configuración" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, CapibaraGPT Team.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

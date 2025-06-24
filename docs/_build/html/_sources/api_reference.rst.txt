@@ -1,0 +1,150 @@
+API Reference
+============
+
+Core Module
+----------
+
+Inference
+~~~~~~~~~
+
+.. automodule:: capibara.core.inference
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Model
+~~~~~
+
+.. automodule:: capibara.core.model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Configuration
+~~~~~~~~~~~~
+
+.. automodule:: capibara.core.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Tokenizer
+~~~~~~~~~
+
+.. automodule:: capibara.core.tokenizer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Training Module
+--------------
+
+Training
+~~~~~~~~
+
+.. automodule:: capibara.training.train
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Optimization
+~~~~~~~~~~~
+
+.. automodule:: capibara.optimization
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Utils Module
+-----------
+
+Error Handling
+~~~~~~~~~~~~~
+
+.. automodule:: capibara.utils.error_handling
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Prompts
+~~~~~~~
+
+.. automodule:: capibara.utils.prompts
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Formatters
+~~~~~~~~~
+
+.. automodule:: capibara.utils.formatters
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Checkpointing
+~~~~~~~~~~~
+
+.. automodule:: capibara.utils.checkpointing
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Layers Module
+------------
+
+SSM Layers
+~~~~~~~~~
+
+.. automodule:: capibara.layers.ssm
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Attention Layers
+~~~~~~~~~~~~~~
+
+.. automodule:: capibara.layers.attention
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Encoders Module
+-------------
+
+.. automodule:: capibara.encoders
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Interfaces Module
+---------------
+
+.. automodule:: capibara.interfaces
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Sub-Models Module
+---------------
+
+.. automodule:: capibara.sub_models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Meta-Loop Module
+--------------
+
+.. automodule:: capibara.meta_loop
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+MCP Module
+---------
+
+.. automodule:: capibara.mcp
+   :members:
+   :undoc-members:
+   :show-inheritance: 

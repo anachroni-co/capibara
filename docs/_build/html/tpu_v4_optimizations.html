@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Optimizaciones TPU v4-32 &mdash; CapibaraGPT-v2 Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1755d3b9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Primeros Pasos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Instalación CapibaraGPT-v2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Inicio Rápido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuración</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Central</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core - Arquitectura Central</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sub-Modelos Actualizados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sub_models/index.html">Sub-Modelos - Arquitecturas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Capas y Componentes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="layers/index.html">Layers - Capas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sistemas Avanzados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="meta_loop/index.html">Meta_Loop - Sistema Elixir/OTP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentos de Referencia</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Código de Conducta</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CapibaraGPT-v2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Optimizaciones TPU v4-32</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/your-org/capibara-gpt-v2/blob/main/capibara/docs/tpu_v4_optimizations.rst" class="fa fa-github"> Editar en GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="optimizaciones-tpu-v4-32">
+<h1>Optimizaciones TPU v4-32<a class="headerlink" href="#optimizaciones-tpu-v4-32" title="Link to this heading"></a></h1>
+<p>CapibaraGPT-v2 incluye <strong>optimizaciones TPU v4-32 nativas completas</strong> que aprovechan al máximo las capacidades de hardware para lograr rendimiento óptimo.</p>
+<p>🏆 <strong>Estado</strong>: <strong>100% FUNCIONAL - OPTIMIZACIONES TPU v4-32 ACTIVAS</strong></p>
+<section id="arquitectura-tpu-v4-32">
+<h2>Arquitectura TPU v4-32<a class="headerlink" href="#arquitectura-tpu-v4-32" title="Link to this heading"></a></h2>
+<p><strong>Especificaciones Hardware</strong>
+- <strong>32 chips TPU</strong> en configuración mesh (4x8 o 8x4)
+- <strong>275+ TFLOPS</strong> de potencia computacional
+- <strong>32GB HBM</strong> High Bandwidth Memory por chip
+- <strong>Interconexión de alta velocidad</strong> entre chips
+- <strong>Soporte bfloat16 nativo</strong> para precisión mixta</p>
+<p><strong>Configuraciones Mesh Optimizadas</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4</span><span class="w"> </span><span class="kn">import</span> <span class="n">TPUv4MeshConfigurations</span>
+
+<span class="c1"># Configuraciones predefinidas optimizadas</span>
+<span class="n">configs</span> <span class="o">=</span> <span class="n">TPUv4MeshConfigurations</span><span class="p">()</span>
+
+<span class="c1"># Para análisis cultural y lingüístico</span>
+<span class="n">cultural_mesh</span> <span class="o">=</span> <span class="n">configs</span><span class="o">.</span><span class="n">CULTURAL_ANALYSIS</span>  <span class="c1"># (4, 8) mesh</span>
+
+<span class="c1"># Para VQ y procesamiento quantum-classical</span>
+<span class="n">quantum_mesh</span> <span class="o">=</span> <span class="n">configs</span><span class="o">.</span><span class="n">QUANTUM_CLASSICAL</span>   <span class="c1"># (8, 4) mesh</span>
+
+<span class="c1"># Para redes neuronales spiking</span>
+<span class="n">spiking_mesh</span> <span class="o">=</span> <span class="n">configs</span><span class="o">.</span><span class="n">SPIKING_NEURAL</span>      <span class="c1"># (16, 2) mesh</span>
+</pre></div>
+</div>
+</section>
+<section id="kernels-optimizados">
+<h2>Kernels Optimizados<a class="headerlink" href="#kernels-optimizados" title="Link to this heading"></a></h2>
+<p>CapibaraGPT-v2 incluye <strong>8 categorías de kernels</strong> especializados:</p>
+<p><strong>1. Linear Algebra (LINALG)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuV4LinalgOps</span>
+
+<span class="n">linalg_ops</span> <span class="o">=</span> <span class="n">TpuV4LinalgOps</span><span class="p">()</span>
+
+<span class="c1"># GEMM optimizado con precisión mixta</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">linalg_ops</span><span class="o">.</span><span class="n">optimized_gemm</span><span class="p">(</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">matrix_a</span><span class="p">,</span>
+    <span class="n">b</span><span class="o">=</span><span class="n">matrix_b</span><span class="p">,</span>
+    <span class="n">precision</span><span class="o">=</span><span class="s2">&quot;bfloat16&quot;</span><span class="p">,</span>
+    <span class="n">use_async</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">chunk_size</span><span class="o">=</span><span class="mi">1024</span>
+<span class="p">)</span>
+
+<span class="c1"># Decomposición SVD acelerada</span>
+<span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">linalg_ops</span><span class="o">.</span><span class="n">fast_svd</span><span class="p">(</span>
+    <span class="n">matrix</span><span class="p">,</span>
+    <span class="n">compute_uv</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_randomized</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>2. Attention Mechanisms</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuV4AttentionOps</span>
+
+<span class="n">attention_ops</span> <span class="o">=</span> <span class="n">TpuV4AttentionOps</span><span class="p">()</span>
+
+<span class="c1"># Flash Attention optimizado para TPU</span>
+<span class="n">attention_output</span> <span class="o">=</span> <span class="n">attention_ops</span><span class="o">.</span><span class="n">flash_attention</span><span class="p">(</span>
+    <span class="n">query</span><span class="o">=</span><span class="n">q</span><span class="p">,</span>                    <span class="c1"># [batch, heads, seq_len, head_dim]</span>
+    <span class="n">key</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="n">v</span><span class="p">,</span>
+    <span class="n">block_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>             <span class="c1"># Tamaño bloque optimizado TPU</span>
+    <span class="n">use_causal_mask</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">precision</span><span class="o">=</span><span class="s2">&quot;bfloat16&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Multi-Head Attention con fusión</span>
+<span class="n">mha_output</span> <span class="o">=</span> <span class="n">attention_ops</span><span class="o">.</span><span class="n">fused_multihead_attention</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">input_embeddings</span><span class="p">,</span>
+    <span class="n">num_heads</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">dropout_rate</span><span class="o">=</span><span class="mf">0.1</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>3. Scan Operations (Para SSM)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuV4ScanOps</span>
+
+<span class="n">scan_ops</span> <span class="o">=</span> <span class="n">TpuV4ScanOps</span><span class="p">()</span>
+
+<span class="c1"># Scan paralelo para State Space Models</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ssm_step</span><span class="p">(</span><span class="n">carry</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="c1"># Definir step function para SSM</span>
+    <span class="n">new_carry</span> <span class="o">=</span> <span class="n">carry</span> <span class="o">@</span> <span class="n">transition_matrix</span> <span class="o">+</span> <span class="n">x</span> <span class="o">@</span> <span class="n">input_matrix</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">new_carry</span> <span class="o">@</span> <span class="n">output_matrix</span>
+    <span class="k">return</span> <span class="n">new_carry</span><span class="p">,</span> <span class="n">output</span>
+
+<span class="c1"># Ejecutar scan paralelo con 256 segmentos</span>
+<span class="n">final_carry</span><span class="p">,</span> <span class="n">outputs</span> <span class="o">=</span> <span class="n">scan_ops</span><span class="o">.</span><span class="n">parallel_scan</span><span class="p">(</span>
+    <span class="n">f</span><span class="o">=</span><span class="n">ssm_step</span><span class="p">,</span>
+    <span class="n">init</span><span class="o">=</span><span class="n">initial_state</span><span class="p">,</span>
+    <span class="n">xs</span><span class="o">=</span><span class="n">input_sequence</span><span class="p">,</span>
+    <span class="n">num_segments</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>        <span class="c1"># Paralelización optimizada</span>
+    <span class="n">use_checkpointing</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>4. Collective Communications</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuV4CollectiveOps</span>
+
+<span class="n">collective_ops</span> <span class="o">=</span> <span class="n">TpuV4CollectiveOps</span><span class="p">()</span>
+
+<span class="c1"># All-reduce asíncrono optimizado</span>
+<span class="n">reduced_gradients</span> <span class="o">=</span> <span class="n">collective_ops</span><span class="o">.</span><span class="n">async_all_reduce</span><span class="p">(</span>
+    <span class="n">gradients</span><span class="p">,</span>
+    <span class="n">reduction_op</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+    <span class="n">use_compression</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">overlap_compute</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># All-gather con optimización bandwidth</span>
+<span class="n">gathered_activations</span> <span class="o">=</span> <span class="n">collective_ops</span><span class="o">.</span><span class="n">optimized_all_gather</span><span class="p">(</span>
+    <span class="n">local_activations</span><span class="p">,</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">use_ring_algorithm</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>5. Convolution Operations</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuV4ConvOps</span>
+
+<span class="n">conv_ops</span> <span class="o">=</span> <span class="n">TpuV4ConvOps</span><span class="p">()</span>
+
+<span class="c1"># Convolución Winograd optimizada</span>
+<span class="n">conv_output</span> <span class="o">=</span> <span class="n">conv_ops</span><span class="o">.</span><span class="n">winograd_conv2d</span><span class="p">(</span>
+    <span class="n">inputs</span><span class="o">=</span><span class="n">input_tensor</span><span class="p">,</span>
+    <span class="n">filters</span><span class="o">=</span><span class="n">conv_filters</span><span class="p">,</span>
+    <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;SAME&quot;</span><span class="p">,</span>
+    <span class="n">tile_size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>         <span class="c1"># Tamaño tile optimizado TPU</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>6. FFT Operations</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.backend</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuV4FFTOps</span>
+
+<span class="n">fft_ops</span> <span class="o">=</span> <span class="n">TpuV4FFTOps</span><span class="p">()</span>
+
+<span class="c1"># FFT radix optimizado para TPU</span>
+<span class="n">fft_result</span> <span class="o">=</span> <span class="n">fft_ops</span><span class="o">.</span><span class="n">radix_optimized_fft</span><span class="p">(</span>
+    <span class="n">signal</span><span class="p">,</span>
+    <span class="n">radix_factors</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>  <span class="c1"># Factores optimizados TPU</span>
+    <span class="n">use_parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">precision</span><span class="o">=</span><span class="s2">&quot;bfloat16&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="gestion-memoria-optimizada">
+<h2>Gestión Memoria Optimizada<a class="headerlink" href="#gestion-memoria-optimizada" title="Link to this heading"></a></h2>
+<p><strong>High Bandwidth Memory (HBM) Management</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.optimizations</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TpuMemoryManager</span><span class="p">,</span>
+    <span class="n">HBMOptimizer</span>
+<span class="p">)</span>
+
+<span class="c1"># Gestión automática memoria HBM</span>
+<span class="n">memory_manager</span> <span class="o">=</span> <span class="n">TpuMemoryManager</span><span class="p">(</span>
+    <span class="n">memory_limit_gb</span><span class="o">=</span><span class="mf">32.0</span><span class="p">,</span>        <span class="c1"># Límite por chip</span>
+    <span class="n">cleanup_threshold</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span>      <span class="c1"># Limpiar si &gt;85% uso</span>
+    <span class="n">prefetch_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>       <span class="c1"># Prefetch automático</span>
+    <span class="n">compression_enabled</span><span class="o">=</span><span class="kc">True</span>     <span class="c1"># Compresión tensores grandes</span>
+<span class="p">)</span>
+
+<span class="c1"># Optimizador HBM para patrones acceso</span>
+<span class="n">hbm_optimizer</span> <span class="o">=</span> <span class="n">HBMOptimizer</span><span class="p">(</span>
+    <span class="n">access_pattern</span><span class="o">=</span><span class="s2">&quot;sequential&quot;</span><span class="p">,</span> <span class="c1"># &quot;sequential&quot;, &quot;random&quot;, &quot;mixed&quot;</span>
+    <span class="n">cache_policy</span><span class="o">=</span><span class="s2">&quot;lru&quot;</span><span class="p">,</span>          <span class="c1"># Política cache</span>
+    <span class="n">bandwidth_limit_gbps</span><span class="o">=</span><span class="mi">900</span>     <span class="c1"># Límite bandwidth HBM</span>
+<span class="p">)</span>
+
+<span class="c1"># Contexto gestión memoria automática</span>
+<span class="k">with</span> <span class="n">memory_manager</span><span class="o">.</span><span class="n">managed_context</span><span class="p">():</span>
+    <span class="c1"># Operaciones con gestión automática memoria</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">large_batch</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Sharding y Paralelización</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.optimizations</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">create_mesh_sharding</span><span class="p">,</span>
+    <span class="n">optimize_sharding_strategy</span>
+<span class="p">)</span>
+
+<span class="c1"># Crear mesh sharding optimizado</span>
+<span class="n">mesh_sharding</span> <span class="o">=</span> <span class="n">create_mesh_sharding</span><span class="p">(</span>
+    <span class="n">mesh_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="n">device_ids</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">)),</span>
+    <span class="n">optimization_target</span><span class="o">=</span><span class="s2">&quot;throughput&quot;</span>  <span class="c1"># &quot;throughput&quot;, &quot;latency&quot;, &quot;memory&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Estrategia sharding automática</span>
+<span class="n">sharding_strategy</span> <span class="o">=</span> <span class="n">optimize_sharding_strategy</span><span class="p">(</span>
+    <span class="n">model_params</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">,</span>
+    <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">768</span><span class="p">),</span>
+    <span class="n">mesh_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="n">memory_limit_gb</span><span class="o">=</span><span class="mf">32.0</span>
+<span class="p">)</span>
+
+<span class="c1"># Aplicar sharding al modelo</span>
+<span class="n">sharded_model</span> <span class="o">=</span> <span class="n">mesh_sharding</span><span class="o">.</span><span class="n">shard_model</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">strategy</span><span class="o">=</span><span class="n">sharding_strategy</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="compilacion-jit-optimizada">
+<h2>Compilación JIT Optimizada<a class="headerlink" href="#compilacion-jit-optimizada" title="Link to this heading"></a></h2>
+<p><strong>Compilación Agresiva para TPU</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.optimizations</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">create_tpu_optimized_jit</span><span class="p">,</span>
+    <span class="n">TpuCompilationConfig</span>
+<span class="p">)</span>
+
+<span class="c1"># Configuración compilación TPU</span>
+<span class="n">compilation_config</span> <span class="o">=</span> <span class="n">TpuCompilationConfig</span><span class="p">(</span>
+    <span class="n">optimization_level</span><span class="o">=</span><span class="s2">&quot;aggressive&quot;</span><span class="p">,</span>
+    <span class="n">use_bfloat16</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">enable_async_collective</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">memory_optimization</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">cache_compiled_functions</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># JIT optimizado para TPU</span>
+<span class="nd">@create_tpu_optimized_jit</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">compilation_config</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">optimized_forward</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+
+<span class="c1"># Compilar función con optimizaciones TPU</span>
+<span class="n">compiled_forward</span> <span class="o">=</span> <span class="n">optimized_forward</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">input_shapes</span><span class="o">=</span><span class="p">[(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">768</span><span class="p">)],</span>
+    <span class="n">static_argnums</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># params estáticos</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Warmup y Cache</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.optimizations</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuWarmupManager</span>
+
+<span class="c1"># Manager warmup TPU</span>
+<span class="n">warmup_manager</span> <span class="o">=</span> <span class="n">TpuWarmupManager</span><span class="p">(</span>
+    <span class="n">compilation_cache_size_gb</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">warmup_steps</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">progressive_warmup</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Warmup automático del modelo</span>
+<span class="n">warmup_manager</span><span class="o">.</span><span class="n">warmup_model</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">input_shapes</span><span class="o">=</span><span class="p">[(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">768</span><span class="p">),</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">768</span><span class="p">),</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">)],</span>
+    <span class="n">batch_sizes</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="profiling-y-monitoring">
+<h2>Profiling y Monitoring<a class="headerlink" href="#profiling-y-monitoring" title="Link to this heading"></a></h2>
+<p><strong>TPU Performance Profiler</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.optimizations</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuPerformanceProfiler</span>
+
+<span class="c1"># Profiler completo TPU</span>
+<span class="n">profiler</span> <span class="o">=</span> <span class="n">TpuPerformanceProfiler</span><span class="p">(</span>
+    <span class="n">capture_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">capture_flops</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">capture_communication</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">capture_kernel_details</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Profiling con contexto</span>
+<span class="k">with</span> <span class="n">profiler</span><span class="o">.</span><span class="n">profile_context</span><span class="p">(</span><span class="s2">&quot;model_forward&quot;</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+
+<span class="c1"># Obtener métricas detalladas</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">get_detailed_metrics</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🚀 TFLOPS achieved: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;tflops&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;💾 Peak memory usage: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;peak_memory_gb&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> GB&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;📊 Memory efficiency: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;memory_efficiency&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚡ Compute efficiency: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;compute_efficiency&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🔄 Communication overhead: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;comm_overhead_ms&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Real-time Monitoring</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.monitoring</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuRealTimeMonitor</span>
+
+<span class="c1"># Monitor tiempo real TPU</span>
+<span class="n">monitor</span> <span class="o">=</span> <span class="n">TpuRealTimeMonitor</span><span class="p">(</span>
+    <span class="n">update_frequency_ms</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>     <span class="c1"># Actualizar cada 100ms</span>
+    <span class="n">alert_thresholds</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;memory_usage&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>     <span class="c1"># Alerta si &gt;90% memoria</span>
+        <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">80.0</span><span class="p">,</span>     <span class="c1"># Alerta si &gt;80°C</span>
+        <span class="s2">&quot;utilization&quot;</span><span class="p">:</span> <span class="mf">0.3</span>       <span class="c1"># Alerta si &lt;30% utilización</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1"># Iniciar monitoring</span>
+<span class="n">monitor</span><span class="o">.</span><span class="n">start_monitoring</span><span class="p">()</span>
+
+<span class="c1"># Ejecutar entrenamiento con monitoring</span>
+<span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">training_data</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+
+    <span class="c1"># Obtener métricas actuales</span>
+    <span class="n">current_metrics</span> <span class="o">=</span> <span class="n">monitor</span><span class="o">.</span><span class="n">get_current_metrics</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">monitor</span><span class="o">.</span><span class="n">has_alerts</span><span class="p">():</span>
+        <span class="n">alerts</span> <span class="o">=</span> <span class="n">monitor</span><span class="o">.</span><span class="n">get_alerts</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">alert</span> <span class="ow">in</span> <span class="n">alerts</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠️ TPU Alert: </span><span class="si">{</span><span class="n">alert</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="optimizaciones-especificas-por-tarea">
+<h2>Optimizaciones Específicas por Tarea<a class="headerlink" href="#optimizaciones-especificas-por-tarea" title="Link to this heading"></a></h2>
+<p><strong>Entrenamiento Distribuido</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.training</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TpuDistributedTrainer</span><span class="p">,</span>
+    <span class="n">create_training_mesh</span>
+<span class="p">)</span>
+
+<span class="c1"># Mesh para entrenamiento distribuido</span>
+<span class="n">training_mesh</span> <span class="o">=</span> <span class="n">create_training_mesh</span><span class="p">(</span>
+    <span class="n">total_chips</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">data_parallel_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">model_parallel_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">pipeline_parallel_size</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="c1"># Trainer distribuido optimizado TPU</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">TpuDistributedTrainer</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">mesh</span><span class="o">=</span><span class="n">training_mesh</span><span class="p">,</span>
+
+    <span class="c1"># Optimizaciones entrenamiento</span>
+    <span class="n">gradient_accumulation_steps</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">use_gradient_checkpointing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">async_gradient_communication</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+
+    <span class="c1"># Configuración memoria</span>
+    <span class="n">activation_offloading</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">optimizer_sharding</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Inferencia de Alta Velocidad</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.inference</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TpuInferenceOptimizer</span><span class="p">,</span>
+    <span class="n">create_inference_pipeline</span>
+<span class="p">)</span>
+
+<span class="c1"># Optimizador inferencia TPU</span>
+<span class="n">inference_optimizer</span> <span class="o">=</span> <span class="n">TpuInferenceOptimizer</span><span class="p">(</span>
+    <span class="n">target_latency_ms</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>        <span class="c1"># Latencia objetivo</span>
+    <span class="n">batch_size_optimizer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>   <span class="c1"># Optimizar batch size</span>
+    <span class="n">memory_efficient_attention</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_kv_cache</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Pipeline inferencia optimizado</span>
+<span class="n">inference_pipeline</span> <span class="o">=</span> <span class="n">create_inference_pipeline</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="n">inference_optimizer</span><span class="p">,</span>
+    <span class="n">max_batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+    <span class="n">max_sequence_length</span><span class="o">=</span><span class="mi">2048</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="cost-management">
+<h2>Cost Management<a class="headerlink" href="#cost-management" title="Link to this heading"></a></h2>
+<p><strong>TPU Cost Optimizer</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.cost</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TpuCostOptimizer</span><span class="p">,</span>
+    <span class="n">estimate_operation_cost</span>
+<span class="p">)</span>
+
+<span class="c1"># Optimizador costos TPU</span>
+<span class="n">cost_optimizer</span> <span class="o">=</span> <span class="n">TpuCostOptimizer</span><span class="p">(</span>
+    <span class="n">max_cost_per_hour</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span>     <span class="c1"># Límite costo/hora</span>
+    <span class="n">cost_model</span><span class="o">=</span><span class="s2">&quot;tpu_v4_pricing&quot;</span><span class="p">,</span> <span class="c1"># Modelo pricing</span>
+    <span class="n">optimization_target</span><span class="o">=</span><span class="s2">&quot;cost_efficiency&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Estimación costo operación</span>
+<span class="n">operation_cost</span> <span class="o">=</span> <span class="n">estimate_operation_cost</span><span class="p">(</span>
+    <span class="n">operation_flops</span><span class="o">=</span><span class="mf">1e12</span><span class="p">,</span>        <span class="c1"># FLOPS operación</span>
+    <span class="n">memory_gb</span><span class="o">=</span><span class="mf">16.0</span><span class="p">,</span>              <span class="c1"># Memoria requerida</span>
+    <span class="n">duration_seconds</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>       <span class="c1"># Duración estimada</span>
+    <span class="n">tpu_utilization</span><span class="o">=</span><span class="mf">0.8</span>          <span class="c1"># Utilización esperada</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;💰 Estimated cost: $</span><span class="si">{</span><span class="n">operation_cost</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Auto-scaling basado en Costo</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.autoscaling</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuAutoScaler</span>
+
+<span class="c1"># Auto-scaler con límites costo</span>
+<span class="n">autoscaler</span> <span class="o">=</span> <span class="n">TpuAutoScaler</span><span class="p">(</span>
+    <span class="n">min_chips</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">max_chips</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">target_utilization</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">cost_limit_per_hour</span><span class="o">=</span><span class="mf">200.0</span><span class="p">,</span>
+    <span class="n">scaling_policy</span><span class="o">=</span><span class="s2">&quot;cost_aware&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Scaling automático durante entrenamiento</span>
+<span class="k">with</span> <span class="n">autoscaler</span><span class="o">.</span><span class="n">managed_scaling</span><span class="p">():</span>
+    <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="troubleshooting-tpu">
+<h2>Troubleshooting TPU<a class="headerlink" href="#troubleshooting-tpu" title="Link to this heading"></a></h2>
+<p><strong>Diagnóstico TPU</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.diagnostics</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuDiagnostics</span>
+
+<span class="c1"># Sistema diagnóstico TPU</span>
+<span class="n">diagnostics</span> <span class="o">=</span> <span class="n">TpuDiagnostics</span><span class="p">()</span>
+
+<span class="c1"># Check completo TPU</span>
+<span class="n">health_report</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">run_full_health_check</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;🔍 TPU Health Report:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   ✅ All chips online: </span><span class="si">{</span><span class="n">health_report</span><span class="p">[</span><span class="s1">&#39;all_chips_online&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   🌡️ Temperature normal: </span><span class="si">{</span><span class="n">health_report</span><span class="p">[</span><span class="s1">&#39;temperature_normal&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   💾 Memory healthy: </span><span class="si">{</span><span class="n">health_report</span><span class="p">[</span><span class="s1">&#39;memory_healthy&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   🔄 Interconnect OK: </span><span class="si">{</span><span class="n">health_report</span><span class="p">[</span><span class="s1">&#39;interconnect_ok&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Diagnóstico rendimiento</span>
+<span class="n">perf_analysis</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">analyze_performance_bottlenecks</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">perf_analysis</span><span class="o">.</span><span class="n">has_bottlenecks</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;⚠️ Performance bottlenecks detected:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">bottleneck</span> <span class="ow">in</span> <span class="n">perf_analysis</span><span class="o">.</span><span class="n">bottlenecks</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   - </span><span class="si">{</span><span class="n">bottleneck</span><span class="o">.</span><span class="n">description</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;     Suggestion: </span><span class="si">{</span><span class="n">bottleneck</span><span class="o">.</span><span class="n">suggestion</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Recovery y Fallbacks</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.jax.tpu_v4.recovery</span><span class="w"> </span><span class="kn">import</span> <span class="n">TpuRecoveryManager</span>
+
+<span class="c1"># Manager recovery automático</span>
+<span class="n">recovery_manager</span> <span class="o">=</span> <span class="n">TpuRecoveryManager</span><span class="p">(</span>
+    <span class="n">auto_recovery</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">fallback_to_gpu</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">checkpoint_frequency</span><span class="o">=</span><span class="mi">1000</span>
+<span class="p">)</span>
+
+<span class="c1"># Contexto con recovery automático</span>
+<span class="k">with</span> <span class="n">recovery_manager</span><span class="o">.</span><span class="n">recovery_context</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Operación TPU con recovery automático</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train_step</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">TpuError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># Recovery automático activado</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🔄 TPU error recovered: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="mejores-practicas-tpu-v4-32">
+<h2>Mejores Prácticas TPU v4-32<a class="headerlink" href="#mejores-practicas-tpu-v4-32" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Usar bfloat16</strong>: Aprovechar precisión nativa TPU</p></li>
+<li><p><strong>Optimizar batch sizes</strong>: Múltiplos de 128 para mejor eficiencia</p></li>
+<li><p><strong>Minimizar host-device transfers</strong>: Mantener datos en TPU</p></li>
+<li><p><strong>Usar compilation caching</strong>: Evitar recompilaciones innecesarias</p></li>
+<li><p><strong>Sharding inteligente</strong>: Balancear cómputo y comunicación</p></li>
+<li><p><strong>Monitoring continuo</strong>: Verificar utilización y temperatura</p></li>
+<li><p><strong>Cost awareness</strong>: Monitorear costos en tiempo real</p></li>
+</ol>
+</section>
+<section id="integracion-con-capibaragpt-v2">
+<h2>Integración con CapibaraGPT-v2<a class="headerlink" href="#integracion-con-capibaragpt-v2" title="Link to this heading"></a></h2>
+<p><strong>Activación Automática TPU</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModularCapibaraModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">capibara.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModularModelConfig</span>
+
+<span class="c1"># Configuración con TPU v4 automático</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="o">.</span><span class="n">from_toml</span><span class="p">(</span>
+    <span class="s2">&quot;capibara/config/configs_toml/production/tpu_v4.toml&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Optimizaciones TPU activadas automáticamente</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ModularCapibaraModel</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Verificar activación TPU</span>
+<span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">is_tpu_optimized</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ TPU v4-32 optimizations active&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🔧 Mesh configuration: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">tpu_mesh_shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;💾 Memory limit: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">tpu_memory_limit_gb</span><span class="si">}</span><span class="s2"> GB&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="recursos-y-referencias">
+<h2>Recursos y Referencias<a class="headerlink" href="#recursos-y-referencias" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Kernels TPU</strong>: <code class="docutils literal notranslate"><span class="pre">capibara/jax/tpu_v4/</span></code></p></li>
+<li><p><strong>Optimizaciones</strong>: <code class="docutils literal notranslate"><span class="pre">capibara/jax/tpu_v4/optimizations.py</span></code></p></li>
+<li><p><strong>Monitoring</strong>: <code class="docutils literal notranslate"><span class="pre">capibara/jax/tpu_v4/monitoring.py</span></code></p></li>
+<li><p><strong>Ejemplos</strong>: <code class="docutils literal notranslate"><span class="pre">examples/tpu_v4_optimization/</span></code></p></li>
+<li><p><strong>Benchmarks</strong>: <code class="docutils literal notranslate"><span class="pre">benchmarks/tpu_v4_performance.py</span></code></p></li>
+<li><p><strong>API Reference</strong>: <span class="xref std std-doc">api/tpu_api</span></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, CapibaraGPT Team.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

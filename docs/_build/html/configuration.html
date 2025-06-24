@@ -1,0 +1,668 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuración &mdash; CapibaraGPT-v2 Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=1755d3b9"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Core - Arquitectura Central" href="core/index.html" />
+    <link rel="prev" title="Inicio Rápido" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Primeros Pasos</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Instalación CapibaraGPT-v2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Inicio Rápido</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuración</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sistema-de-configuracion-toml">Sistema de Configuración TOML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#archivos-toml-predefinidos">Archivos TOML Predefinidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parametros-de-configuracion-detallados">Parámetros de Configuración Detallados</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo-base">Modelo Base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jax-nativo-y-backend">JAX Nativo y Backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vector-quantization-vq">Vector Quantization (VQ)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optimizaciones-tpu-v4-32">Optimizaciones TPU v4-32</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sparsity-y-quantizacion">Sparsity y Quantización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-y-deployment">Hardware y Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modulos-enterprise-y-avanzados">Módulos Enterprise y Avanzados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#entrenamiento-y-fine-tuning">Entrenamiento y Fine-tuning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion-avanzada-por-variables-de-entorno">Configuración Avanzada por Variables de Entorno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion-dinamica-en-tiempo-de-ejecucion">Configuración Dinámica en Tiempo de Ejecución</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#validacion-y-debugging-de-configuracion">Validación y Debugging de Configuración</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ejemplos-de-configuracion-especifica">Ejemplos de Configuración Específica</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#migracion-de-configuraciones-anteriores">Migración de Configuraciones Anteriores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recursos-de-configuracion">Recursos de Configuración</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Central</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core - Arquitectura Central</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sub-Modelos Actualizados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sub_models/index.html">Sub-Modelos - Arquitecturas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Capas y Componentes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="layers/index.html">Layers - Capas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sistemas Avanzados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="meta_loop/index.html">Meta_Loop - Sistema Elixir/OTP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentos de Referencia</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="code_of_conduct.html">Código de Conducta</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CapibaraGPT-v2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configuración</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/your-org/capibara-gpt-v2/blob/main/capibara/docs/configuration.rst" class="fa fa-github"> Editar en GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuracion">
+<h1>Configuración<a class="headerlink" href="#configuracion" title="Link to this heading"></a></h1>
+<p>CapibaraGPT-v2 utiliza un <strong>sistema de configuración TOML unificado</strong> que permite optimizaciones automáticas, detección de hardware, y personalización avanzada. Esta sección cubre todas las opciones de configuración disponibles en el sistema completamente funcional.</p>
+<section id="sistema-de-configuracion-toml">
+<h2>Sistema de Configuración TOML<a class="headerlink" href="#sistema-de-configuracion-toml" title="Link to this heading"></a></h2>
+<p>El sistema <cite>ModularModelConfig</cite> centraliza todas las configuraciones usando archivos TOML optimizados:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModularModelConfig</span>
+
+<span class="c1"># Configuración desde archivo TOML (recomendado)</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="o">.</span><span class="n">from_toml</span><span class="p">(</span>
+    <span class="s2">&quot;capibara/config/configs_toml/production/tpu_v4.toml&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Configuración programática personalizada</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;capibara_enterprise&quot;</span><span class="p">,</span>
+    <span class="n">hidden_size</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>
+    <span class="n">use_jax_native</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">vq_codes</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+    <span class="n">use_tpu_v4_optimizations</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="archivos-toml-predefinidos">
+<h2>Archivos TOML Predefinidos<a class="headerlink" href="#archivos-toml-predefinidos" title="Link to this heading"></a></h2>
+<p>La configuración está organizada jerárquicamente por propósito:</p>
+<p><strong>Producción (production/)</strong></p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># capibara/config/configs_toml/production/tpu_v4.toml</span>
+<span class="k">[model]</span>
+<span class="n">model_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;capibara_tpu_v4&quot;</span>
+<span class="n">hidden_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">768</span>
+<span class="n">num_layers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span>
+<span class="n">num_heads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span>
+<span class="n">vocab_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32000</span>
+<span class="n">max_seq_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2048</span>
+
+<span class="k">[jax_config]</span>
+<span class="n">use_jax_native</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;capibara_jax&quot;</span>
+<span class="n">fallback_to_standard</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="k">[tpu_v4_optimizations]</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">mesh_shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">]</span>
+<span class="n">use_bfloat16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">async_collective</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">memory_limit_gb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">32.0</span>
+
+<span class="k">[vector_quantization]</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">codes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span>
+<span class="n">embedding_dim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">768</span>
+<span class="n">adaptive_threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span>
+<span class="n">use_tpu_optimizations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="k">[sparsity]</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">ratio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.65</span>
+<span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mixture_of_rookies&quot;</span>
+
+<span class="k">[performance]</span>
+<span class="n">mixed_precision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">compile_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;aggressive&quot;</span>
+<span class="n">cache_optimized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</pre></div>
+</div>
+<p><strong>Desarrollo (development/)</strong></p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># capibara/config/configs_toml/development/development.toml</span>
+<span class="k">[model]</span>
+<span class="n">model_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;capibara_dev&quot;</span>
+<span class="n">hidden_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">512</span>
+<span class="n">num_layers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span>
+<span class="n">num_heads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span>
+
+<span class="k">[jax_config]</span>
+<span class="n">use_jax_native</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;auto&quot;</span>
+<span class="n">debug_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="k">[hardware]</span>
+<span class="n">device</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;auto&quot;</span>
+<span class="n">fallback_cpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">memory_limit_gb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8.0</span>
+
+<span class="k">[testing]</span>
+<span class="n">enable_comprehensive_tests</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">mock_expensive_ops</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">fast_startup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</pre></div>
+</div>
+<p><strong>Especializadas (specialized/)</strong></p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># ARM Axion optimizado</span>
+<span class="c1"># capibara/config/configs_toml/specialized/arm_axion_inference.toml</span>
+<span class="k">[arm_optimizations]</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">sve_vectorization</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">neon_fallback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">uma_memory_optimized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+
+<span class="k">[vector_quantization]</span>
+<span class="n">codes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64</span><span class="w">  </span><span class="c1"># Optimizado para ARM</span>
+<span class="n">precision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;int8&quot;</span>
+
+<span class="c1"># TPU v6 enterprise</span>
+<span class="c1"># capibara/config/configs_toml/specialized/tpu_v6_vq_v33.toml</span>
+<span class="k">[tpu_v6_features]</span>
+<span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">vq_codes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="w">  </span><span class="c1"># Enterprise premium</span>
+<span class="n">adaptive_ml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">cost_management</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</pre></div>
+</div>
+</section>
+<section id="parametros-de-configuracion-detallados">
+<h2>Parámetros de Configuración Detallados<a class="headerlink" href="#parametros-de-configuracion-detallados" title="Link to this heading"></a></h2>
+<section id="modelo-base">
+<h3>Modelo Base<a class="headerlink" href="#modelo-base" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="c1"># Identificación</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;capibara_custom&quot;</span><span class="p">,</span>      <span class="c1"># Nombre del modelo</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;v3.0.0&quot;</span><span class="p">,</span>                 <span class="c1"># Versión del modelo</span>
+
+    <span class="c1"># Arquitectura Transformer</span>
+    <span class="n">hidden_size</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>                  <span class="c1"># Dimensión embeddings (512, 768, 1024, 2048)</span>
+    <span class="n">num_layers</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>                    <span class="c1"># Capas transformer (6, 12, 24, 36)</span>
+    <span class="n">num_heads</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>                     <span class="c1"># Cabezas atención (8, 12, 16, 32)</span>
+    <span class="n">vocab_size</span><span class="o">=</span><span class="mi">32000</span><span class="p">,</span>                 <span class="c1"># Tamaño vocabulario</span>
+    <span class="n">max_seq_length</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>              <span class="c1"># Longitud máxima secuencia</span>
+
+    <span class="c1"># Capacidades multimodales</span>
+    <span class="n">multimodal_enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>         <span class="c1"># Procesamiento multimodal</span>
+    <span class="n">vision_encoder_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>         <span class="c1"># &quot;clip&quot;, &quot;vit&quot;, None</span>
+    <span class="n">audio_encoder_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>          <span class="c1"># &quot;wav2vec2&quot;, &quot;whisper&quot;, None</span>
+
+    <span class="c1"># Características avanzadas</span>
+    <span class="n">use_chain_of_thought</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>        <span class="c1"># CoT reasoning</span>
+    <span class="n">use_dual_process</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>            <span class="c1"># Sistema dual de pensamiento</span>
+    <span class="n">personality_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>         <span class="c1"># Sistema de personalidad</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="jax-nativo-y-backend">
+<h3>JAX Nativo y Backend<a class="headerlink" href="#jax-nativo-y-backend" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="c1"># JAX Configuration</span>
+    <span class="n">use_jax_native</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>              <span class="c1"># Usar JAX nativo capibara.jax</span>
+    <span class="n">jax_backend</span><span class="o">=</span><span class="s2">&quot;capibara_jax&quot;</span><span class="p">,</span>       <span class="c1"># &quot;capibara_jax&quot;, &quot;standard&quot;, &quot;auto&quot;</span>
+    <span class="n">fallback_to_standard</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>        <span class="c1"># Fallback a JAX estándar</span>
+
+    <span class="c1"># Compilación y Optimización</span>
+    <span class="n">compile_mode</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">,</span>           <span class="c1"># &quot;default&quot;, &quot;aggressive&quot;, &quot;conservative&quot;</span>
+    <span class="n">enable_jit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                  <span class="c1"># Compilación JIT</span>
+    <span class="n">cache_compiled_functions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>    <span class="c1"># Cache de funciones compiladas</span>
+
+    <span class="c1"># Debug y Desarrollo</span>
+    <span class="n">jax_debug_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>             <span class="c1"># Modo debug JAX</span>
+    <span class="n">trace_execution</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>            <span class="c1"># Tracing ejecución</span>
+    <span class="n">profile_performance</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>        <span class="c1"># Profiling automático</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="vector-quantization-vq">
+<h3>Vector Quantization (VQ)<a class="headerlink" href="#vector-quantization-vq" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="c1"># VQ Base</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                      <span class="c1"># Activar Vector Quantization</span>
+    <span class="n">vq_codes</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>                      <span class="c1"># Códigos cuantización (64, 128)</span>
+    <span class="n">vq_embedding_dim</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>             <span class="c1"># Dimensión embeddings VQ</span>
+
+    <span class="c1"># VQ Avanzado</span>
+    <span class="n">vq_adaptive_threshold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>        <span class="c1"># Threshold adaptativo (0.0-1.0)</span>
+    <span class="n">vq_diversity_regularization</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Regularización diversidad</span>
+    <span class="n">vq_commitment_weight</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>        <span class="c1"># Peso commitment loss</span>
+
+    <span class="c1"># Optimizaciones Hardware</span>
+    <span class="n">vq_use_tpu_optimizations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>    <span class="c1"># Optimizaciones TPU</span>
+    <span class="n">vq_use_simd</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                 <span class="c1"># Vectorización SIMD</span>
+    <span class="n">vq_cache_codebooks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>          <span class="c1"># Cache codebooks en memoria</span>
+
+    <span class="c1"># VQ Enterprise (TPU v6)</span>
+    <span class="n">vq_enterprise_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>         <span class="c1"># 128 códigos + ML adaptativo</span>
+    <span class="n">vq_cost_management</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>          <span class="c1"># Gestión costos automática</span>
+    <span class="n">vq_fallback_strategy</span><span class="o">=</span><span class="s2">&quot;tpu_v4&quot;</span><span class="p">,</span>    <span class="c1"># Estrategia fallback</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="optimizaciones-tpu-v4-32">
+<h3>Optimizaciones TPU v4-32<a class="headerlink" href="#optimizaciones-tpu-v4-32" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="c1"># TPU v4 Core</span>
+    <span class="n">use_tpu_v4_optimizations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>    <span class="c1"># Optimizaciones TPU v4-32</span>
+    <span class="n">tpu_mesh_shape</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>            <span class="c1"># Configuración mesh</span>
+    <span class="n">tpu_memory_limit_gb</span><span class="o">=</span><span class="mf">32.0</span><span class="p">,</span>         <span class="c1"># Límite memoria HBM</span>
+
+    <span class="c1"># Precisión y Rendimiento</span>
+    <span class="n">use_bfloat16</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                <span class="c1"># Precisión bfloat16 nativa</span>
+    <span class="n">mixed_precision</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>             <span class="c1"># Precisión mixta automática</span>
+    <span class="n">async_collective</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>            <span class="c1"># Operaciones colectivas async</span>
+
+    <span class="c1"># Sharding y Paralelización</span>
+    <span class="n">sharding_strategy</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>         <span class="c1"># &quot;auto&quot;, &quot;manual&quot;, &quot;disabled&quot;</span>
+    <span class="n">data_parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>               <span class="c1"># Paralelismo datos</span>
+    <span class="n">model_parallel</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>             <span class="c1"># Paralelismo modelo</span>
+
+    <span class="c1"># Memoria y Cache</span>
+    <span class="n">gradient_checkpointing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>      <span class="c1"># Checkpointing gradientes</span>
+    <span class="n">activation_offloading</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>       <span class="c1"># Offloading activaciones</span>
+    <span class="n">optimizer_sharding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>          <span class="c1"># Sharding optimizer states</span>
+
+    <span class="c1"># Kernels Especializados</span>
+    <span class="n">use_custom_kernels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>          <span class="c1"># Kernels TPU v4 optimizados</span>
+    <span class="n">kernel_categories</span><span class="o">=</span><span class="p">[</span>               <span class="c1"># Categorías kernels activas</span>
+        <span class="s2">&quot;linalg&quot;</span><span class="p">,</span> <span class="s2">&quot;attention&quot;</span><span class="p">,</span> <span class="s2">&quot;scan&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;collective&quot;</span><span class="p">,</span> <span class="s2">&quot;conv&quot;</span><span class="p">,</span> <span class="s2">&quot;fft&quot;</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sparsity-y-quantizacion">
+<h3>Sparsity y Quantización<a class="headerlink" href="#sparsity-y-quantizacion" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="c1"># Sparsity General</span>
+    <span class="n">use_sparse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                  <span class="c1"># Activar sparsity</span>
+    <span class="n">sparsity_ratio</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span>              <span class="c1"># Ratio sparsity (0.0-0.95)</span>
+    <span class="n">sparsity_method</span><span class="o">=</span><span class="s2">&quot;mixture_of_rookies&quot;</span><span class="p">,</span>  <span class="c1"># &quot;mor&quot;, &quot;topk&quot;, &quot;magnitude&quot;</span>
+
+    <span class="c1"># Mixture of Rookies (MoR)</span>
+    <span class="n">mor_num_experts</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>                <span class="c1"># Número expertos MoR</span>
+    <span class="n">mor_top_k</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>                      <span class="c1"># Top-K expertos activos</span>
+    <span class="n">mor_load_balancing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>          <span class="c1"># Load balancing automático</span>
+
+    <span class="c1"># BitNet Quantization</span>
+    <span class="n">use_bitnet</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>                 <span class="c1"># BitNet 1.58b quantización</span>
+    <span class="n">bitnet_precision</span><span class="o">=</span><span class="s2">&quot;int8&quot;</span><span class="p">,</span>          <span class="c1"># &quot;int8&quot;, &quot;int4&quot;, &quot;1.58bit&quot;</span>
+
+    <span class="c1"># Affine Quantization</span>
+    <span class="n">use_affine_quantization</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>     <span class="c1"># Quantización afín</span>
+    <span class="n">affine_bits</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>                    <span class="c1"># Bits quantización (4, 8, 16)</span>
+    <span class="n">affine_symmetric</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>            <span class="c1"># Quantización simétrica</span>
+
+    <span class="c1"># Sparsity Adaptativa</span>
+    <span class="n">adaptive_sparsity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>           <span class="c1"># Sparsity adaptativa</span>
+    <span class="n">sparsity_schedule</span><span class="o">=</span><span class="s2">&quot;cosine&quot;</span><span class="p">,</span>       <span class="c1"># &quot;linear&quot;, &quot;cosine&quot;, &quot;exponential&quot;</span>
+    <span class="n">min_sparsity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>                 <span class="c1"># Sparsity mínima</span>
+    <span class="n">max_sparsity</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>                 <span class="c1"># Sparsity máxima</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="hardware-y-deployment">
+<h3>Hardware y Deployment<a class="headerlink" href="#hardware-y-deployment" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="c1"># Detección Hardware</span>
+    <span class="n">device</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>                    <span class="c1"># &quot;auto&quot;, &quot;tpu_v4&quot;, &quot;tpu_v6&quot;, &quot;gpu&quot;, &quot;cpu&quot;</span>
+    <span class="n">auto_device_selection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>       <span class="c1"># Selección automática dispositivo</span>
+    <span class="n">hardware_fallback</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>           <span class="c1"># Fallback automático hardware</span>
+
+    <span class="c1"># Configuración Multi-GPU</span>
+    <span class="n">num_gpus</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>                       <span class="c1"># Número GPUs (si GPU disponible)</span>
+    <span class="n">gpu_memory_fraction</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>          <span class="c1"># Fracción memoria GPU</span>
+    <span class="n">gpu_memory_growth</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>           <span class="c1"># Crecimiento memoria dinámico</span>
+
+    <span class="c1"># ARM Axion Optimizations</span>
+    <span class="n">use_arm_optimizations</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>      <span class="c1"># Optimizaciones ARM Axion</span>
+    <span class="n">arm_sve_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>             <span class="c1"># SVE vectorization</span>
+    <span class="n">arm_neon_fallback</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>           <span class="c1"># NEON fallback</span>
+    <span class="n">arm_uma_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>              <span class="c1"># UMA memory optimizada</span>
+
+    <span class="c1"># Distribuido</span>
+    <span class="n">distributed_training</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>       <span class="c1"># Entrenamiento distribuido</span>
+    <span class="n">world_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>                     <span class="c1"># Número procesos distribuidos</span>
+    <span class="n">local_rank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>                     <span class="c1"># Rank local proceso</span>
+
+    <span class="c1"># Batch y Memoria</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>                <span class="c1"># Batch size automático</span>
+    <span class="n">max_batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>                <span class="c1"># Batch size máximo</span>
+    <span class="n">adaptive_batching</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>           <span class="c1"># Batching adaptativo</span>
+    <span class="n">memory_optimization_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>      <span class="c1"># Nivel optimización memoria (0-3)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="modulos-enterprise-y-avanzados">
+<h3>Módulos Enterprise y Avanzados<a class="headerlink" href="#modulos-enterprise-y-avanzados" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="c1"># Model Control Protocol (MCP)</span>
+    <span class="n">mcp_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                 <span class="c1"># Activar MCP</span>
+    <span class="n">mcp_port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span>                    <span class="c1"># Puerto MCP server</span>
+    <span class="n">mcp_auth_required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>           <span class="c1"># Autenticación requerida</span>
+    <span class="n">mcp_rate_limiting</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>           <span class="c1"># Rate limiting</span>
+
+    <span class="c1"># Meta Loop (Elixir/OTP)</span>
+    <span class="n">meta_loop_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>           <span class="c1"># Activar Meta Loop</span>
+    <span class="n">ethics_guard_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>        <span class="c1"># Control ético activado</span>
+    <span class="n">rag_hub_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>             <span class="c1"># RAG Hub activo</span>
+    <span class="n">elixir_bridge_port</span><span class="o">=</span><span class="mi">9090</span><span class="p">,</span>          <span class="c1"># Puerto bridge Python-Elixir</span>
+
+    <span class="c1"># Monitoring y Observabilidad</span>
+    <span class="n">monitoring_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>          <span class="c1"># Monitoreo tiempo real</span>
+    <span class="n">metrics_endpoint</span><span class="o">=</span><span class="s2">&quot;/metrics&quot;</span><span class="p">,</span>      <span class="c1"># Endpoint métricas</span>
+    <span class="n">health_check_interval</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>         <span class="c1"># Intervalo health check (seg)</span>
+    <span class="n">performance_profiling</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>       <span class="c1"># Profiling automático</span>
+
+    <span class="c1"># Logging Avanzado</span>
+    <span class="n">structured_logging</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>          <span class="c1"># Logging estructurado</span>
+    <span class="n">log_level</span><span class="o">=</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span>                 <span class="c1"># Nivel logging</span>
+    <span class="n">audit_logging</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>               <span class="c1"># Audit logs</span>
+    <span class="n">sensitive_data_masking</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>      <span class="c1"># Enmascaramiento datos sensibles</span>
+
+    <span class="c1"># Security</span>
+    <span class="n">api_key_required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>           <span class="c1"># API key requerida</span>
+    <span class="n">request_encryption</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>         <span class="c1"># Encriptación requests</span>
+    <span class="n">output_filtering</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>            <span class="c1"># Filtrado outputs</span>
+    <span class="n">content_safety_check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>        <span class="c1"># Verificación seguridad contenido</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="entrenamiento-y-fine-tuning">
+<h3>Entrenamiento y Fine-tuning<a class="headerlink" href="#entrenamiento-y-fine-tuning" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="c1"># Entrenamiento Base</span>
+    <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>               <span class="c1"># Learning rate</span>
+    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>                <span class="c1"># Weight decay</span>
+    <span class="n">gradient_clip_norm</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>           <span class="c1"># Gradient clipping</span>
+
+    <span class="c1"># Consensus Distilling</span>
+    <span class="n">use_consensus_distilling</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>    <span class="c1"># Consensus distilling automático</span>
+    <span class="n">consensus_num_teachers</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>         <span class="c1"># Número teachers consensus</span>
+    <span class="n">consensus_num_critics</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>          <span class="c1"># Número critics consensus</span>
+    <span class="n">consensus_temperature</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>        <span class="c1"># Temperatura distillation</span>
+
+    <span class="c1"># Optimizador</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;adamw&quot;</span><span class="p">,</span>                <span class="c1"># &quot;adamw&quot;, &quot;sgd&quot;, &quot;rmsprop&quot;</span>
+    <span class="n">beta1</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>                        <span class="c1"># Beta1 Adam</span>
+    <span class="n">beta2</span><span class="o">=</span><span class="mf">0.999</span><span class="p">,</span>                      <span class="c1"># Beta2 Adam</span>
+    <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>                     <span class="c1"># Epsilon optimizer</span>
+
+    <span class="c1"># Scheduling</span>
+    <span class="n">lr_scheduler</span><span class="o">=</span><span class="s2">&quot;cosine&quot;</span><span class="p">,</span>            <span class="c1"># &quot;linear&quot;, &quot;cosine&quot;, &quot;polynomial&quot;</span>
+    <span class="n">warmup_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>                <span class="c1"># Pasos warmup</span>
+    <span class="n">decay_steps</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>                <span class="c1"># Pasos decay</span>
+
+    <span class="c1"># Checkpointing</span>
+    <span class="n">save_checkpoint_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>       <span class="c1"># Pasos entre checkpoints</span>
+    <span class="n">keep_checkpoint_max</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>            <span class="c1"># Checkpoints máximos a mantener</span>
+    <span class="n">checkpoint_compression</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>      <span class="c1"># Compresión checkpoints</span>
+    <span class="n">async_checkpointing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>         <span class="c1"># Checkpointing asíncrono</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="configuracion-avanzada-por-variables-de-entorno">
+<h2>Configuración Avanzada por Variables de Entorno<a class="headerlink" href="#configuracion-avanzada-por-variables-de-entorno" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># JAX y Backend</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_USE_JAX_NATIVE</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_JAX_BACKEND</span><span class="o">=</span><span class="s2">&quot;capibara_jax&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_JAX_DEBUG</span><span class="o">=</span><span class="nb">false</span>
+
+<span class="c1"># Hardware</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_DEVICE</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_TPU_MESH</span><span class="o">=</span><span class="s2">&quot;4,8&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_GPU_MEMORY_FRACTION</span><span class="o">=</span><span class="m">0</span>.8
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_ARM_OPTIMIZATIONS</span><span class="o">=</span><span class="nb">false</span>
+
+<span class="c1"># Vector Quantization</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_USE_VQ</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_VQ_CODES</span><span class="o">=</span><span class="m">64</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_VQ_ADAPTIVE_THRESHOLD</span><span class="o">=</span><span class="m">0</span>.5
+
+<span class="c1"># Optimizaciones</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_USE_SPARSITY</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_SPARSITY_RATIO</span><span class="o">=</span><span class="m">0</span>.65
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_MIXED_PRECISION</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_COMPILE_MODE</span><span class="o">=</span><span class="s2">&quot;default&quot;</span>
+
+<span class="c1"># Enterprise Features</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_MCP_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_META_LOOP_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_MONITORING_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="c1"># Desarrollo</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_LOG_LEVEL</span><span class="o">=</span><span class="s2">&quot;INFO&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_DEBUG_MODE</span><span class="o">=</span><span class="nb">false</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CAPIBARA_FAST_STARTUP</span><span class="o">=</span><span class="nb">false</span>
+</pre></div>
+</div>
+</section>
+<section id="configuracion-dinamica-en-tiempo-de-ejecucion">
+<h2>Configuración Dinámica en Tiempo de Ejecución<a class="headerlink" href="#configuracion-dinamica-en-tiempo-de-ejecucion" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Actualizar configuración en runtime</span>
+<span class="n">config</span><span class="o">.</span><span class="n">update_runtime_settings</span><span class="p">({</span>
+    <span class="s2">&quot;batch_size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+    <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+    <span class="s2">&quot;use_vq&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;vq_adaptive_threshold&quot;</span><span class="p">:</span> <span class="mf">0.6</span>
+<span class="p">})</span>
+
+<span class="c1"># Aplicar configuración al modelo</span>
+<span class="n">model</span><span class="o">.</span><span class="n">apply_config_updates</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="c1"># Obtener configuración actual</span>
+<span class="n">current_config</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_current_config</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;VQ enabled: </span><span class="si">{</span><span class="n">current_config</span><span class="o">.</span><span class="n">use_vq</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TPU optimizations: </span><span class="si">{</span><span class="n">current_config</span><span class="o">.</span><span class="n">use_tpu_v4_optimizations</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="validacion-y-debugging-de-configuracion">
+<h2>Validación y Debugging de Configuración<a class="headerlink" href="#validacion-y-debugging-de-configuracion" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConfigValidator</span>
+
+<span class="c1"># Validar configuración</span>
+<span class="n">validator</span> <span class="o">=</span> <span class="n">ConfigValidator</span><span class="p">()</span>
+
+<span class="c1"># Validación completa</span>
+<span class="n">validation_result</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">validate_full_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">validation_result</span><span class="o">.</span><span class="n">is_valid</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Configuración válida&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;❌ Errores en configuración:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">validation_result</span><span class="o">.</span><span class="n">errors</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   - </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Verificar compatibilidad hardware</span>
+<span class="n">hardware_check</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">check_hardware_compatibility</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hardware compatible: </span><span class="si">{</span><span class="n">hardware_check</span><span class="o">.</span><span class="n">compatible</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recomendaciones: </span><span class="si">{</span><span class="n">hardware_check</span><span class="o">.</span><span class="n">recommendations</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplos-de-configuracion-especifica">
+<h2>Ejemplos de Configuración Específica<a class="headerlink" href="#ejemplos-de-configuracion-especifica" title="Link to this heading"></a></h2>
+<p><strong>Configuración para Investigación</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">research_config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;capibara_research&quot;</span><span class="p">,</span>
+    <span class="n">hidden_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+    <span class="n">num_layers</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">vq_codes</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>  <span class="c1"># Máxima capacidad VQ</span>
+    <span class="n">use_tpu_v4_optimizations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">sparsity_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># Sparsity moderada</span>
+    <span class="n">monitoring_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">performance_profiling</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Configuración para Producción Cost-Effective</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">production_config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;capibara_production&quot;</span><span class="p">,</span>
+    <span class="n">hidden_size</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>
+    <span class="n">num_layers</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">vq_codes</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>  <span class="c1"># Optimizado costo-rendimiento</span>
+    <span class="n">use_arm_optimizations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">sparsity_ratio</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span>  <span class="c1"># Alta sparsity</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">mixed_precision</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Configuración Enterprise Premium</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">enterprise_config</span> <span class="o">=</span> <span class="n">ModularModelConfig</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;capibara_enterprise&quot;</span><span class="p">,</span>
+    <span class="n">hidden_size</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+    <span class="n">num_layers</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span>
+    <span class="n">use_vq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">vq_codes</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+    <span class="n">vq_enterprise_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_tpu_v4_optimizations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">mcp_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">meta_loop_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">monitoring_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">security_level</span><span class="o">=</span><span class="s2">&quot;high&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="migracion-de-configuraciones-anteriores">
+<h2>Migración de Configuraciones Anteriores<a class="headerlink" href="#migracion-de-configuraciones-anteriores" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConfigMigrator</span>
+
+<span class="c1"># Migrar configuración v2.x a v3.0</span>
+<span class="n">migrator</span> <span class="o">=</span> <span class="n">ConfigMigrator</span><span class="p">()</span>
+
+<span class="c1"># Desde configuración legacy</span>
+<span class="n">legacy_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model_size&quot;</span><span class="p">:</span> <span class="s2">&quot;600m&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;use_quantum&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Será migrado a use_vq</span>
+    <span class="s2">&quot;device&quot;</span><span class="p">:</span> <span class="s2">&quot;tpu_v4&quot;</span>
+<span class="p">}</span>
+
+<span class="n">new_config</span> <span class="o">=</span> <span class="n">migrator</span><span class="o">.</span><span class="n">migrate_from_legacy</span><span class="p">(</span><span class="n">legacy_config</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Migrated: </span><span class="si">{</span><span class="n">new_config</span><span class="o">.</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;VQ enabled: </span><span class="si">{</span><span class="n">new_config</span><span class="o">.</span><span class="n">use_vq</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># quantum -&gt; vq</span>
+</pre></div>
+</div>
+</section>
+<section id="recursos-de-configuracion">
+<h2>Recursos de Configuración<a class="headerlink" href="#recursos-de-configuracion" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Archivos TOML</strong>: <code class="docutils literal notranslate"><span class="pre">capibara/config/configs_toml/</span></code></p></li>
+<li><p><strong>Validación</strong>: <code class="docutils literal notranslate"><span class="pre">capibara.config.ConfigValidator</span></code></p></li>
+<li><p><strong>Migración</strong>: <code class="docutils literal notranslate"><span class="pre">capibara.config.ConfigMigrator</span></code></p></li>
+<li><p><strong>Documentación</strong>: <span class="xref std std-doc">api/config_api</span></p></li>
+<li><p><strong>Ejemplos</strong>: <code class="docutils literal notranslate"><span class="pre">examples/configuration/</span></code></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Inicio Rápido" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="core/index.html" class="btn btn-neutral float-right" title="Core - Arquitectura Central" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, CapibaraGPT Team.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

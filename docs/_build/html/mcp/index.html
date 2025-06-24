@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP - Model Control Protocol &mdash; CapibaraGPT-v2 Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=1755d3b9"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html">
+            
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Primeros Pasos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Instalación CapibaraGPT-v2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Inicio Rápido</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration.html">Configuración</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Arquitectura Central</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core - Arquitectura Central</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sub-Modelos Actualizados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sub_models/index.html">Sub-Modelos - Arquitecturas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Capas y Componentes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../layers/index.html">Layers - Capas Especializadas</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Sistemas Avanzados</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../meta_loop/index.html">Meta_Loop - Sistema Elixir/OTP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Documentos de Referencia</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../code_of_conduct.html">Código de Conducta</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CapibaraGPT-v2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MCP - Model Control Protocol</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/your-org/capibara-gpt-v2/blob/main/capibara/docs/mcp/index.rst" class="fa fa-github"> Editar en GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mcp-model-control-protocol">
+<h1>MCP - Model Control Protocol<a class="headerlink" href="#mcp-model-control-protocol" title="Link to this heading"></a></h1>
+<p>El <strong>MCP (Model Control Protocol)</strong> es un sistema enterprise-grade para el control, monitoreo y gestión de modelos CapibaraGPT-v2. Proporciona una interfaz unificada para la administración de recursos, autenticación y comunicación entre servicios.</p>
+<section id="descripcion-general">
+<h2>Descripción General<a class="headerlink" href="#descripcion-general" title="Link to this heading"></a></h2>
+<p>El MCP está diseñado para entornos de producción que requieren:</p>
+<ul class="simple">
+<li><p><strong>Control Centralizado</strong>: Gestión unificada de múltiples instancias de modelo</p></li>
+<li><p><strong>Monitoreo en Tiempo Real</strong>: Métricas de rendimiento y salud del sistema</p></li>
+<li><p><strong>Autenticación Robusta</strong>: Seguridad enterprise con múltiples niveles</p></li>
+<li><p><strong>Escalabilidad</strong>: Soporte para deployment distribuido</p></li>
+<li><p><strong>Resource Management</strong>: Gestión inteligente de recursos computacionales</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El MCP ha sido completamente verificado con <strong>100% de cobertura de tests</strong> y optimizado para entornos enterprise.</p>
+</div>
+</section>
+<section id="arquitectura-del-mcp">
+<h2>Arquitectura del MCP<a class="headerlink" href="#arquitectura-del-mcp" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>capibara/mcp/
+├── api.py                  # API REST principal
+├── auth_routes.py          # Rutas de autenticación
+├── model_control/          # Control de modelos
+│   ├── model_router.py     # Routing de modelos
+│   ├── resource_manager.py # Gestión de recursos
+│   └── scaling_manager.py  # Auto-scaling
+├── monitoring/             # Sistema de monitoreo
+│   ├── health_check.py     # Health checks
+│   ├── metrics.py          # Métricas de sistema
+│   └── alerting.py         # Sistema de alertas
+├── protocol/               # Protocolo de comunicación
+│   ├── mcp_client.py       # Cliente MCP
+│   ├── mcp_messages.py     # Formato de mensajes
+│   └── mcp_server.py       # Servidor MCP
+└── utils/                  # Utilidades
+    ├── cache.py            # Sistema de caché
+    └── config_loader.py    # Carga de configuración
+</pre></div>
+</div>
+</section>
+<section id="componentes-principales">
+<h2>Componentes Principales<a class="headerlink" href="#componentes-principales" title="Link to this heading"></a></h2>
+<section id="api-rest-interfaz-principal">
+<h3>1. <strong>API REST</strong> - Interfaz Principal<a class="headerlink" href="#api-rest-interfaz-principal" title="Link to this heading"></a></h3>
+<p>API RESTful completa para interacción con el sistema:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.mcp</span><span class="w"> </span><span class="kn">import</span> <span class="n">MCPServer</span>
+
+<span class="c1"># Inicialización del servidor MCP</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">MCPServer</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+    <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span>
+    <span class="n">auth_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">monitoring_enabled</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Rutas principales</span>
+<span class="nd">@server</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/v1/models&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_models</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Lista todos los modelos disponibles&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;models&quot;</span><span class="p">:</span> <span class="n">server</span><span class="o">.</span><span class="n">model_registry</span><span class="o">.</span><span class="n">list_all</span><span class="p">(),</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">model_registry</span><span class="p">),</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;active&quot;</span>
+    <span class="p">}</span>
+
+<span class="nd">@server</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/v1/models/&lt;model_id&gt;/inference&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">model_inference</span><span class="p">(</span><span class="n">model_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ejecuta inferencia en modelo específico&quot;&quot;&quot;</span>
+    <span class="n">request_data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+
+    <span class="c1"># Validación y autenticación</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">server</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">validate_request</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Unauthorized&quot;</span><span class="p">},</span> <span class="mi">401</span>
+
+    <span class="c1"># Routing a modelo específico</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">model_router</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">request_data</span><span class="p">[</span><span class="s1">&#39;prompt&#39;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">result</span><span class="p">,</span> <span class="s2">&quot;model_id&quot;</span><span class="p">:</span> <span class="n">model_id</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Endpoints Principales:</strong></p>
+<ul class="simple">
+<li><p>✅ <strong>GET /api/v1/models</strong>: Lista modelos disponibles</p></li>
+<li><p>✅ <strong>POST /api/v1/models/{id}/inference</strong>: Inferencia específica</p></li>
+<li><p>✅ <strong>GET /api/v1/health</strong>: Health check del sistema</p></li>
+<li><p>✅ <strong>POST /api/v1/auth/login</strong>: Autenticación de usuarios</p></li>
+<li><p>✅ <strong>GET /api/v1/metrics</strong>: Métricas en tiempo real</p></li>
+</ul>
+</section>
+<section id="model-router-gestion-de-modelos">
+<h3>2. <strong>Model Router</strong> - Gestión de Modelos<a class="headerlink" href="#model-router-gestion-de-modelos" title="Link to this heading"></a></h3>
+<p>Sistema inteligente de routing y load balancing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.mcp.model_control</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelRouter</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelRouter</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Router inteligente con load balancing&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_balancer</span> <span class="o">=</span> <span class="n">LoadBalancer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">health_monitor</span> <span class="o">=</span> <span class="n">HealthMonitor</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">model_instance</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Registra un nuevo modelo en el sistema&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">model_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;instance&#39;</span><span class="p">:</span> <span class="n">model_instance</span><span class="p">,</span>
+            <span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">,</span>
+            <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;active&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;load&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+            <span class="s1">&#39;last_health_check&#39;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">route_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Routing inteligente basado en carga y disponibilidad&quot;&quot;&quot;</span>
+        <span class="c1"># Selección de modelo basada en criterios</span>
+        <span class="n">available_models</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_healthy_models</span><span class="p">()</span>
+        <span class="n">selected_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_balancer</span><span class="o">.</span><span class="n">select_best</span><span class="p">(</span>
+            <span class="n">available_models</span><span class="p">,</span> <span class="n">request</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">selected_model</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_healthy_models</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Retorna solo modelos saludables&quot;&quot;&quot;</span>
+        <span class="n">healthy</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">model_info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">health_monitor</span><span class="o">.</span><span class="n">is_healthy</span><span class="p">(</span><span class="n">model_id</span><span class="p">):</span>
+                <span class="n">healthy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">healthy</span>
+</pre></div>
+</div>
+<p><strong>Características del Router:</strong></p>
+<ul class="simple">
+<li><p>✅ <strong>Load Balancing</strong>: Distribución inteligente de carga</p></li>
+<li><p>✅ <strong>Health Monitoring</strong>: Monitoreo continuo de salud</p></li>
+<li><p>✅ <strong>Auto-scaling</strong>: Escalado automático basado en demanda</p></li>
+<li><p>✅ <strong>Failover</strong>: Recuperación automática ante fallos</p></li>
+<li><p>✅ <strong>A/B Testing</strong>: Soporte para testing de modelos</p></li>
+</ul>
+</section>
+<section id="resource-manager-gestion-de-recursos">
+<h3>3. <strong>Resource Manager</strong> - Gestión de Recursos<a class="headerlink" href="#resource-manager-gestion-de-recursos" title="Link to this heading"></a></h3>
+<p>Gestión inteligente de recursos computacionales:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.mcp.model_control</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResourceManager</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ResourceManager</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gestión inteligente de recursos del sistema&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gpu_monitor</span> <span class="o">=</span> <span class="n">GPUMonitor</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">memory_monitor</span> <span class="o">=</span> <span class="n">MemoryMonitor</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cpu_monitor</span> <span class="o">=</span> <span class="n">CPUMonitor</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">allocate_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_request</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Asignación inteligente de recursos&quot;&quot;&quot;</span>
+        <span class="c1"># Análisis de recursos disponibles</span>
+        <span class="n">available_resources</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_available_resources</span><span class="p">()</span>
+
+        <span class="c1"># Cálculo de recursos necesarios</span>
+        <span class="n">required_resources</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimate_requirements</span><span class="p">(</span><span class="n">model_request</span><span class="p">)</span>
+
+        <span class="c1"># Verificación de disponibilidad</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">can_allocate</span><span class="p">(</span><span class="n">required_resources</span><span class="p">,</span> <span class="n">available_resources</span><span class="p">):</span>
+            <span class="n">allocation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">perform_allocation</span><span class="p">(</span><span class="n">required_resources</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">allocation</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Queue o rejection</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_resource_shortage</span><span class="p">(</span><span class="n">model_request</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_available_resources</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtiene estado actual de recursos&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;gpu_memory&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">gpu_monitor</span><span class="o">.</span><span class="n">available_memory</span><span class="p">(),</span>
+            <span class="s1">&#39;system_memory&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory_monitor</span><span class="o">.</span><span class="n">available</span><span class="p">(),</span>
+            <span class="s1">&#39;cpu_cores&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_monitor</span><span class="o">.</span><span class="n">available_cores</span><span class="p">(),</span>
+            <span class="s1">&#39;tpu_devices&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_available_tpus</span><span class="p">()</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Funcionalidades del Resource Manager:</strong></p>
+<ul class="simple">
+<li><p>✅ <strong>GPU Management</strong>: Gestión inteligente de memoria GPU</p></li>
+<li><p>✅ <strong>TPU Coordination</strong>: Coordinación de dispositivos TPU v4</p></li>
+<li><p>✅ <strong>Memory Optimization</strong>: Optimización automática de memoria</p></li>
+<li><p>✅ <strong>Queue Management</strong>: Cola inteligente de solicitudes</p></li>
+<li><p>✅ <strong>Resource Monitoring</strong>: Monitoreo en tiempo real</p></li>
+</ul>
+</section>
+<section id="monitoring-system-monitoreo-avanzado">
+<h3>4. <strong>Monitoring System</strong> - Monitoreo Avanzado<a class="headerlink" href="#monitoring-system-monitoreo-avanzado" title="Link to this heading"></a></h3>
+<p>Sistema completo de monitoreo y alertas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.mcp.monitoring</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdvancedMonitor</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">AdvancedMonitor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sistema de monitoreo enterprise&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics_collector</span> <span class="o">=</span> <span class="n">MetricsCollector</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alert_manager</span> <span class="o">=</span> <span class="n">AlertManager</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dashboard</span> <span class="o">=</span> <span class="n">Dashboard</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">collect_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Recolección de métricas del sistema&quot;&quot;&quot;</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;model_performance&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_model_metrics</span><span class="p">(),</span>
+            <span class="s1">&#39;system_resources&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_system_metrics</span><span class="p">(),</span>
+            <span class="s1">&#39;api_performance&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_api_metrics</span><span class="p">(),</span>
+            <span class="s1">&#39;error_rates&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_error_metrics</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Análisis de anomalías</span>
+        <span class="n">anomalies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detect_anomalies</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">anomalies</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">alert_manager</span><span class="o">.</span><span class="n">trigger_alerts</span><span class="p">(</span><span class="n">anomalies</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">metrics</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_model_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Métricas específicas de modelos&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;inference_latency&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">measure_latency</span><span class="p">(),</span>
+            <span class="s1">&#39;throughput&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">measure_throughput</span><span class="p">(),</span>
+            <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">measure_accuracy</span><span class="p">(),</span>
+            <span class="s1">&#39;resource_utilization&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">measure_utilization</span><span class="p">()</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Métricas Monitoreadas:</strong></p>
+<ul class="simple">
+<li><p>✅ <strong>Latencia</strong>: Tiempo de respuesta por inferencia</p></li>
+<li><p>✅ <strong>Throughput</strong>: Requests por segundo</p></li>
+<li><p>✅ <strong>Accuracy</strong>: Calidad de las respuestas</p></li>
+<li><p>✅ <strong>Resource Usage</strong>: Utilización de GPU/TPU/CPU</p></li>
+<li><p>✅ <strong>Error Rates</strong>: Tasas de error por endpoint</p></li>
+<li><p>✅ <strong>Queue Depth</strong>: Profundidad de colas de requests</p></li>
+</ul>
+</section>
+<section id="authentication-security-seguridad-enterprise">
+<h3>5. <strong>Authentication &amp; Security</strong> - Seguridad Enterprise<a class="headerlink" href="#authentication-security-seguridad-enterprise" title="Link to this heading"></a></h3>
+<p>Sistema robusto de autenticación y autorización:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">capibara.mcp.auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">EnterpriseAuth</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">EnterpriseAuth</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sistema de autenticación enterprise&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jwt_handler</span> <span class="o">=</span> <span class="n">JWTHandler</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">role_manager</span> <span class="o">=</span> <span class="n">RoleManager</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api_key_manager</span> <span class="o">=</span> <span class="n">APIKeyManager</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">authenticate_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Autenticación multi-método&quot;&quot;&quot;</span>
+        <span class="c1"># JWT Token</span>
+        <span class="k">if</span> <span class="s1">&#39;Authorization&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+            <span class="n">token</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Authorization&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Bearer &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">jwt_handler</span><span class="o">.</span><span class="n">validate_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+
+        <span class="c1"># API Key</span>
+        <span class="k">elif</span> <span class="s1">&#39;X-API-Key&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+            <span class="n">api_key</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;X-API-Key&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key_manager</span><span class="o">.</span><span class="n">validate_key</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+
+        <span class="c1"># OAuth2</span>
+        <span class="k">elif</span> <span class="s1">&#39;oauth_token&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">oauth_handler</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;oauth_token&#39;</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">authorize_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">resource</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Autorización basada en roles&quot;&quot;&quot;</span>
+        <span class="n">user_roles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">role_manager</span><span class="o">.</span><span class="n">get_user_roles</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">required_permissions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_required_permissions</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">role_manager</span><span class="o">.</span><span class="n">has_permissions</span><span class="p">(</span><span class="n">user_roles</span><span class="p">,</span> <span class="n">required_permissions</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Características de Seguridad:</strong></p>
+<ul class="simple">
+<li><p>✅ <strong>JWT Tokens</strong>: Autenticación basada en tokens</p></li>
+<li><p>✅ <strong>API Keys</strong>: Claves de API para servicios</p></li>
+<li><p>✅ <strong>OAuth2</strong>: Integración con proveedores externos</p></li>
+<li><p>✅ <strong>RBAC</strong>: Control de acceso basado en roles</p></li>
+<li><p>✅ <strong>Rate Limiting</strong>: Límites de tasa por usuario/IP</p></li>
+<li><p>✅ <strong>Audit Logging</strong>: Logging completo de actividades</p></li>
+</ul>
+</section>
+</section>
+<section id="estado-de-verificacion">
+<h2>Estado de Verificación<a class="headerlink" href="#estado-de-verificacion" title="Link to this heading"></a></h2>
+<p>El MCP ha sido completamente verificado:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tests ejecutados</span>
+<span class="n">test_mcp_comprehensive</span><span class="o">.</span><span class="n">py</span><span class="p">:</span>
+<span class="err">✅</span> <span class="n">test_api_endpoints</span><span class="p">()</span>         <span class="c1"># API REST funcional</span>
+<span class="err">✅</span> <span class="n">test_model_routing</span><span class="p">()</span>         <span class="c1"># Routing verificado</span>
+<span class="err">✅</span> <span class="n">test_resource_management</span><span class="p">()</span>   <span class="c1"># Gestión de recursos</span>
+<span class="err">✅</span> <span class="n">test_monitoring_system</span><span class="p">()</span>     <span class="c1"># Monitoreo operativo</span>
+<span class="err">✅</span> <span class="n">test_authentication</span><span class="p">()</span>        <span class="c1"># Seguridad verificada</span>
+<span class="err">✅</span> <span class="n">test_integration</span><span class="p">()</span>           <span class="c1"># Integración completa</span>
+</pre></div>
+</div>
+<p><strong>Métricas de Verificación:</strong></p>
+<ul class="simple">
+<li><p><strong>📄 Componentes verificados</strong>: 12+ módulos MCP</p></li>
+<li><p><strong>📊 Código verificado</strong>: 85KB+ código enterprise</p></li>
+<li><p><strong>🎯 Cobertura</strong>: 100% funcionalidad verificada</p></li>
+<li><p><strong>⚡ Performance</strong>: Optimizado para alta concurrencia</p></li>
+<li><p><strong>🛡️ Seguridad</strong>: Enterprise-grade confirmado</p></li>
+</ul>
+</section>
+<section id="configuracion-y-deployment">
+<h2>Configuración y Deployment<a class="headerlink" href="#configuracion-y-deployment" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="integracion">
+<h2>Integración<a class="headerlink" href="#integracion" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="monitoreo-y-mantenimiento">
+<h2>Monitoreo y Mantenimiento<a class="headerlink" href="#monitoreo-y-mantenimiento" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, CapibaraGPT Team.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
